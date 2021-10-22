@@ -13,7 +13,7 @@ class Yake(AbstractExtractionAlgorithm):
             text: str,
             *,
             nb_keywords: int,
-            lang: str = "fr",
+            language: str = "fr",
             max_ngram_size: int = 4,
             window_size: int = 3
     ) -> List[Tuple[str, float]]:
@@ -22,7 +22,7 @@ class Yake(AbstractExtractionAlgorithm):
             n=max_ngram_size,
             windowsSize=window_size,
             top=nb_keywords,
-            lan=lang
+            lan=language
         )
 
         keywords = custom_extractor.extract_keywords(text)
