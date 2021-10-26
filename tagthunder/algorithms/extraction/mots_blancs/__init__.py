@@ -1,2 +1,2 @@
-from tagthunder.algorithms.extraction.mots_blancs.main import MotsBlancs
+from algorithms.extraction.mots_blancs.main import MotsBlancs
 

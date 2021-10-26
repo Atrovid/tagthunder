@@ -1,1 +1,1 @@
-from tagthunder.algorithms.extraction.yake.main import Yake
+from algorithms.extraction.yake.main import Yake

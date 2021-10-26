@@ -1,9 +1,8 @@
 from typing import List, Tuple
 
-import pydantic
 import yake
 
-from tagthunder.algorithms.extraction.abstract import AbstractExtractionAlgorithm
+from algorithms.extraction.abstract import AbstractExtractionAlgorithm
 
 
 class Yake(AbstractExtractionAlgorithm):

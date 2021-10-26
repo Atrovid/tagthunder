@@ -1,6 +1,6 @@
 from typing import List, Tuple
 
-from tagthunder.algorithms.extraction.abstract import AbstractExtractionAlgorithm
+from algorithms.extraction.abstract import AbstractExtractionAlgorithm
 
 
 class MotsBlancs(AbstractExtractionAlgorithm):
