@@ -1,2 +1,2 @@
 from algorithms.segmentation.tdbu import TopDownBottomUp
-from algorithms.segmentation.ge import GuidedExtension
+from algorithms.segmentation.guided_extension import GuidedExtension

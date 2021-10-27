@@ -1,4 +1,4 @@
-from algorithms.cleaning.abstract import AbstractCleaningAlgorithm
+from algorithms.cleaning._abstract import AbstractCleaningAlgorithm
 from algorithms.models import HTMLPP
 
 

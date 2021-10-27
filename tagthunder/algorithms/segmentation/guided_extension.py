@@ -1,6 +1,6 @@
 from typing import List, Tuple
 
-from algorithms.segmentation.abstract import AbstractSegmentationAlgorithm
+from algorithms.segmentation._abstract import AbstractSegmentationAlgorithm
 
 
 class GuidedExtension(AbstractSegmentationAlgorithm):

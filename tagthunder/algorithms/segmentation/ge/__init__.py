@@ -1,1 +1,0 @@
-from algorithms.segmentation.ge.main import GuidedExtension

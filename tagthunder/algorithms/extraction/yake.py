@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 import yake
 
-from algorithms.extraction.abstract import AbstractExtractionAlgorithm
+from algorithms.extraction._abstract import AbstractExtractionAlgorithm
 
 
 class Yake(AbstractExtractionAlgorithm):

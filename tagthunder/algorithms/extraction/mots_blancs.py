@@ -1,6 +1,6 @@
 from typing import List, Tuple
 
-from algorithms.extraction.abstract import AbstractExtractionAlgorithm
+from algorithms.extraction._abstract import AbstractExtractionAlgorithm
 
 
 class MotsBlancs(AbstractExtractionAlgorithm):
