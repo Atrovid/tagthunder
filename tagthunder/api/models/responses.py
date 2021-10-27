@@ -1,18 +1,8 @@
 from typing import Optional, List
 
-from pydantic import BaseModel
-import api.models.fields as fields
+from pydantic import BaseModel, Field
 
-
-class HTMLP(BaseModel):
-    content: str = fields.HTMLP
-
-
-class HTMLPP(BaseModel):
-    content: str = fields.HTMLPP
-
-
-Keywords = List[str]
+import algorithms.models
 
 
 class Hyperlink(BaseModel):
@@ -21,20 +11,14 @@ class Hyperlink(BaseModel):
     change_domain_name: Optional[bool]
 
 
-class BaseZone(BaseModel):
-    id: int
-    htmlpp: str = HTMLPP  # HTML++
-    keywords: Optional[Keywords] = None
-
-
-class AccessmanZone(BaseZone):
+class AccessmanZone(algorithms.models.Zone):
     is_segmentable: bool = True
     html: str
     hyperlinks: Optional[List[Hyperlink]] = None
 
 
-Zone = BaseZone
+Zone = algorithms.models.Zone
 
+Segmentation = algorithms.models.Segmentation
 
-class Segmentation(BaseModel):
-    zones: List[Zone] = []
+Keywords = algorithms.models.Keywords

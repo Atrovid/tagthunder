@@ -1,16 +1,10 @@
 from typing import Optional, Union
 
+import algorithms.models
 import api.configurations.algorithms as algos
-import api.models.fields as fields
 
 from pydantic.main import BaseModel
 from pydantic.networks import HttpUrl
-
-
-
-class BaseQuery(BaseModel):
-    url: Optional[HttpUrl] = None
-    html: Optional[str] = None
 
 
 class HTMLAugmentationQuery(BaseModel):
@@ -35,17 +29,17 @@ class AlgorithmQuery(BaseModel):
 
 
 class CleaningQuery(AlgorithmQuery):
-    htmlpp: str = fields.HTMLPP
+    htmlp: algorithms.models.HTMLP
     algorithm: Optional[Queries.CLEANING] = DefaultQueries.CLEANING
 
 
 class SegmentationQuery(AlgorithmQuery):
-    htmllpp: str = fields.HTMLPP
+    htmllpp: algorithms.models.HTMLPP
     algorithm: Optional[Queries.SEGMENTATION] = DefaultQueries.SEGMENTATION
 
 
 class ExtractionQuery(AlgorithmQuery):
-    htmlpp: str = fields.HTMLPP
+    htmlpp: algorithms.models.HTMLPP
     algorithm: Optional[Queries.EXTRACTION] = DefaultQueries.EXTRACTION
 
 
@@ -56,7 +50,7 @@ class ExtractionQuery(AlgorithmQuery):
 
 class PipelineQuery(BaseModel):
     url: HttpUrl
-    htmlpp: str = fields.HTMLPP
+    htmlpp: algorithms.models.HTMLPP
     recompute: bool = False
     cleaning: Optional[Queries.CLEANING] = DefaultQueries.CLEANING
     segmentation: Optional[Queries.SEGMENTATION] = DefaultQueries.SEGMENTATION

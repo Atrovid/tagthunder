@@ -3,6 +3,7 @@ from typing import List, Tuple
 import yake
 
 from algorithms.extraction._abstract import AbstractExtractionAlgorithm
+from algorithms.models import Keywords
 
 
 class Yake(AbstractExtractionAlgorithm):
@@ -15,8 +16,7 @@ class Yake(AbstractExtractionAlgorithm):
             language: str = "fr",
             max_ngram_size: int = 4,
             window_size: int = 3
-    ) -> List[Tuple[str, float]]:
-
+    ) -> Keywords:
         custom_extractor = yake.KeywordExtractor(
             n=max_ngram_size,
             windowsSize=window_size,

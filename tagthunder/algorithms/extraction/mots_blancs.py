@@ -1,9 +1,10 @@
 from typing import List, Tuple
 
 from algorithms.extraction._abstract import AbstractExtractionAlgorithm
+from algorithms.models import Keywords
 
 
 class MotsBlancs(AbstractExtractionAlgorithm):
 
-    def __call__(self, text: str, *, nb_keywords: int, **kwargs) -> List[str]:
-        raise NotImplementedError
+    def __call__(self, text: str, *, nb_keywords: int, **kwargs) -> Keywords:
+        raise NotImplementedError()
