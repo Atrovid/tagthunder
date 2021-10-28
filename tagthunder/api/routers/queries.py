@@ -43,14 +43,9 @@ class ExtractionQuery(AlgorithmQuery):
     algorithm: Optional[Queries.EXTRACTION] = DefaultQueries.EXTRACTION
 
 
-# class SpatializationQuery(AlgorithmQuery):
-#     htmlpp: str = HTMLPP
-#     algorithm: Union[SPATIALIZATION_QUERIES]
-
-
-class PipelineQuery(BaseModel):
+class PipelineQuery(AlgorithmQuery):
     url: HttpUrl
-    htmlpp: algorithms.models.HTMLPP
+    htmlpp: Optional[algorithms.models.HTMLPP]
     recompute: bool = False
     cleaning: Optional[Queries.CLEANING] = DefaultQueries.CLEANING
     segmentation: Optional[Queries.SEGMENTATION] = DefaultQueries.SEGMENTATION
