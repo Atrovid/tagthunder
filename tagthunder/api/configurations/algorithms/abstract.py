@@ -92,3 +92,11 @@ class AlgorithmsEnum(enum.Enum, metaclass=ABCEnumMeta):
     @property
     def query_types(cls):
         return tuple([algo.value.query for _, algo in cls.__members__.items() if algo.value.enable])
+
+    @classmethod
+    def get_algorithm(cls, name):
+        entry = cls[name].value
+        if entry.enable:
+            return entry.algorithm
+        else:
+            raise KeyError(f"{name} algorithm is not available.")
