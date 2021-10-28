@@ -5,7 +5,7 @@ import fastapi
 # import api.routers.logics as logics
 import algorithms.models
 import api.routers.queries as queries
-import api.models.responses as responses
+import api.models.schemas as schemas
 
 tag_name = "Algorithms"
 tag = {
@@ -40,24 +40,27 @@ class Routes:
 #     return response
 #
 #
-# @router.post(
-#     Routes.AUGMENTATION,
-#     description="HTML+ generation",
-#     response_model=schemas.HTML
-# )
-# def post_html_augmentation(query: queries.HTMLAugmentationQuery):
-#     return get_html_augmentation(query.url, query.recompute)
+@router.post(
+    Routes.AUGMENTATION,
+    description="HTML+ generation",
+    response_model=schemas.HTMLP
+)
+def post_html_augmentation(query: queries.HTMLAugmentationQuery):
+    raise NotImplementedError
+    # return get_html_augmentation(query.url, query.recompute)
+
+
 #
 #
 @router.post(
     Routes.CLEANING,
     description="Web page cleaning operation",
-    response_model=algorithms.models.HTMLPP
+    response_model=schemas.HTMLPP
 )
 def cleaning(
         query: queries.CleaningQuery
 ):
-    print(query)
+    return algorithms.models.HTMLPP(__root__="super text")
 
 
 # pprint.pp(query)
@@ -75,7 +78,7 @@ def cleaning(
 @router.post(
     Routes.SEGMENTATION,
     description="Web page segmentation operation",
-    response_model=algorithms.models.Segmentation
+    response_model=schemas.Segmentation
 )
 def segmentation(
         query: queries.SegmentationQuery
@@ -95,7 +98,7 @@ def segmentation(
 @router.post(
     Routes.EXTRACTION,
     description="Key terms extraction operation",
-    response_model=algorithms.models.Keywords
+    response_model=schemas.Keywords
 )
 def extraction(
         query: queries.ExtractionQuery
@@ -103,14 +106,16 @@ def extraction(
     print(query)
     # return logics.make_keywords(query.html, query.algorithm.name, query.algorithm.parameters.dict())
 
-# @router.post(
-#     Routes.PIPELINE,
-#     description="Pipeline of TagThunder operations",
-#     response_model=responses.Segmentation
-# )
-# def pipeline(
-#         query: queries.PipelineQuery
-# ):
+
+@router.post(
+    Routes.PIPELINE,
+    description="Pipeline of TagThunder operations",
+    response_model=schemas.Segmentation
+)
+def pipeline(
+        query: queries.PipelineQuery
+):
+    raise NotImplementedError()
 #     print(query)
 #     if not query.htmlpp:
 #     augmented_html = logics.make_html_augmented(query.url, query.recompute)
