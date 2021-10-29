@@ -12,6 +12,17 @@ class HTMLP(algorithms.models.HTMLP):
 class HTMLPP(algorithms.models.HTMLPP):
     pass
 
+class Zone(algorithms.models.responses.Zone):
+    pass
+
+
+class Segmentation(algorithms.models.responses.Segmentation):
+    pass
+
+
+class Keywords(algorithms.models.responses.Keywords):
+    pass
+
 
 class Hyperlink(BaseModel):
     text: Optional[str] = None
@@ -19,12 +30,7 @@ class Hyperlink(BaseModel):
     change_domain_name: Optional[bool]
 
 
-class Zone(algorithms.models.Zone):
+class AccessmanZone(Zone):
     is_segmentable: bool = True
     html: str
     hyperlinks: Optional[List[Hyperlink]] = None
-
-
-Segmentation = algorithms.models.Segmentation
-
-Keywords = algorithms.models.Keywords

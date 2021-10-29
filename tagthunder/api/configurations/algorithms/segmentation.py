@@ -3,6 +3,7 @@ import pydantic as pydantic
 from api.configurations.algorithms.abstract import AlgorithmsEnum, AlgorithmConfig, ParametersModelFactory
 import algorithms as algorithms
 
+
 class SegmentationAlgorithms(AlgorithmsEnum):
     tdbu = AlgorithmConfig(
         name="TDBU",
@@ -17,7 +18,7 @@ class SegmentationAlgorithms(AlgorithmsEnum):
     ge = AlgorithmConfig(
         name="GE",
         enable=False,
-        algorithm=algorithms.segmentation.GuidedExtension(),
+        algorithm=algorithms.segmentation.GuidedExpansion(),
         query=ParametersModelFactory.segmentation(
             "GE",
             nb_zones=5
@@ -28,4 +29,3 @@ class SegmentationAlgorithms(AlgorithmsEnum):
     @property
     def default_query(cls):
         return cls.tdbu.value.query()
-

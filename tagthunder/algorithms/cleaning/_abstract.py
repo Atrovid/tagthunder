@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from algorithms.models import HTMLPP
+from algorithms.models.responses import HTMLPP
 
 
 class AbstractCleaningAlgorithm(ABC):

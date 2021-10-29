@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
-from typing import List, Tuple
 
-from algorithms.models import Segmentation
+from algorithms.models.responses import Segmentation
 
 
 class AbstractSegmentationAlgorithm(ABC):

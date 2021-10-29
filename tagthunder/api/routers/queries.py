@@ -29,17 +29,17 @@ class AlgorithmQuery(BaseModel):
 
 
 class CleaningQuery(AlgorithmQuery):
-    htmlp: algorithms.models.HTMLP
+    htmlp: algorithms.responses.HTMLP
     algorithm: Optional[Queries.CLEANING] = DefaultQueries.CLEANING
 
 
 class SegmentationQuery(AlgorithmQuery):
-    htmllpp: algorithms.models.HTMLPP
+    htmllpp: algorithms.responses.HTMLPP
     algorithm: Optional[Queries.SEGMENTATION] = DefaultQueries.SEGMENTATION
 
 
 class ExtractionQuery(AlgorithmQuery):
-    htmlpp: algorithms.models.HTMLPP
+    htmlpp: algorithms.responses.HTMLPP
     algorithm: Optional[Queries.EXTRACTION] = DefaultQueries.EXTRACTION
 
 
