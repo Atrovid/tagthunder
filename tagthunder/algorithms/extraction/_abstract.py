@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from algorithms.models import Keywords
+from algorithms.models.responses import Keywords
 
 
 class AbstractExtractionAlgorithm(ABC):

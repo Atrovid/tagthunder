@@ -52,7 +52,7 @@ class Routes:
 @router.post(
     Routes.CLEANING,
     description="Web page cleaning operation",
-    response_model=algorithms.models.HTMLPP
+    response_model=algorithms.responses.HTMLPP
 )
 def cleaning(
         query: queries.CleaningQuery
@@ -75,7 +75,7 @@ def cleaning(
 @router.post(
     Routes.SEGMENTATION,
     description="Web page segmentation operation",
-    response_model=algorithms.models.Segmentation
+    response_model=algorithms.responses.Segmentation
 )
 def segmentation(
         query: queries.SegmentationQuery
@@ -95,7 +95,7 @@ def segmentation(
 @router.post(
     Routes.EXTRACTION,
     description="Key terms extraction operation",
-    response_model=algorithms.models.Keywords
+    response_model=algorithms.responses.Keywords
 )
 def extraction(
         query: queries.ExtractionQuery
