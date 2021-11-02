@@ -1,7 +1,7 @@
 from typing import List, Tuple
 
 from algorithms.extraction._abstract import AbstractExtractionAlgorithm
-from algorithms.models import Keywords
+from algorithms.models.responses import Keywords
 
 
 class MotsBlancs(AbstractExtractionAlgorithm):

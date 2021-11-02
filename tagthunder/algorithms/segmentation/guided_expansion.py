@@ -1,6 +1,6 @@
 from algorithms.segmentation._abstract import AbstractSegmentationAlgorithm
 
-from algorithms.models import Segmentation
+from algorithms.models.responses import Segmentation
 
 
 class GuidedExpansion(AbstractSegmentationAlgorithm):

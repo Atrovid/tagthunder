@@ -1,5 +1,5 @@
 from algorithms.cleaning._abstract import AbstractCleaningAlgorithm
-from algorithms.models import HTMLPP
+from algorithms.models.responses import HTMLPP
 
 
 class VisionBased(AbstractCleaningAlgorithm):

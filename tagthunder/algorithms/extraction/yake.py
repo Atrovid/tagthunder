@@ -3,7 +3,7 @@ from typing import List, Tuple
 import yake
 
 from algorithms.extraction._abstract import AbstractExtractionAlgorithm
-from algorithms.models import Keywords
+from algorithms.models.responses import Keywords
 
 
 class Yake(AbstractExtractionAlgorithm):
