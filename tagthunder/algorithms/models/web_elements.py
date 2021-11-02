@@ -1,10 +1,15 @@
 from dataclasses import dataclass, field
 
+import numpy as np
+
 
 @dataclass
 class Point:
     x: float
     y: float
+
+    def __array__(self):
+        return np.array([self.x, self.y])
 
 
 @dataclass
@@ -33,4 +38,13 @@ class BoundingBox:
 
     @property
     def corners(self):
-        return self.top_left, self.top_right, self.bottom_left, self.bottom_right
+        return [self.top_left, self.top_right, self.bottom_right, self.bottom_left]
+
+    @property
+    def edges(self):
+        return [
+            (self.top_left, self.top_right),
+            (self.top_right, self.bottom_left),
+            (self.bottom_right, self.bottom_left),
+            (self.bottom_left, self.top_left)
+        ]
