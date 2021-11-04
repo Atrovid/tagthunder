@@ -39,6 +39,7 @@ class PlotClustering:
         self.fig, self.ax = plt.subplots(1)
         self.ax.set_title = title
         self.ax.xaxis.tick_top()
+        self.ax.invert_yaxis()
 
     def bboxes(self, bboxes: List[BoundingBox], labels=None, **kwargs):
 
