@@ -12,29 +12,21 @@ class Point:
         return np.array([self.x, self.y])
 
 
-@dataclass
 class BoundingBox:
-    x0: float
-    y0: float
-    x1: float = field(init=False)
-    y1: float = field(init=False)
+    def __init__(self, x0, y0, w, h):
+        self.top_left = Point(x0, y0)
 
-    width: float
-    height: float
+        self.width = w
+        self.height = h
 
-    top_left: Point = field(init=False)
-    top_right: Point = field(init=False)
-    bottom_left: Point = field(init=False)
-    bottom_right: Point = field(init=False)
+        x1 = x0 + w
+        y1 = y0 + h
 
-    def __post_init__(self):
-        self.x1 = self.x0 + self.width
-        self.y1 = self.y0 + self.height
+        self.top_right = Point(x1, y0)
+        self.bottom_left = Point(x0, y1)
+        self.bottom_right = Point(x1, y1)
 
-        self.top_left = Point(self.x0, self.y0)
-        self.top_right = Point(self.x1, self.y0)
-        self.bottom_left = Point(self.x0, self.y1)
-        self.bottom_right = Point(self.x1, self.y1)
+        self.center = Point(x0 + w / 2, y0 + h / 2)
 
     @property
     def corners(self):
@@ -48,3 +40,11 @@ class BoundingBox:
             (self.bottom_right, self.bottom_left),
             (self.bottom_left, self.top_left)
         ]
+
+    def __array__(self):
+        return np.array(
+            [np.array(c) for c in self.corners]
+        )
+
+    def __repr__(self):
+        return f'BoundindBox({" ".join(map(str, self.corners))})'
