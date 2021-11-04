@@ -1,6 +1,5 @@
 import itertools
 import json
-import random
 from typing import List
 
 import bs4
@@ -86,18 +85,28 @@ class KMeans(AbstractSegmentationAlgorithm):
     @classmethod
     def _init_centers(cls, k, bboxes):
         """
-        Select k centroids elements (medoids)
+        Select k centroids elements
         :param k:
         :param bboxes:
         :return:
         """
-        return random.choices(bboxes, k=k)
+        covering_bbox = cls._covering_bounding_box(bboxes)
+        top_left = np.array(covering_bbox.top_left)
+        dims_units = np.array([covering_bbox.width, covering_bbox.height]) // (k - 1)
+        avg_dims = np.average(np.array([[bbox.width, bbox.height] for bbox in bboxes]), axis=0)
+
+        return np.array(
+            [
+                BoundingBox(*(top_left + dims_units * i), *avg_dims)
+                for i in range(k)
+            ]
+        )
 
     @classmethod
     def _virtual_center(cls, bboxes: List[BoundingBox]):
-        englobing_bbox = cls._covering_bounding_box(bboxes)
+        covering_bbox = cls._covering_bounding_box(bboxes)
         vbox_dims = np.average(np.array([[bbox.width, bbox.height] for bbox in bboxes]), axis=0)
-        vbox_top_left = np.array(englobing_bbox.center) - (vbox_dims / 2)
+        vbox_top_left = np.array(covering_bbox.center) - (vbox_dims / 2)
         return BoundingBox(*vbox_top_left, *vbox_dims)
 
     @classmethod
@@ -134,8 +143,8 @@ class KMeans(AbstractSegmentationAlgorithm):
         """
         return np.array(
             [
-                compute_min_bboxes_dist(bbox, medoide)
-                for bbox, medoide
+                compute_min_bboxes_dist(bbox, center)
+                for bbox, center
                 in itertools.product(bboxes, centers)
             ]
         ).reshape((n, k))
