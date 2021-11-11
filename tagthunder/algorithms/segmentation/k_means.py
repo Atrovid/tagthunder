@@ -8,7 +8,8 @@ import numpy as np
 from algorithms.models.responses import Segmentation, HTMLPP
 from algorithms.segmentation._abstract import AbstractSegmentationAlgorithm
 from models.web_elements import BoundingBox
-from segmentation.utils import PlotClustering, compute_min_bboxes_dist
+from segmentation.utils.visualisation import PlotClustering
+from segmentation.utils.distances import compute_min_bboxes_dist
 
 
 class KMeans(AbstractSegmentationAlgorithm):
@@ -188,6 +189,6 @@ if __name__ == '__main__':
     with open(json_file, "r") as f:
         content = json.load(f)
         htmlpp = HTMLPP.parse_obj(content["html"])
-
-    kmeans = KMeans(True)
-    kmeans.kmeans(htmlpp, 5, 5)
+    print(len(KMeans.get_basic_visual_elements(htmlpp)))
+    # kmeans = KMeans(True)
+    # kmeans.kmeans(htmlpp, 5, 5)
