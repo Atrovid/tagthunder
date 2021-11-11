@@ -2,6 +2,7 @@ from typing import Optional, Union
 
 import algorithms.models
 import api.configurations.algorithms as algos
+import api.models.domains as domains
 
 from pydantic.main import BaseModel
 from pydantic.networks import HttpUrl
@@ -29,23 +30,23 @@ class AlgorithmQuery(BaseModel):
 
 
 class CleaningQuery(AlgorithmQuery):
-    htmlp: algorithms.responses.HTMLP
+    htmlp: domains.HTMLP
     algorithm: Optional[Queries.CLEANING] = DefaultQueries.CLEANING
 
 
 class SegmentationQuery(AlgorithmQuery):
-    htmllpp: algorithms.responses.HTMLPP
+    htmllpp: domains.HTMLPP
     algorithm: Optional[Queries.SEGMENTATION] = DefaultQueries.SEGMENTATION
 
 
 class ExtractionQuery(AlgorithmQuery):
-    htmlpp: algorithms.responses.HTMLPP
+    htmlpp: domains.HTMLPP
     algorithm: Optional[Queries.EXTRACTION] = DefaultQueries.EXTRACTION
 
 
 class PipelineQuery(AlgorithmQuery):
     url: HttpUrl
-    htmlpp: Optional[algorithms.models.HTMLPP]
+    htmlpp: Optional[domains.HTMLPP]
     recompute: bool = False
     cleaning: Optional[Queries.CLEANING] = DefaultQueries.CLEANING
     segmentation: Optional[Queries.SEGMENTATION] = DefaultQueries.SEGMENTATION

@@ -2,25 +2,26 @@ from typing import Optional, List
 
 from pydantic import BaseModel, Field
 
-import algorithms.models
+import algorithms.models.responses as algo_responses
 
 
-class HTMLP(algorithms.models.HTMLP):
+class HTMLP(algo_responses.HTMLP):
     pass
 
 
-class HTMLPP(algorithms.models.HTMLPP):
-    pass
-
-class Zone(algorithms.models.responses.Zone):
+class HTMLPP(algo_responses.HTMLPP):
     pass
 
 
-class Segmentation(algorithms.models.responses.Segmentation):
+class Zone(algo_responses.Zone):
     pass
 
 
-class Keywords(algorithms.models.responses.Keywords):
+class Segmentation(algo_responses.Segmentation):
+    pass
+
+
+class Keywords(algo_responses.Keywords):
     pass
 
 
