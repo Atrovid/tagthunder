@@ -1,6 +1,12 @@
+from __future__ import annotations
+
+from copy import copy
 from dataclasses import dataclass, field
+from typing import Any, Dict
 
 import numpy as np
+
+from models.responses import HTMLPP
 
 
 @dataclass
@@ -12,21 +18,29 @@ class Point:
         return np.array([self.x, self.y])
 
 
+@dataclass
 class BoundingBox:
-    def __init__(self, x0, y0, w, h):
+    width: int
+    height: int
+    top_left: Point = field(init=False)
+    top_right: Point = field(init=False)
+    bottom_left: Point = field(init=False)
+    bottom_right: Point = field(init=False)
+    center: Point = field(init=False)
+
+    def __init__(self, x0, y0, width, height):
         self.top_left = Point(x0, y0)
+        self.width = width
+        self.height = height
 
-        self.width = w
-        self.height = h
-
-        x1 = x0 + w
-        y1 = y0 + h
+        x1 = x0 + self.width
+        y1 = y0 + self.height
 
         self.top_right = Point(x1, y0)
         self.bottom_left = Point(x0, y1)
         self.bottom_right = Point(x1, y1)
 
-        self.center = Point(x0 + w / 2, y0 + h / 2)
+        self.center = Point(x0 + self.width / 2, y0 + self.height / 2)
 
     @property
     def corners(self):
@@ -46,5 +60,7 @@ class BoundingBox:
             [np.array(c) for c in self.corners]
         )
 
-    def __repr__(self):
-        return f'BoundindBox({" ".join(map(str, self.corners))})'
+
+class DataStyles(dict):
+    def __init__(self, data_styles: DataStyles = {}):
+        super().__init__(data_styles)
