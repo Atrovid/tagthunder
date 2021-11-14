@@ -185,7 +185,7 @@ class KMeans(AbstractSegmentationAlgorithm):
 
 
 if __name__ == '__main__':
-    json_file = "../data/cleaned_html/response_1633951666404.json"
+    json_file = "../data/html++/calvados.raw.json"
     with open(json_file, "r") as f:
         content = json.load(f)
         htmlpp = HTMLPP.parse_obj(content["html"])
