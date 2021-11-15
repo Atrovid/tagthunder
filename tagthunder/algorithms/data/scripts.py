@@ -1,4 +1,5 @@
 import json
+import os.path
 
 import bs4
 
@@ -8,11 +9,10 @@ from algorithms.models.responses import HTMLPP
 def open_json(file):
     with open(file, "r") as f:
         content = json.load(f)
-    return HTMLPP.parse_obj(content["html"])
+    return bs4.BeautifulSoup(content["html"])
 
 
-def keep_styles(htmlpp, styles):
-    root = bs4.BeautifulSoup(htmlpp.__root__)
+def keep_styles(root, styles):
     nodes = root.find_all(True, attrs={
         "data-style": True
     })
@@ -21,6 +21,7 @@ def keep_styles(htmlpp, styles):
         clean_styles(node, styles)
 
     return root
+
 
 def styles_to_str(styles):
     return ';'.join(':'.join(sv) for sv in styles)
@@ -35,22 +36,36 @@ def clean_styles(node, to_be_kept):
     return node
 
 
-def export_to_json(html, json_file):
-    with open(json_file, "w") as f:
-        json.dump(html.prettify(), f)
+def remove_scripts(node):
+    for tag in node.select("script"):
+        tag.extract()
 
-def main(file, styles):
-    return keep_styles(open_json(file), styles)
+    return node
+
+
+def dump(html, file, ext):
+    with open(file, "w") as f:
+        if ext == 'json':
+            json.dump(html, f)
+        else:
+            f.write(html)
+
+
+def main(file, styles, out_file):
+    html = keep_styles(remove_scripts(open_json(file)), styles)
+    print(html)
+    data = {"html": html.prettify()}
+    dump(str(html), out_file, out_file.split(".")[-1])
 
 
 if __name__ == '__main__':
-    json_file = "html++/calvados.raw.json"
+    dir = "html++"
+    file = "calvados.raw"
+    ext = "json"
+    json_file = os.path.join(dir, f"{file}.{ext}")
 
     styles = [
         "display"
     ]
 
-    res = main(json_file, styles).prettify()
-    print(res)
-
-
+    main(json_file, styles, os.path.join(dir, f"calvados.html"))
