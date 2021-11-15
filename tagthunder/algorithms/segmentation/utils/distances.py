@@ -1,10 +1,10 @@
 import numpy as np
 import itertools
 
-from models.web_elements import BoundingBox
+from algorithms.models.web_elements import BoundingBox
 
 
-def compute_min_bboxes_dist(b1: BoundingBox, b2: BoundingBox):
+def bboxes(b1: BoundingBox, b2: BoundingBox):
     def min_dist_point_segment(p: np.ndarray, start: np.ndarray, end: np.ndarray):
         try:
             u = np.sum((p - start) * (end - start)) / (np.linalg.norm(end - start) ** 2)
@@ -24,3 +24,17 @@ def compute_min_bboxes_dist(b1: BoundingBox, b2: BoundingBox):
         for p, seg
         in combinations
     ])
+
+
+def are_aligned(b1: BoundingBox, b2: BoundingBox):
+    b1, b2 = np.array(b1), np.array(b2)
+
+    return np.apply_along_axis(lambda c: (b1 == c).any(), axis=1, arr=b2).any()
+
+
+if __name__ == '__main__':
+    b1 = np.array(BoundingBox(0, 0, 10, 10))
+    b2 = np.array(BoundingBox(11, 11, 10, 10))
+
+    rep = are_aligned(b1, b2)
+    print(rep)
