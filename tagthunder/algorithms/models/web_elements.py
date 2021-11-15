@@ -6,7 +6,7 @@ from typing import Any, Dict
 
 import numpy as np
 
-from models.responses import HTMLPP
+from algorithms.models.responses import HTMLPP
 
 
 @dataclass
