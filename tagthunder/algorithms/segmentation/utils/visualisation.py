@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
-from models.web_elements import BoundingBox
+from algorithms.models.web_elements import BoundingBox
 
 
 class PlotClustering:

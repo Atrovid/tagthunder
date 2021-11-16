@@ -7,15 +7,14 @@ import numpy as np
 
 from algorithms.models.responses import Segmentation, HTMLPP
 from algorithms.segmentation._abstract import AbstractSegmentationAlgorithm
-from models.web_elements import BoundingBox
-from segmentation.utils.visualisation import PlotClustering
-from segmentation.utils.distances import compute_min_bboxes_dist
+from algorithms.models.web_elements import BoundingBox
+from algorithms.segmentation.utils.visualisation import PlotClustering
+import algorithms.segmentation.utils.distances as distances
 
 
 class KMeans(AbstractSegmentationAlgorithm):
     __needed_styles__ = ()
 
-    # https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
     __basic_visual_elements__ = (
         "address",
         "article",
@@ -142,13 +141,15 @@ class KMeans(AbstractSegmentationAlgorithm):
         :param k: number au centroides
         :return:
         """
-        return np.array(
+        res = np.array(
             [
-                compute_min_bboxes_dist(bbox, center)
+                distances.bboxes(bbox, center)
                 for bbox, center
                 in itertools.product(bboxes, centers)
             ]
-        ).reshape((n, k))
+        )
+
+        return res.reshape((n, k))
 
     @classmethod
     def _association(cls, bboxes, centers, n, k):
