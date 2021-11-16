@@ -55,12 +55,13 @@ class BoundingBox:
             (self.bottom_left, self.top_left)
         ]
 
+    @property
+    def area(self):
+        return self.height * self.width
+
     def __array__(self):
         return np.array(
             [np.array(c) for c in self.corners]
         )
 
 
-class DataStyles(dict):
-    def __init__(self, data_styles: DataStyles = {}):
-        super().__init__(data_styles)
