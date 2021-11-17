@@ -7,80 +7,41 @@ import numpy as np
 
 from algorithms.models.responses import Segmentation, HTMLPP
 from algorithms.segmentation._abstract import AbstractSegmentationAlgorithm
-from algorithms.models.web_elements import BoundingBox
+from algorithms.models.web_elements import BoundingBox, CoveringBoundingBox
+import algorithms.segmentation.utils.distances as seg_distances
+from algorithms.segmentation.utils.features_extractors import AbstractFeaturesExtractor, Features, LastBlockSemantic
 from algorithms.segmentation.utils.visualisation import PlotClustering
-import algorithms.segmentation.utils.distances as distances
 
 
 class KMeans(AbstractSegmentationAlgorithm):
-    __needed_styles__ = ()
 
-    __basic_visual_elements__ = (
-        "address",
-        "article",
-        "aside",
-        "blockquote",
-        "details",
-        "dialog",
-        "dd",
-        "div",
-        "dl",
-        "dt",
-        "fieldset",
-        "figcaption",
-        "figure",
-        "footer",
-        "form",
-        *[f"h{i}" for i in range(1, 7)],
-        "header",
-        "hgroup",
-        "hr",
-        "li",
-        "main",
-        "nav",
-        "ol",
-        "p",
-        "pre",
-        "section",
-        "table",
-        "ul"
-    )
-
-    def __init__(self, plot=False):
-        self.plot = plot
+    def __init__(self, features_extractor: AbstractFeaturesExtractor):
+        self.features_extractor: AbstractFeaturesExtractor = features_extractor
 
     def __call__(self, htmlpp: HTMLPP, *, nb_zones: int = 5, nb_iterations: int = 1e4) -> Segmentation:
         raise NotImplementedError
 
-    def kmeans(self, htmlpp, nb_zones, nb_iterations):
-        """initialization"""
-        bboxes = self.get_basic_visual_elements(htmlpp)
-        n, k = len(bboxes), nb_zones
+    def run(self, htmlpp: HTMLPP, nb_zones: int = 5, nb_iterations: int = 1e4):
+        population: Features = self.features_extractor(htmlpp)
+        bboxes = np.array(population.bboxes, dtype=object)
         centers = self._init_centers(nb_zones, bboxes)
-        association = self._association(bboxes, centers, n, k)
+        final_centers, labels = self.k_means(bboxes, centers.copy(), nb_zones, nb_iterations)
 
-        if self.plot:
-            PlotClustering("Initialization") \
-                .population(bboxes, association) \
-                .centers(centers, np.arange(k)) \
-                .show()
+        return population, centers, final_centers, labels
+
+    @classmethod
+    def k_means(cls, bboxes, centers, nb_zones, nb_iterations):
+        """initialization"""
+        n = len(bboxes)
+
+        labels = cls._association(bboxes, centers, n, nb_zones)
 
         """Iterations"""
         for _ in range(nb_iterations):
-            centers = self._update_centers(
-                bboxes,
-                association,
-                k
-            )
-            association = self._association(bboxes, centers, n, k)
+            centers = cls._update_centers(bboxes, labels, nb_zones)
+            labels = cls._association(bboxes, centers, n, nb_zones)
 
-        if self.plot:
-            PlotClustering(f"End ({nb_iterations} iterations)") \
-                .population(bboxes, association) \
-                .centers(centers, np.arange(k)) \
-                .show()
-
-        return centers, association
+        return centers, labels
 
     @classmethod
     def _init_centers(cls, k, bboxes):
@@ -99,7 +60,8 @@ class KMeans(AbstractSegmentationAlgorithm):
             [
                 BoundingBox(*(top_left + dims_units * i), *avg_dims)
                 for i in range(k)
-            ]
+            ],
+            dtype=object
         )
 
     @classmethod
@@ -111,12 +73,7 @@ class KMeans(AbstractSegmentationAlgorithm):
 
     @classmethod
     def _covering_bounding_box(cls, bboxes: List[BoundingBox]):
-        top_left_points = np.array([np.array(bbox.top_left) for bbox in bboxes])
-        top_rigth_points = np.array([np.array(bbox.top_right) for bbox in bboxes])
-        top_left = np.min(top_left_points, axis=0)
-        bottom_right = np.max(top_rigth_points, axis=0)
-        w, h = np.abs(top_left - bottom_right)
-        return BoundingBox(*top_left, w, h)
+        return CoveringBoundingBox(bboxes)
 
     @classmethod
     def _update_centers(cls, bboxes: np.ndarray, labels, k):
@@ -141,15 +98,15 @@ class KMeans(AbstractSegmentationAlgorithm):
         :param k: number au centroides
         :return:
         """
-        res = np.array(
+        distances = np.array(
             [
-                distances.bboxes(bbox, center)
+                seg_distances.bboxes(bbox, center)
                 for bbox, center
                 in itertools.product(bboxes, centers)
             ]
         )
 
-        return res.reshape((n, k))
+        return distances.reshape((n, k))
 
     @classmethod
     def _association(cls, bboxes, centers, n, k):
@@ -164,32 +121,14 @@ class KMeans(AbstractSegmentationAlgorithm):
         distances = cls._distance(bboxes, centers, n, k)
         return np.argmin(distances, axis=1)
 
-    @classmethod
-    def get_basic_visual_elements(cls, htmlpp: HTMLPP):
-        """Extract last block elements in each branch of the DOM"""
-        soup = bs4.BeautifulSoup(htmlpp.__root__, 'html.parser')
-        elements = soup.find_all(cls.__basic_visual_elements__)
-        elements = filter(
-            (
-                lambda e:
-                len(e.find_all(cls.__basic_visual_elements__)) == 0
-                and len(e.contents)
-                and e.attrs['data-bbox'] != '0 0 0 0'
-            ),
-            elements
-        )
-
-        return np.array([
-            BoundingBox(*map(float, e.attrs["data-bbox"].split(" "))) for e in
-            elements
-        ])
-
 
 if __name__ == '__main__':
     json_file = "../data/html++/calvados.raw.json"
     with open(json_file, "r") as f:
         content = json.load(f)
         htmlpp = HTMLPP.parse_obj(content["html"])
-    print(len(KMeans.get_basic_visual_elements(htmlpp)))
-    # kmeans = KMeans(True)
-    # kmeans.kmeans(htmlpp, 5, 5)
+    kmeans = KMeans(
+        features_extractor=LastBlockSemantic()
+    )
+    res = kmeans.run(htmlpp, 5, 5)
+    PlotClustering(ncols=2, nrows=1).clustering_plt(0, "K-Means", *res).show()
