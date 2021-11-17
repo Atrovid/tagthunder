@@ -1,3 +1,4 @@
+import dataclasses
 import json
 import pprint
 from abc import ABC, abstractmethod
@@ -7,12 +8,25 @@ import bs4
 import re
 
 from algorithms.models.responses import HTMLPP
+from algorithms.models.web_elements import BoundingBox
+
+
+@dataclasses.dataclass
+class Features:
+    features: List[bs4.Tag]
+
+    @property
+    def bboxes(self):
+        return [
+            BoundingBox(*map(float, e.attrs["data-bbox"].split(" "))) for e in
+            self.features
+        ]
 
 
 class AbstractFeaturesExtractor(ABC):
 
     @abstractmethod
-    def __call__(self, htmlpp: HTMLPP):
+    def __call__(self, htmlpp: HTMLPP, **kwargs) -> Features:
         ...
 
     @classmethod
@@ -20,10 +34,56 @@ class AbstractFeaturesExtractor(ABC):
         return bs4.BeautifulSoup(htmlpp.__root__, 'html.parser')
 
 
-class LastBlocks(AbstractFeaturesExtractor):
+class LastBlockSemantic(AbstractFeaturesExtractor):
+    __basic_visual_elements__ = (
+        "address",
+        "article",
+        "aside",
+        "blockquote",
+        "details",
+        "dialog",
+        "dd",
+        "div",
+        "dl",
+        "dt",
+        "fieldset",
+        "figcaption",
+        "figure",
+        "footer",
+        "form",
+        *[f"h{i}" for i in range(1, 7)],
+        "header",
+        "hgroup",
+        "hr",
+        "li",
+        "main",
+        "nav",
+        "ol",
+        "p",
+        "pre",
+        "section",
+        "table",
+        "ul"
+    )
+
+    def __call__(self, htmlpp: HTMLPP, **kwargs):
+        tags = filter(
+            (
+                lambda e:
+                not len(e.find_all(self.__basic_visual_elements__))
+                and len(e.text)
+                and e.attrs["data-cleaned"] == "false"
+            ),
+            self.root(htmlpp).find_all(self.__basic_visual_elements__)
+        )
+        tags = list(tags)
+        return Features(features=tags)
+
+
+class LastBlocksWithComputedStyles(AbstractFeaturesExtractor):
     BLOCK_REGEX = re.compile(r"display:block")
 
-    def __call__(self, htmlpp: HTMLPP):
+    def __call__(self, htmlpp: HTMLPP, **kwargs):
         root = self.root(htmlpp)
         elements = self.find_basics_elements(root)
         elements = filter(
@@ -34,7 +94,8 @@ class LastBlocks(AbstractFeaturesExtractor):
             ),
             elements
         )
-        return set(elements)
+        elements = list(elements)
+        return Features(features=elements)
 
     @classmethod
     def find_basics_elements(cls, node):
@@ -49,7 +110,7 @@ class LastBlocks(AbstractFeaturesExtractor):
 
 class AccordingRules(AbstractFeaturesExtractor):
 
-    def __call__(self, htmlpp: HTMLPP):
+    def __call__(self, htmlpp: HTMLPP, **kwargs):
         root = self.root(htmlpp)
         nodes = root.find_all(
             self.keep_node,
@@ -58,8 +119,8 @@ class AccordingRules(AbstractFeaturesExtractor):
                 "data-cleaned": "false"
             }
         )
-        # return nodes
-        return self.remove_redundancies(nodes)
+        nodes = self.remove_redundancies(nodes)
+        return Features(features=nodes)
 
     @classmethod
     def remove_redundancies(cls, nodes):
@@ -111,17 +172,3 @@ class AccordingRules(AbstractFeaturesExtractor):
     @classmethod
     def is_form(cls, node):
         return node.name in ["label", "input"]
-
-
-if __name__ == '__main__':
-    json_file = "../../data/html++/calvados.html"
-    with open(json_file, "r") as f:
-        htmlpp = HTMLPP.parse_obj(" ".join(f.readlines()))
-
-    extractor = AccordingRules()
-
-    elements = extractor(htmlpp)
-    print(len(elements))
-
-    for e in elements:
-        print(e.prettify())
