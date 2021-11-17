@@ -1,7 +1,6 @@
 import numpy as np
 
 from algorithms.models.responses import HTMLPP, Segmentation
-from algorithms.models.web_elements import BoundingBox
 from algorithms.segmentation.k_means import KMeans
 
 
@@ -22,29 +21,7 @@ class ForceKMeans(KMeans):
         forces = np.multiply(*np.meshgrid(areas_centers, areas_candidates))
         return forces / np.square(euclidean_distances)
 
-if __name__ == '__main__':
-    def build_bboxes(*params):
-        return [
-            BoundingBox(*p)
-            for p in params
-        ]
-
-    bboxes = build_bboxes(
-        (0, 0, 10, 10),
-        (0, 0, 5, 5),
-        (0, 0, 2, 2),
-        (0, 0, 15, 15)
-    )
-
-    centers = build_bboxes(
-        (15, 15, 3, 2),
-        (15, 15, 7, 9),
-        (15, 15, 10, 10)
-    )
-
-
-    n, k = len(bboxes), len(centers)
-
-    forces = ForceKMeans._distance(bboxes, centers, n, k)
-    print(forces.shape)
-    print(forces)
+    @classmethod
+    def _association(cls, bboxes, centers, n, k):
+        distances = cls._distance(bboxes, centers, n, k)
+        return np.argmax(distances, axis=1)
