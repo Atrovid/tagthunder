@@ -25,10 +25,9 @@ Keywords = List[Keyword]
 
 class Zone(BaseModel):
     id: int
-    htmlpp: HTMLPP
+    htmlpp: Union[List[HTMLPP], HTMLPP]
     keywords: Optional[Keywords] = None
 
 
 class Segmentation(BaseModel):
     zones: List[Zone] = []
-
