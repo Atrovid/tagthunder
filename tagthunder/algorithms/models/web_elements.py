@@ -59,9 +59,18 @@ class BoundingBox:
     def area(self):
         return self.height * self.width
 
-    def __array__(self):
+    def to_numpy(self):
         return np.array(
-            [np.array(c) for c in self.corners]
+            [np.array(c) for c in self.corners],
         )
 
 
+@dataclass
+class CoveringBoundingBox(BoundingBox):
+    def __init__(self, bboxes):
+        top_left_points = np.array([np.array(bbox.top_left) for bbox in bboxes])
+        top_rigth_points = np.array([np.array(bbox.top_right) for bbox in bboxes])
+        top_left = np.min(top_left_points, axis=0)
+        bottom_right = np.max(top_rigth_points, axis=0)
+        w, h = np.abs(top_left - bottom_right)
+        super(CoveringBoundingBox, self).__init__(*top_left, w, h)
