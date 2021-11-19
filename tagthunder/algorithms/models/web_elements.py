@@ -1,12 +1,10 @@
 from __future__ import annotations
 
-from copy import copy
 from dataclasses import dataclass, field
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
+import bs4
 import numpy as np
-
-from algorithms.models.responses import HTMLPP
 
 
 @dataclass
@@ -14,7 +12,7 @@ class Point:
     x: float
     y: float
 
-    def __array__(self):
+    def to_numpy(self):
         return np.array([self.x, self.y])
 
 
@@ -61,16 +59,64 @@ class BoundingBox:
 
     def to_numpy(self):
         return np.array(
-            [np.array(c) for c in self.corners],
+            [c.to_numpy() for c in self.corners],
         )
 
 
 @dataclass
 class CoveringBoundingBox(BoundingBox):
     def __init__(self, bboxes):
-        top_left_points = np.array([np.array(bbox.top_left) for bbox in bboxes])
-        top_rigth_points = np.array([np.array(bbox.top_right) for bbox in bboxes])
-        top_left = np.min(top_left_points, axis=0)
-        bottom_right = np.max(top_rigth_points, axis=0)
-        w, h = np.abs(top_left - bottom_right)
-        super(CoveringBoundingBox, self).__init__(*top_left, w, h)
+        corners = np.array([[bbox.top_left.to_numpy(), bbox.bottom_right.to_numpy()] for bbox in bboxes])
+        top_left, bottom_right = np.min(corners[:, 0], axis=0), np.max(corners[:, 1], axis=0)
+        dims = np.abs(top_left - bottom_right)
+        super(CoveringBoundingBox, self).__init__(*top_left, *dims)
+
+
+class Tag(bs4.Tag):
+    _BBOX_KEY = "data-bbox"
+    _STYLES_KEY = "data-style"
+    _CLEAN_KEY = "data-cleaned"
+
+    def __init__(self, parser=None, builder=None, name=None, namespace=None,
+                 prefix=None, attrs=None, parent=None, previous=None,
+                 is_xml=None, sourceline=None, sourcepos=None,
+                 can_be_empty_element=None, cdata_list_attributes=None,
+                 preserve_whitespace_tags=None, interesting_string_types=None,
+                 bbox: BoundingBox = None, styles: Dict[str, Any] = None):
+        super(Tag, self).__init__(parser=parser, builder=builder, name=name, namespace=namespace,
+                                  prefix=prefix, attrs=attrs, parent=parent, previous=previous,
+                                  is_xml=is_xml, sourceline=sourceline, sourcepos=sourcepos,
+                                  can_be_empty_element=can_be_empty_element,
+                                  cdata_list_attributes=cdata_list_attributes,
+                                  preserve_whitespace_tags=preserve_whitespace_tags,
+                                  interesting_string_types=interesting_string_types)
+
+        self._bbox: Optional[BoundingBox] = bbox
+        self._styles: Optional[Dict[str, Any]] = styles
+        self._visible: Optional[bool] = None
+
+    @property
+    def bbox(self):
+        if not self._bbox:
+            self._bbox = BoundingBox(*map(int, self.attrs[self._BBOX_KEY].split(" ")))
+        return self._bbox
+
+    @property
+    def styles(self):
+        if not self._styles:
+            styles = self.attrs[self._STYLES_KEY].split(";")
+            if "" in styles:
+                styles.remove("")
+
+            self._styles = {
+                style: value
+                for style, value
+                in map(lambda sv: sv.split(":"), styles)
+            }
+        return self._styles
+
+    @property
+    def visible(self):
+        if not self._visible:
+            self._visible = self.attrs[self._CLEAN_KEY] == "false"
+        return self._visible
