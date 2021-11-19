@@ -1,7 +1,7 @@
 import numpy as np
 
 from algorithms.models.responses import HTMLPP, Segmentation
-from algorithms.segmentation.k_means import KMeans
+from algorithms.segmentation.clustering.k_means import KMeans
 
 
 class ForceKMeans(KMeans):

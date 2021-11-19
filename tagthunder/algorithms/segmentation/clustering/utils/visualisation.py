@@ -1,11 +1,11 @@
-from typing import List, Tuple
+from typing import List
 
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
 from algorithms.models.web_elements import BoundingBox
-from algorithms.segmentation.utils.features_extractors import Features
+from algorithms.segmentation.clustering.utils.features_extractors import Features
 
 
 class PlotClustering:
@@ -18,6 +18,7 @@ class PlotClustering:
 
         gridspec = self.axes[0].get_subplotspec().get_gridspec()
         self.subfigs = [self.fig.add_subfigure(gs) for gs in gridspec]
+        self.current_row = 0
 
     @classmethod
     def bboxes(cls, ax, bboxes: List[BoundingBox], labels=None, **kwargs):
@@ -40,9 +41,9 @@ class PlotClustering:
         self.bboxes(ax, bboxes, labels, hatch="//", ls="--")
         return self
 
-    def clustering_plt(self, row_id, title, population: Features, init_centers, centers, labels):
+    def plot(self, title, population: Features, init_centers, centers, labels):
 
-        fig = self.subfigs[row_id]
+        fig = self.subfigs[self.current_row]
         fig.suptitle(title, fontweight='semibold')
 
         k = len(centers)
@@ -63,6 +64,8 @@ class PlotClustering:
         ax.set_title("Results")
         self.population(ax, bboxes, labels)
         self.centers(ax, centers, centers_labels)
+
+        self.current_row += 1
         return self
 
     def show(self):

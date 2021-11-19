@@ -8,19 +8,16 @@ import bs4
 import re
 
 from algorithms.models.responses import HTMLPP
-from algorithms.models.web_elements import BoundingBox
+from algorithms.models.web_elements import BoundingBox, Tag
 
 
 @dataclasses.dataclass
 class Features:
-    features: List[bs4.Tag]
+    tags: List[Tag]
+    bboxes: List[BoundingBox] = dataclasses.field(init=False)
 
-    @property
-    def bboxes(self):
-        return [
-            BoundingBox(*map(float, e.attrs["data-bbox"].split(" "))) for e in
-            self.features
-        ]
+    def __post_init__(self):
+        self.bboxes = [tag.bbox for tag in self.tags]
 
 
 class AbstractFeaturesExtractor(ABC):
@@ -28,10 +25,6 @@ class AbstractFeaturesExtractor(ABC):
     @abstractmethod
     def __call__(self, htmlpp: HTMLPP, **kwargs) -> Features:
         ...
-
-    @classmethod
-    def root(cls, htmlpp: HTMLPP):
-        return bs4.BeautifulSoup(htmlpp.__root__, 'html.parser')
 
 
 class LastBlockSemantic(AbstractFeaturesExtractor):
@@ -74,18 +67,17 @@ class LastBlockSemantic(AbstractFeaturesExtractor):
                 and len(e.text)
                 and e.attrs["data-cleaned"] == "false"
             ),
-            self.root(htmlpp).find_all(self.__basic_visual_elements__)
+            htmlpp.find_all(self.__basic_visual_elements__)
         )
         tags = list(tags)
-        return Features(features=tags)
+        return Features(tags=tags)
 
 
 class LastBlocksWithComputedStyles(AbstractFeaturesExtractor):
     BLOCK_REGEX = re.compile(r"display:block")
 
     def __call__(self, htmlpp: HTMLPP, **kwargs):
-        root = self.root(htmlpp)
-        elements = self.find_basics_elements(root)
+        elements = self.find_basics_elements(htmlpp)
         elements = filter(
             (
                 lambda e:
@@ -95,7 +87,7 @@ class LastBlocksWithComputedStyles(AbstractFeaturesExtractor):
             elements
         )
         elements = list(elements)
-        return Features(features=elements)
+        return Features(tags=elements)
 
     @classmethod
     def find_basics_elements(cls, node):
@@ -111,8 +103,7 @@ class LastBlocksWithComputedStyles(AbstractFeaturesExtractor):
 class AccordingRules(AbstractFeaturesExtractor):
 
     def __call__(self, htmlpp: HTMLPP, **kwargs):
-        root = self.root(htmlpp)
-        nodes = root.find_all(
+        nodes = htmlpp.find_all(
             self.keep_node,
             attrs={
                 "data-style": re.compile("display:block"),
@@ -120,7 +111,7 @@ class AccordingRules(AbstractFeaturesExtractor):
             }
         )
         nodes = self.remove_redundancies(nodes)
-        return Features(features=nodes)
+        return Features(tags=nodes)
 
     @classmethod
     def remove_redundancies(cls, nodes):

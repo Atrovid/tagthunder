@@ -20,12 +20,12 @@ def bboxes(b1: BoundingBox, b2: BoundingBox):
     )
 
     return min([
-        min_dist_point_segment(np.array(p), np.array(seg[0]), np.array(seg[1]))
+        min_dist_point_segment(p.to_numpy(), seg[0].to_numpy(), seg[1].to_numpy())
         for p, seg
         in combinations
     ])
 
 
 def are_aligned(b1: BoundingBox, b2: BoundingBox):
-    b1, b2 = np.array(b1), np.array(b2)
+    b1, b2 = b1.to_numpy(), b2.to_numpy()
     return np.apply_along_axis(lambda c: (b1 == c).any(), axis=1, arr=b2).any()

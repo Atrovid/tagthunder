@@ -8,3 +8,7 @@ class AbstractSegmentationAlgorithm(ABC):
     @abstractmethod
     def __call__(self, htmplpp: HTMLPP, *, nb_zones: int, **kwargs) -> Segmentation:
         ...
+
+    @abstractmethod
+    def run(self, htmlpp: HTMLPP, nb_zones: int, **kwargs):
+        ...
