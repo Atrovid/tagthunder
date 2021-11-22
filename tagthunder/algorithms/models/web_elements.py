@@ -98,25 +98,37 @@ class Tag(bs4.Tag):
     @property
     def bbox(self):
         if not self._bbox:
-            self._bbox = BoundingBox(*map(int, self.attrs[self._BBOX_KEY].split(" ")))
+            try:
+                params = map(int, self.attrs[self._BBOX_KEY].split(" "))
+            except KeyError:
+                params = (0, 0, 0, 0)
+            self._bbox = BoundingBox(*params)
         return self._bbox
 
     @property
     def styles(self):
         if not self._styles:
-            styles = self.attrs[self._STYLES_KEY].split(";")
-            if "" in styles:
-                styles.remove("")
+            try:
+                styles = self.attrs[self._STYLES_KEY].split(";", 1)
+                if "" in styles:
+                    styles.remove("")
 
-            self._styles = {
-                style: value
-                for style, value
-                in map(lambda sv: sv.split(":"), styles)
-            }
+                self._styles = {
+                    style: value
+                    for style, value
+                    in map(lambda sv: sv.split(":", 1), styles)
+                }
+            except KeyError:
+                self._styles = {}
+
         return self._styles
 
     @property
     def visible(self):
         if not self._visible:
-            self._visible = self.attrs[self._CLEAN_KEY] == "false"
+            try:
+                visible = self.attrs[self._CLEAN_KEY] == "false"
+            except KeyError:
+                visible = False
+            self._visible = visible
         return self._visible

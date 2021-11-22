@@ -1,6 +1,6 @@
 import itertools
 import json
-from typing import List, Optional
+from typing import List, Optional, Iterable
 
 import numpy as np
 
@@ -8,33 +8,28 @@ from algorithms.models.responses import Segmentation, HTMLPP
 from algorithms.segmentation._abstract import AbstractSegmentationAlgorithm
 from algorithms.models.web_elements import BoundingBox, CoveringBoundingBox
 import algorithms.segmentation.clustering.utils.distances as seg_distances
+from algorithms.segmentation.clustering._abstract import AbstractClusteringAlgorithm
 from algorithms.segmentation.clustering.utils.features_extractors import (
     AbstractFeaturesExtractor,
-    Features,
+    FeaturesDataFrame,
     LastBlockSemantic,
     LastBlocksWithComputedStyles
 )
-from algorithms.segmentation.clustering.utils.seeds_initialisations import VirtualSeeds
+import algorithms.segmentation.clustering.utils.seeds_initializer as seeds_initializer
 from algorithms.segmentation.clustering.utils.visualisation import PlotClustering
 
 
-class KMeans(AbstractSegmentationAlgorithm):
-
-    def __init__(self,
-                 features_extractor: Optional[AbstractFeaturesExtractor] = None,
-                 seeds_initializer=VirtualSeeds.reading):
-        self.features_extractor: AbstractFeaturesExtractor = features_extractor
-        self.seed_initializer = seeds_initializer
+class KMeans(AbstractClusteringAlgorithm):
 
     def __call__(self, htmlpp: HTMLPP, *, nb_zones: int = 5, nb_iterations: int = 1e4) -> Segmentation:
         raise NotImplementedError
 
-    def run(self, features: Features, nb_zones: int = 5, nb_iterations: int = 1e4):
+    def run(self, features: FeaturesDataFrame, centers: FeaturesDataFrame, nb_zones: int = 5, nb_iterations: int = 1e4):
         bboxes = np.array(features.bboxes, dtype=object)
-        centers = self.seed_initializer(features, nb_zones).bboxes
+        centers = centers.bboxes
         final_centers, labels = self.k_means(bboxes, centers.copy(), nb_zones, nb_iterations)
 
-        return centers, final_centers, labels
+        return final_centers, labels
 
     @classmethod
     def k_means(cls, bboxes, centers, nb_zones, nb_iterations):
@@ -62,7 +57,7 @@ class KMeans(AbstractSegmentationAlgorithm):
 
         labels_with_bboxes = np.unique(labels)
 
-        new_centers[labels_with_bboxes,] = np.vectorize(
+        new_centers[labels_with_bboxes, ] = np.vectorize(
             lambda center: cls._virtual_center(bboxes[labels == center]),
             otypes=[BoundingBox]
         )(labels_with_bboxes)
@@ -104,15 +99,21 @@ class KMeans(AbstractSegmentationAlgorithm):
 
 
 if __name__ == '__main__':
-    json_file = "../data/html++/calvados.raw.json"
+    json_file = "../../data/html++/calvados.raw.json"
 
     with open(json_file, "r") as f:
         content = json.load(f)
         htmlpp = HTMLPP(content["html"])
+
     features_extractor = LastBlockSemantic()
     features = features_extractor(htmlpp)
+
+    k = 5
+    seeds_initializer = seeds_initializer.DiagonalFashion
+    seeds = seeds_initializer.centroids(features, 5)
+
     kmeans = KMeans()
-    res = kmeans.run(features, 5, 5)
+    res = kmeans.run(features, seeds, 5, 5)
     PlotClustering(nrows=2) \
-        .plot("K-Means", features, *res) \
+        .plot("K-Means", features.tags, seeds.tags, *res) \
         .show()

@@ -2,30 +2,72 @@ import dataclasses
 import json
 import pprint
 from abc import ABC, abstractmethod
-from typing import List
+from typing import List, Iterable
 
 import bs4
 import re
 
 import numpy as np
+import pandas as pd
+from pandas import DataFrame, Series
 
 from algorithms.models.responses import HTMLPP
 from algorithms.models.web_elements import BoundingBox, Tag
 
 
-@dataclasses.dataclass
-class Features:
-    tags: List[Tag]
-    bboxes: List[BoundingBox] = dataclasses.field(init=False)
+class FeaturesDataFrame(DataFrame):
 
-    def __post_init__(self):
-        self.bboxes = [tag.bbox for tag in self.tags]
+    def __init__(self, tags=None, index=None, columns=None, dtype=None, copy=None):
+        if tags is not None:
+            tags = [self._tag_to_entry(tag) for tag in tags]
+
+        super(FeaturesDataFrame, self).__init__(
+            data=tags,
+            index=index, columns=columns, dtype=dtype, copy=copy
+        )
+
+    @classmethod
+    def _tag_to_entry(cls, tag: Tag):
+        res = Series({
+            "name": tag.name,
+            "bbox": tag.bbox,
+            "visible": tag.visible,
+            "styles": tag.styles
+        })
+        return res
+
+    def append(
+            self,
+            other,
+            ignore_index: bool = False,
+            verify_integrity: bool = False,
+            sort: bool = False,
+    ) -> DataFrame:
+        if isinstance(other, Tag):
+            other = self._tag_to_entry(other)
+            ignore_index = True
+        return super(FeaturesDataFrame, self).append(other, ignore_index, verify_integrity, sort)
+
+
+
+if __name__ == '__main__':
+    json_file = "../../../data/html++/calvados.raw.json"
+
+    with open(json_file, "r") as f:
+        content = json.load(f)
+        htmlpp = HTMLPP(content["html"])
+
+    tags = htmlpp.find_all(True)
+    df = FeaturesDataFrame(tags)
+    print(df.bbox)
+
+
 
 
 class AbstractFeaturesExtractor(ABC):
 
     @abstractmethod
-    def __call__(self, htmlpp: HTMLPP, **kwargs) -> Features:
+    def __call__(self, htmlpp: HTMLPP, **kwargs) -> FeaturesDataFrame:
         ...
 
 
@@ -71,8 +113,7 @@ class LastBlockSemantic(AbstractFeaturesExtractor):
             ),
             htmlpp.find_all(self.__basic_visual_elements__)
         )
-        tags = list(tags)
-        return Features(tags=tags)
+        return FeaturesDataFrame(tags=tags)
 
 
 class LastBlocksWithComputedStyles(AbstractFeaturesExtractor):
@@ -88,8 +129,7 @@ class LastBlocksWithComputedStyles(AbstractFeaturesExtractor):
             ),
             elements
         )
-        elements = list(elements)
-        return Features(tags=elements)
+        return FeaturesDataFrame(tags=elements)
 
     @classmethod
     def find_basics_elements(cls, node):
@@ -113,7 +153,7 @@ class AccordingRules(AbstractFeaturesExtractor):
             }
         )
         nodes = self.remove_redundancies(nodes)
-        return Features(tags=nodes)
+        return FeaturesDataFrame(tags=nodes)
 
     @classmethod
     def remove_redundancies(cls, nodes):

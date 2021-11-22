@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
 from algorithms.models.web_elements import BoundingBox, Tag
-from algorithms.segmentation.clustering.utils.features_extractors import Features
 
 
 class PlotClustering:

@@ -1,18 +1,16 @@
 import json
-from operator import attrgetter
-
 import numpy as np
 from sklearn.metrics import pairwise_distances
 
 from algorithms.models.responses import HTMLPP
 from algorithms.models.web_elements import CoveringBoundingBox, BoundingBox, Tag
-from algorithms.segmentation.clustering.utils.features_extractors import Features, LastBlockSemantic
+from algorithms.segmentation.clustering.utils.features_extractors import FeaturesDataFrame, LastBlockSemantic
 from algorithms.segmentation.clustering.utils.visualisation import PlotClustering
 
 
 class DiagonalFashion:
     @classmethod
-    def centroids(cls, features: Features, k: int):
+    def centroids(cls, features: FeaturesDataFrame, k: int):
         """
         k seeds located in top left to bottom right diagonal at equals distances.
 
@@ -33,10 +31,10 @@ class DiagonalFashion:
             for i in range(k)
         ]
 
-        return Features(seeds)
+        return FeaturesDataFrame(seeds)
 
     @classmethod
-    def medoids(cls, features: Features, k: int):
+    def medoids(cls, features: FeaturesDataFrame, k: int):
         tags = features.tags
         bboxes = features.bboxes
         covering_bbox = CoveringBoundingBox(bboxes)
@@ -73,7 +71,7 @@ class DiagonalFashion:
             for id in np.argmin(distances, axis=0):
                 seeds_ids.insert(-1, id)
 
-        return Features(
+        return FeaturesDataFrame(
             [tags[i] for i in seeds_ids]
         )
 
@@ -90,7 +88,8 @@ if __name__ == '__main__':
         htmlpp = HTMLPP(content["html"])
     features_extractor = LastBlockSemantic()
     features = features_extractor(htmlpp)
-    centers = DiagonalFashion.medoids(features, 5)
-    PlotClustering(nrows=1) \
-        .plot_centers("Diagonal Fashion", features.tags, centers.tags) \
-        .show()
+    print(features)
+    # centers = DiagonalFashion.medoids(features, 5)
+    # PlotClustering(nrows=1) \
+    #     .plot_centers("Diagonal Fashion", features.tags, centers.tags) \
+    #     .show()
