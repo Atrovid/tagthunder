@@ -7,6 +7,8 @@ from typing import List
 import bs4
 import re
 
+import numpy as np
+
 from algorithms.models.responses import HTMLPP
 from algorithms.models.web_elements import BoundingBox, Tag
 

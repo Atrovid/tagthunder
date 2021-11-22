@@ -1,10 +1,10 @@
-from typing import List
+from typing import List, Iterable
 
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
-from algorithms.models.web_elements import BoundingBox
+from algorithms.models.web_elements import BoundingBox, Tag
 from algorithms.segmentation.clustering.utils.features_extractors import Features
 
 
@@ -21,7 +21,8 @@ class PlotClustering:
         self.current_row = 0
 
     @classmethod
-    def bboxes(cls, ax, bboxes: List[BoundingBox], labels=None, **kwargs):
+    def bboxes(cls, ax, tags: Iterable[Tag], labels=None, **kwargs):
+        bboxes = [tag.bbox for tag in tags]
 
         if labels is None:
             labels = np.ones(len(bboxes))
@@ -33,36 +34,60 @@ class PlotClustering:
             ax.add_patch(patch)
             ax.scatter(coords[:, 0], coords[:, 1], c="none")
 
-    def population(self, ax, bboxes, labels=None):
-        self.bboxes(ax, bboxes, labels)
+    @classmethod
+    def _axes(cls, fig, nrows, ncols, **kwargs):
+        axes = fig.subplots(nrows=nrows, ncols=ncols, **kwargs)
+
+        if (nrows, ncols) == (1, 1):
+            axes = np.array([axes])
+
+        for ax in axes.reshape(-1):
+            ax.invert_yaxis()
+            ax.xaxis.tick_top()
+
+        return axes
+
+    @classmethod
+    def population(cls, ax, tags, labels=None):
+        cls.bboxes(ax, tags, labels)
         return ax
 
-    def centers(self, ax, bboxes, labels=None):
-        self.bboxes(ax, bboxes, labels, hatch="//", ls="--")
+    @classmethod
+    def centers(cls, ax, tags, labels=None):
+        cls.bboxes(ax, tags, labels, hatch="//", ls="--")
+        return cls
+
+    def plot_centers(self, title, population: Iterable[Tag], centers: Iterable[Tag]):
+        fig = self.subfigs[self.current_row]
+        fig.suptitle(title)
+        ax = self._axes(fig, nrows=1, ncols=1)[0]
+
+        self.population(ax, population)
+
+        k = len(centers)
+        centers_labels = np.arange(k)
+        self.centers(ax, centers, centers_labels)
+
         return self
 
-    def plot(self, title, population: Features, init_centers, centers, labels):
+    def plot(self, title, population: Iterable[Tag], init_centers: Iterable[Tag], centers: Iterable[Tag], labels):
 
         fig = self.subfigs[self.current_row]
         fig.suptitle(title, fontweight='semibold')
 
         k = len(centers)
-        bboxes = population.bboxes
         centers_labels = np.arange(k)
 
-        axes = fig.subplots(nrows=1, ncols=2)
-        for ax in axes.reshape(-1):
-            ax.invert_yaxis()
-            ax.xaxis.tick_top()
+        axes = self._axes(fig, nrows=1, ncols=2)
 
         ax = axes[0]
-        ax.set_title("Init")
-        self.population(ax, bboxes)
+        ax.set_title("Initialisation")
+        self.population(ax, population)
         self.centers(ax, init_centers, centers_labels)
 
         ax = axes[1]
         ax.set_title("Results")
-        self.population(ax, bboxes, labels)
+        self.population(ax, population, labels)
         self.centers(ax, centers, centers_labels)
 
         self.current_row += 1
