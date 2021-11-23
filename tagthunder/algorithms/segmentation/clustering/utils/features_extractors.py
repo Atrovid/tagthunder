@@ -193,20 +193,86 @@ class AccordingRules(AbstractFeaturesExtractor):
 
 
 class TOIS(AbstractFeaturesExtractor):
-    TVE = {
-        False: (
-            "html", "head", "iframe", "title", "meta",
-            "link", "script", "style", "strong", "b",
-            "big", "i", "small", "tt", "abbr", "acronym",
-            "cite", "code", "dfn", "em", "kbd", "samp",
-            "var", "a", "bdo", "br", "map", "object",
-            "q", "span", "sub", "sup", "button", "input",
-            "label", "select", "option", "textarea"
-        ),
-        True: (
-            "div", "section", "article", "main", "aside", "header", "footer"
-        )
-    }
+    NOT_TVE = (
+        "html", "head", "iframe", "title", "meta",
+        "link", "script", "style", "strong", "b",
+        "big", "i", "small", "tt", "abbr", "acronym",
+        "cite", "code", "dfn", "em", "kbd", "samp",
+        "var", "a", "bdo", "br", "map", "object",
+        "q", "span", "sub", "sup", "button", "input",
+        "label", "select", "option", "textarea"
+    )
+    TVE = (
+        "div", "section", "article", "main", "aside", "header", "footer"
+    )
 
     def __call__(self, htmlpp: HTMLPP, **kwargs) -> FeaturesDataFrame:
-        pass
+        return FeaturesDataFrame(self.get_features(htmlpp))
+
+    @classmethod
+    def get_features(self, htmlpp: HTMLPP):
+        return htmlpp.find_all(lambda node: self.keep_node(node))
+
+    @classmethod
+    def keep_node(cls, node):
+        return (
+                cls.is_visible(node)
+                and
+                not cls.in_not_tve(node)
+                and (
+                        ((cls.in_tve(node) or cls.is_block(node))
+                         and (
+                                 cls.all_children(node, lambda child: cls.in_not_tve(child) or cls.is_inline(child))
+                                 or cls.has_exactly_one_child(node)
+                         ))
+                        or not cls.has_children(node)
+                )
+        )
+
+    @classmethod
+    def is_visible(cls, node: Tag):
+        return node.visible
+
+    @classmethod
+    def all_children(cls, node, condition):
+        return all(
+            condition(child)
+            for child in node.find_all(True, 1)
+        )
+
+    @classmethod
+    def in_not_tve(cls, node: Tag):
+        return node.name in cls.NOT_TVE
+
+    @classmethod
+    def in_tve(cls, node: Tag):
+        return node.name in cls.TVE
+
+    @classmethod
+    def is_block(cls, node: Tag):
+        return node.styles.get("display") in ("block", "inline-block")
+
+    @classmethod
+    def is_inline(cls, node: Tag):
+        return node.styles.get("display") == "inline"
+
+    @classmethod
+    def has_children(cls, node: Tag):
+        return bool(node.contents)
+
+    @classmethod
+    def has_exactly_one_child(cls, node: Tag):
+        return len(node.contents) == 1
+
+
+if __name__ == '__main__':
+    json_file = "../../../data/html++/calvados.raw.json"
+
+    with open(json_file, "r") as f:
+        content = json.load(f)
+        htmlpp = HTMLPP(content["html"])
+
+    features_extractor = TOIS()
+    features = features_extractor.get_features(htmlpp)
+    print(len(features))
+    print(f"keep_node : {all([TOIS.keep_node(tag) for tag in features])}")
