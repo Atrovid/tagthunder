@@ -1,4 +1,4 @@
-# The project
+# The TagThunder project
 
 ## About
 
@@ -12,64 +12,59 @@ Skimming and scanning are two strategies for *speed reading*. Skimming allows a 
 
 ## Repository's structure
 
-This repository contains three packages : 
+<!--command line to make the tree :tree tagthunder -L 3 -I '__*|*.egg*' | xclip -selection c-->
 
-- `algorithms` contains TagThunder pipeline's blocks : 
+- `pipeline` contains TagThunder pipeline's blocks : 
   - `cleaning` to build `HTML++`;
   - `segementation` to split the page into different parts, *i.e.* areas ; 
   - `extraction` to obtain area's textual descriptors ; 
   - `spatialization` to spell a description of each area for modelling *cocktail party effect*.
-- `api` contains TagThunder API build with [`FastAPI`](https://fastapi.tiangolo.com/) ([One of the fastest Python frameworks available](https://fastapi.tiangolo.com/#performance)) 
+  - `experimentations` contains tools to make algorithms experimentations.
+- `api` contains TagThunder API : 
   - `configuration` contains :
     - API configuration ;
-    - Algorithms requests, *i.e.* if the algorithm is enable, which parameters are available and their defaults values.   
+    - Algorithms requests, *i.e.* if the algorithm is enable, which parameters are available and their defaults values.
+  - `routers` contains routes to call algorithms and TagThunder pipeline ;
+  - `models` contains : 
+    - request responses ;
+    - response factories.
+    <!-- - `data` contains webpage corpus and tools to build them.-->
 
-<!--command line to make the tree :tree tagthunder -L 3 -I '__*|*.egg*' | xclip -selection c-->
+## Installation
 
-```shell
-tagthunder
-├── algorithms 
-│   ├── cleaning
-│   │   ├── _abstract.py
-│   │   └── vision_based.py
-│   ├── extraction
-│   │   ├── _abstract.py
-│   │   ├── mots_blancs.py
-│   │   └── yake.py
-│   ├── models
-│   │   ├── responses.py
-│   │   └── web_elements.py
-│   ├── segmentation
-│   │   ├── _abstract.py
-│   │   ├── clustering
-│   │   ├── guided_expansion.py
-│   │   ├── k_means.py
-│   │   └── tdbu.py
-│   └── spatialization
-│       └── _abstract.py
-├── api
-│   ├── configurations
-│   │   ├── algorithms
-│   │   └── api.py
-│   ├── main.py
-│   ├── models
-│   │   ├── domains.py
-│   │   └── schemas.py
-│   ├── routers
-│   │   ├── queries.py
-│   │   └── routes.py
-│   └── services
-│       ├── algorithms.py
-│       └── dom_managment
-└── webcrawler
-    ├── express_app_js
-    │   ├── content_script.js
-    │   ├── index.js
-    │   ├── node_modules
-    │   ├── package.json
-    │   ├── package-lock.json
-    │   └── server.js
-    └── wrapper.py
+**Requirements**
+
++ `python 3.9`
++ `virtualenv`
+
+#### Step 1 : clone this repository
+
+
+```sh
+git clone https://git.unicaen.fr/francois.ledoyen/tagthunder.git
 ```
 
-## Install and 
+#### Step 2 : Enter in the folder
+```sh
+cd tagthunder
+```
+
+#### Step 3 : Create virtual environment
+```sh
+virtualenv -p python3.9 venv
+```
+
+#### Step 4 : Activate venv
+```sh
+source venv/bin/activate
+```
+
+#### Step 5 : Install requirements with `setup.py`
+```sh
+python -m pip install -e .
+```
+
+- This create entry-point (*i.e* command line) to run `API` 
+
+
+
