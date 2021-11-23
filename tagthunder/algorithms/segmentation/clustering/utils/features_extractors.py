@@ -49,21 +49,6 @@ class FeaturesDataFrame(DataFrame):
         return super(FeaturesDataFrame, self).append(other, ignore_index, verify_integrity, sort)
 
 
-
-if __name__ == '__main__':
-    json_file = "../../../data/html++/calvados.raw.json"
-
-    with open(json_file, "r") as f:
-        content = json.load(f)
-        htmlpp = HTMLPP(content["html"])
-
-    tags = htmlpp.find_all(True)
-    df = FeaturesDataFrame(tags)
-    print(df.bbox)
-
-
-
-
 class AbstractFeaturesExtractor(ABC):
 
     @abstractmethod
@@ -205,3 +190,23 @@ class AccordingRules(AbstractFeaturesExtractor):
     @classmethod
     def is_form(cls, node):
         return node.name in ["label", "input"]
+
+
+class TOIS(AbstractFeaturesExtractor):
+    TVE = {
+        False: (
+            "html", "head", "iframe", "title", "meta",
+            "link", "script", "style", "strong", "b",
+            "big", "i", "small", "tt", "abbr", "acronym",
+            "cite", "code", "dfn", "em", "kbd", "samp",
+            "var", "a", "bdo", "br", "map", "object",
+            "q", "span", "sub", "sup", "button", "input",
+            "label", "select", "option", "textarea"
+        ),
+        True: (
+            "div", "section", "article", "main", "aside", "header", "footer"
+        )
+    }
+
+    def __call__(self, htmlpp: HTMLPP, **kwargs) -> FeaturesDataFrame:
+        pass
