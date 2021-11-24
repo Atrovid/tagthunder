@@ -6,12 +6,9 @@ from pydantic import BaseModel, Field
 from algorithms.models.web_elements import Tag
 
 
-class HTML(BaseModel):
-    __root__: str = Field(title="HTML", description="HTML without computed styles.")
-
-
-class HTMLP(BaseModel):
-    __root__: str = Field(title="HTML+", description="HTML with computed styles in attributes.")
+class HTMLP(bs4.BeautifulSoup):
+    def __init__(self, markup=""):
+        super(HTMLP, self).__init__(markup=markup, features="html.parser", element_classes={bs4.Tag: Tag})
 
 
 class HTMLPP(bs4.BeautifulSoup):
