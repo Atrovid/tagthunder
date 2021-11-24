@@ -109,9 +109,8 @@ class Tag(bs4.Tag):
     def styles(self):
         if not self._styles:
             try:
-                styles = self.attrs[self._STYLES_KEY].split(";", 1)
-                if "" in styles:
-                    styles.remove("")
+                styles = self.attrs[self._STYLES_KEY].split(";")
+                styles = filter(lambda couple: ":" in couple, styles)
 
                 self._styles = {
                     style: value
