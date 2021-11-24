@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 
 import bs4
 
-from api.models.domains import Hyperlink
+from api.models.schemas import Hyperlink
 
 
 class LinksExtractor:
