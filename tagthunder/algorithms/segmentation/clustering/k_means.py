@@ -1,22 +1,19 @@
 import itertools
 import json
-from typing import List, Optional, Iterable
+from typing import List
 
 import numpy as np
 
 from algorithms.models.responses import Segmentation, HTMLPP
-from algorithms.segmentation._abstract import AbstractSegmentationAlgorithm
 from algorithms.models.web_elements import BoundingBox, CoveringBoundingBox
 import algorithms.segmentation.clustering.utils.distances as seg_distances
 from algorithms.segmentation.clustering._abstract import AbstractClusteringAlgorithm
 from algorithms.segmentation.clustering.utils.features_extractors import (
-    AbstractFeaturesExtractor,
     FeaturesDataFrame,
-    LastBlockSemantic,
-    LastBlocksWithComputedStyles
+    LastBlockSemantic
 )
 import algorithms.segmentation.clustering.utils.seeds_initializer as seeds_initializer
-from algorithms.segmentation.clustering.utils.visualisation import PlotClustering
+from algorithms.experimentations.segmentation.visualisation import PlotClustering
 
 
 class KMeans(AbstractClusteringAlgorithm):

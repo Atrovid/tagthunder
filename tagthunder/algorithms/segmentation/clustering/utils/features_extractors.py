@@ -32,7 +32,8 @@ class FeaturesDataFrame(DataFrame):
             "name": tag.name,
             "bbox": tag.bbox,
             "visible": tag.visible,
-            "styles": tag.styles
+            "styles": tag.styles,
+            "tag": tag
         })
         return res
 
@@ -55,9 +56,24 @@ class AbstractFeaturesExtractor(ABC):
     def __call__(self, htmlpp: HTMLPP, **kwargs) -> FeaturesDataFrame:
         ...
 
+    @classmethod
+    def is_visible(cls, node: Tag):
+        return node.visible
+
+    @classmethod
+    def is_block(cls, node: Tag, block_attrs=None):
+        if block_attrs is None:
+            block_attrs = ["block", "inline-block"]
+        style = node.styles.get("display")
+        return style in block_attrs
+
+    @classmethod
+    def has_content(cls, node: Tag):
+        return bool(node.contents)
+
 
 class LastBlockSemantic(AbstractFeaturesExtractor):
-    __basic_visual_elements__ = (
+    TVE = (
         "address",
         "article",
         "aside",
@@ -89,42 +105,52 @@ class LastBlockSemantic(AbstractFeaturesExtractor):
     )
 
     def __call__(self, htmlpp: HTMLPP, **kwargs):
-        tags = filter(
-            (
-                lambda e:
-                not len(e.find_all(self.__basic_visual_elements__))
-                and len(e.text)
-                and e.attrs["data-cleaned"] == "false"
-            ),
-            htmlpp.find_all(self.__basic_visual_elements__)
-        )
-        return FeaturesDataFrame(tags=tags)
+        return FeaturesDataFrame(tags=htmlpp.find_all(self.keep_node))
+
+    @classmethod
+    def keep_node(cls, node):
+        return all([
+            cls.is_visible(node),
+            cls.in_tve(node),
+            cls.no_child_in_tve(node),
+            cls.contents_text(node),
+        ])
+
+    @classmethod
+    def contents_text(cls, node: Tag):
+        return len(node.text)
+
+    @classmethod
+    def in_tve(cls, node):
+        return node.name in cls.TVE
+
+    @classmethod
+    def no_child_in_tve(cls, node: Tag):
+        return not len(node.find_all(cls.in_tve))
 
 
 class LastBlocksWithComputedStyles(AbstractFeaturesExtractor):
-    BLOCK_REGEX = re.compile(r"display:block")
 
     def __call__(self, htmlpp: HTMLPP, **kwargs):
-        elements = self.find_basics_elements(htmlpp)
-        elements = filter(
-            (
-                lambda e:
-                not bool(len(self.find_basics_elements(e)))
-                and len(e.contents)
-            ),
-            elements
-        )
-        return FeaturesDataFrame(tags=elements)
+        elements = htmlpp.find_all(self.keep_node)
+        df = FeaturesDataFrame(tags=elements)
+        return df
 
     @classmethod
-    def find_basics_elements(cls, node):
-        return node.find_all(
-            True,
-            attrs={
-                "data-cleaned": "false",
-                "data-style": cls.BLOCK_REGEX
-            }
-        )
+    def keep_node(cls, node: Tag):
+        return all([
+            cls.is_basic_block(node),
+            cls.has_content(node),
+            not cls.has_basic_block_children(node)
+        ])
+
+    @classmethod
+    def is_basic_block(cls, node):
+        return cls.is_visible(node) and cls.is_block(node, ["block"])
+
+    @classmethod
+    def has_basic_block_children(cls, node: Tag):
+        return bool(node.find_all(lambda child: cls.is_basic_block(child)))
 
 
 class AccordingRules(AbstractFeaturesExtractor):
@@ -207,37 +233,35 @@ class TOIS(AbstractFeaturesExtractor):
     )
 
     def __call__(self, htmlpp: HTMLPP, **kwargs) -> FeaturesDataFrame:
-        return FeaturesDataFrame(self.get_features(htmlpp))
+        return FeaturesDataFrame(tags=self.get_features(htmlpp))
 
     @classmethod
     def get_features(self, htmlpp: HTMLPP):
-        return htmlpp.find_all(lambda node: self.keep_node(node))
+        return htmlpp.find_all(self.keep_node)
 
     @classmethod
-    def keep_node(cls, node):
-        return (
-                cls.is_visible(node)
-                and
-                not cls.in_not_tve(node)
-                and (
-                        ((cls.in_tve(node) or cls.is_block(node))
-                         and (
-                                 cls.all_children(node, lambda child: cls.in_not_tve(child) or cls.is_inline(child))
-                                 or cls.has_exactly_one_child(node)
-                         ))
-                        or not cls.has_children(node)
+    def keep_node(cls, node) -> bool:
+        if cls.is_visible(node) and not cls.in_not_tve(node):
+            if cls.in_tve(node) or cls.is_block(node):
+                return any(
+                    [
+                        cls.all_children(node, lambda child: any([cls.in_not_tve(child), cls.is_inline(child)])),
+                        cls.has_exactly_one_child(node)
+                    ]
                 )
-        )
+            else:
+                return not cls.has_children(node)
+        return False
 
     @classmethod
     def is_visible(cls, node: Tag):
         return node.visible
 
     @classmethod
-    def all_children(cls, node, condition):
+    def all_children(cls, node: Tag, condition):
         return all(
-            condition(child)
-            for child in node.find_all(True, 1)
+            cls.is_visible(child) and condition(child)
+            for child in node.find_all(True)
         )
 
     @classmethod
@@ -249,12 +273,8 @@ class TOIS(AbstractFeaturesExtractor):
         return node.name in cls.TVE
 
     @classmethod
-    def is_block(cls, node: Tag):
-        return node.styles.get("display") in ("block", "inline-block")
-
-    @classmethod
     def is_inline(cls, node: Tag):
-        return node.styles.get("display") == "inline"
+        return node.styles["display"] == "inline"
 
     @classmethod
     def has_children(cls, node: Tag):
@@ -263,16 +283,3 @@ class TOIS(AbstractFeaturesExtractor):
     @classmethod
     def has_exactly_one_child(cls, node: Tag):
         return len(node.contents) == 1
-
-
-if __name__ == '__main__':
-    json_file = "../../../data/html++/calvados.raw.json"
-
-    with open(json_file, "r") as f:
-        content = json.load(f)
-        htmlpp = HTMLPP(content["html"])
-
-    features_extractor = TOIS()
-    features = features_extractor.get_features(htmlpp)
-    print(len(features))
-    print(f"keep_node : {all([TOIS.keep_node(tag) for tag in features])}")

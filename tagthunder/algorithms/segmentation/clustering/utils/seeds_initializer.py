@@ -5,7 +5,6 @@ from sklearn.metrics import pairwise_distances
 from algorithms.models.responses import HTMLPP
 from algorithms.models.web_elements import CoveringBoundingBox, BoundingBox, Tag
 from algorithms.segmentation.clustering.utils.features_extractors import FeaturesDataFrame, LastBlockSemantic
-from algorithms.segmentation.clustering.utils.visualisation import PlotClustering
 
 
 class DiagonalFashion:

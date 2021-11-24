@@ -10,7 +10,7 @@ from algorithms.models.web_elements import BoundingBox, Tag
 class PlotClustering:
     def __init__(self, **kwargs):
 
-        self.fig, self.axes = plt.subplots(kwargs.pop("nrows", 1), 1)
+        self.fig, self.axes = plt.subplots(kwargs.pop("nrows", 1), 1, sharex=True, sharey=True)
 
         if not isinstance(self.axes, np.ndarray):
             self.axes = np.array([self.axes])
@@ -56,17 +56,21 @@ class PlotClustering:
         cls.bboxes(ax, tags, labels, hatch="//", ls="--")
         return cls
 
-    def plot_centers(self, title, population: Iterable[Tag], centers: Iterable[Tag]):
+    def plot_centers(self, title, subtitle=None, population: Iterable[Tag] = None, centers: Iterable[Tag] = None):
         fig = self.subfigs[self.current_row]
         fig.suptitle(title)
         ax = self._axes(fig, nrows=1, ncols=1)[0]
+        if subtitle is not None:
+            ax.set_title(subtitle)
+        if population is not None:
+            self.population(ax, population)
 
-        self.population(ax, population)
+        if centers is not None:
+            k = len(centers)
+            centers_labels = np.arange(k)
+            self.centers(ax, centers, centers_labels)
 
-        k = len(centers)
-        centers_labels = np.arange(k)
-        self.centers(ax, centers, centers_labels)
-
+        self.current_row += 1
         return self
 
     def plot(self, title, population: Iterable[Tag], init_centers: Iterable[Tag], centers: Iterable[Tag], labels):
@@ -80,6 +84,7 @@ class PlotClustering:
         axes = self._axes(fig, nrows=1, ncols=2)
 
         ax = axes[0]
+        print(df.columns)
         ax.set_title("Initialisation")
         self.population(ax, population)
         self.centers(ax, init_centers, centers_labels)
