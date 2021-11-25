@@ -2,10 +2,9 @@ from typing import List
 
 import fastapi
 
-# import api.routers.logics as logics
-import algorithms.models
 import api.routers.queries as queries
 import api.models.schemas as schemas
+import api.routers.services as services
 
 tag_name = "Algorithms"
 tag = {
@@ -27,31 +26,15 @@ class Routes:
     PIPELINE: str = "/pipeline/"
 
 
-# @router.get(
-#     Routes.AUGMENTATION,
-#     description="HTML+ generation",
-#     response_model=schemas.HTML,
-# )
-# def get_html_augmentation(
-#         url: HttpUrl,
-#         recompute: Optional[bool] = False
-# ):
-#     response = logics.make_html_augmented(url, recompute)
-#     return response
-#
-#
 @router.post(
     Routes.AUGMENTATION,
     description="HTML+ generation",
     response_model=schemas.HTMLP
 )
 def post_html_augmentation(query: queries.HTMLAugmentationQuery):
-    raise NotImplementedError
-    # return get_html_augmentation(query.url, query.recompute)
+    return services.AlgorithmServices.html_augmentation(query.url, query.recompute)
 
 
-#
-#
 @router.post(
     Routes.CLEANING,
     description="Web page cleaning operation",
@@ -60,21 +43,13 @@ def post_html_augmentation(query: queries.HTMLAugmentationQuery):
 def cleaning(
         query: queries.CleaningQuery
 ):
-    return algorithms.models.HTMLPP(__root__="super text")
+    return services.AlgorithmServices.cleaning(
+        query.htmlp,
+        query.algorithm.name,
+        query.algorithm.parameters.dict()
+    )
 
 
-# pprint.pp(query)
-# parameters = dict(
-#     algorithm_name=query.algorithm.name,
-#     parameters=query.algorithm.parameters.dict()
-# )
-#
-#     return logics.make_cleaned_html.by_html(
-#         html=query.html,
-#         **parameters
-#     )
-#
-#
 @router.post(
     Routes.SEGMENTATION,
     description="Web page segmentation operation",
@@ -83,17 +58,12 @@ def cleaning(
 def segmentation(
         query: queries.SegmentationQuery
 ):
-    print(query)
+    return services.AlgorithmServices.segmentation(
+        query.htmllpp,
+        query.algorithm.name,
+        query.algorithm.parameters.dict()
+    )
 
-
-#     return logics.make_segmented_html(
-#         None,
-#         query.html,
-#         query.algorithm.name,
-#         query.algorithm.parameters.dict(),
-#         query.algorithm.parameters.is_segmentable_threshold
-#     )
-#
 
 @router.post(
     Routes.EXTRACTION,
@@ -103,8 +73,11 @@ def segmentation(
 def extraction(
         query: queries.ExtractionQuery
 ):
-    print(query)
-    # return logics.make_keywords(query.html, query.algorithm.name, query.algorithm.parameters.dict())
+    return services.AlgorithmServices.extraction(
+        query.htmlpp,
+        query.algorithm.name,
+        query.algorithm.parameters.dict()
+    )
 
 
 @router.post(
@@ -116,32 +89,3 @@ def pipeline(
         query: queries.PipelineQuery
 ):
     raise NotImplementedError()
-#     print(query)
-#     if not query.htmlpp:
-#     augmented_html = logics.make_html_augmented(query.url, query.recompute)
-#
-#     cleaned_html = logics.make_cleaned_html.by_html(
-#         augmented_html.html,
-#         query.cleaning.name,
-#         query.cleaning.parameters.dict()
-#     )
-#
-#     query.htmlpp = cleaned_html.html
-# print("HTMLPP", query.htmlpp)
-# segmentation = logics.make_segmented_html(
-#     query.url,
-#     query.htmlpp,
-#     query.segmentation.name,
-#     query.segmentation.parameters.dict(),
-#     query.segmentation.parameters.is_segmentable_threshold
-# )
-#
-# for zone in segmentation.zones:
-#     keywords = logics.make_keywords(
-#         zone.htmlpp,
-#         query.extraction.name,
-#         query.extraction.parameters.dict()
-#     )
-#     zone.keywords = keywords
-#
-# return segmentation
