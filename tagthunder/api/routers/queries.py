@@ -8,7 +8,7 @@ from pydantic.networks import HttpUrl
 
 
 class HTMLAugmentationQuery(BaseModel):
-    input: Union[HttpUrl, str]
+    url: Union[HttpUrl]
     recompute: Optional[bool] = False
 
 
