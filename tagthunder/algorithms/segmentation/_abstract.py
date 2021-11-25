@@ -10,5 +10,5 @@ class AbstractSegmentationAlgorithm(ABC):
         ...
 
     @abstractmethod
-    def run(self, htmlpp: HTMLPP, nb_zones: int, **kwargs):
+    def fit(self, htmlpp: HTMLPP, nb_zones: int, **kwargs):
         ...

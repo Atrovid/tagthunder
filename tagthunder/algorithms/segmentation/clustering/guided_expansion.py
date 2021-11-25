@@ -8,8 +8,6 @@ class GuidedExpansion(AbstractSegmentationAlgorithm):
     def __call__(self, htmlpp: HTMLPP, *, nb_zones: int, **kwargs) -> Segmentation:
         raise NotImplementedError
 
-    def __init__(self):
+    def fit(self, htmlpp: HTMLPP, nb_zones: int, **kwargs):
         pass
 
-    def _init_centers(self):
-        pass

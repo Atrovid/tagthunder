@@ -21,7 +21,7 @@ class KMeans(AbstractClusteringAlgorithm):
     def __call__(self, htmlpp: HTMLPP, *, nb_zones: int = 5, nb_iterations: int = 1e4) -> Segmentation:
         raise NotImplementedError
 
-    def run(self, features: FeaturesDataFrame, centers: FeaturesDataFrame, nb_zones: int = 5, nb_iterations: int = 1e4):
+    def fit(self, features: FeaturesDataFrame, centers: FeaturesDataFrame, nb_zones: int = 5, nb_iterations: int = 1e4):
         bboxes = np.array(features.bboxes, dtype=object)
         centers = centers.bboxes
         final_centers, labels = self.k_means(bboxes, centers.copy(), nb_zones, nb_iterations)
@@ -54,7 +54,7 @@ class KMeans(AbstractClusteringAlgorithm):
 
         labels_with_bboxes = np.unique(labels)
 
-        new_centers[labels_with_bboxes, ] = np.vectorize(
+        new_centers[labels_with_bboxes,] = np.vectorize(
             lambda center: cls._virtual_center(bboxes[labels == center]),
             otypes=[BoundingBox]
         )(labels_with_bboxes)
@@ -110,7 +110,7 @@ if __name__ == '__main__':
     seeds = seeds_initializer.centroids(features, 5)
 
     kmeans = KMeans()
-    res = kmeans.run(features, seeds, 5, 5)
+    res = kmeans.fit(features, seeds, 5, 5)
     PlotClustering(nrows=2) \
         .plot("K-Means", features.tags, seeds.tags, *res) \
         .show()
