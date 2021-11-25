@@ -15,4 +15,4 @@ for sub_router in routers.routes:
 
 
 def run():
-    uvicorn.run("tagthunder.api.main:app", reload=True)
+    uvicorn.run("api.main:app", reload=True)

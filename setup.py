@@ -13,14 +13,12 @@ import pkg_resources
 _PATH_ROOT = dirname(__file__)
 _PATH_REQUIRE = join(_PATH_ROOT, "requirements.txt")
 
-
 with pathlib.Path(_PATH_REQUIRE).open() as requirements_txt:
     install_requires = [
         str(requirement)
         for requirement
         in pkg_resources.parse_requirements(requirements_txt)
     ]
-
 
 setup(
     name="tagthunder",
@@ -40,8 +38,8 @@ setup(
     setup_requires=[],
     install_requires=install_requires,
     entry_points={
-        "console_scripts" : [
-            "run=tagthunder.api.main:run"
+        "console_scripts": [
+            "run-api=api.main:run"
         ]
     }
 )
