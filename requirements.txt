@@ -67,7 +67,6 @@ sphinxcontrib-serializinghtml==1.1.5
 starlette==0.16.0
 sympy==1.9
 tabulate==0.8.9
--e git+ssh://git@git.unicaen.fr/francois.ledoyen/tagthunder.git@45a62f4075d235a9afabd2d96b1f90eeb8407149#egg=tagthunder
 threadpoolctl==3.0.0
 tk==0.1.0
 toml==0.10.2
