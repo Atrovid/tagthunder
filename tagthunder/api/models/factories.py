@@ -1,4 +1,4 @@
-import algorithms.models.responses as algos_responses
+import pipeline.models.responses as algos_responses
 import api.models.schemas as schemas
 
 
