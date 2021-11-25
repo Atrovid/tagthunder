@@ -1,1 +1,1 @@
-from api.configurations.algorithms import ExtractionAlgorithms
+from api.configurations.pipeline import ExtractionAlgorithms

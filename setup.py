@@ -25,7 +25,7 @@ setup(
     version="0.0.1",
     author="François Ledoyen",
     author_email="francois.ledoyen@unicaen.fr",
-    packages=["api", "algorithms"],
+    packages=["api", "pipeline"],
     package_dir={"": "tagthunder"},
     include_package_data=False,
     zip_safe=False,

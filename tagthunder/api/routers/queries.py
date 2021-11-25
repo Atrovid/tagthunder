@@ -1,6 +1,6 @@
 from typing import Optional, Union
 
-import api.configurations.algorithms as algos
+import api.configurations.pipeline as algos
 import api.models.schemas as api_schemas
 
 from pydantic.main import BaseModel

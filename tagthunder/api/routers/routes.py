@@ -9,7 +9,7 @@ import api.routers.services as services
 tag_name = "Algorithms"
 tag = {
     "name": tag_name,
-    "description": "Routes to call TagThunder algorithms"
+    "description": "Routes to call TagThunder pipeline"
 }
 
 router = fastapi.APIRouter(
