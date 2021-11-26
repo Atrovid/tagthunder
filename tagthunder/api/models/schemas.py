@@ -16,15 +16,14 @@ class HTMLPP(BaseModel):
 
 
 class Keyword(BaseModel):
-    keyword: str
+    text: str
     score: Optional[float] = None
 
     class Config:
         arbitrary_types_allowed = True
 
 
-class Keywords(BaseModel):
-    __root__: List[Keyword]
+Keywords = List[Keyword]
 
 
 class Zone(BaseModel):

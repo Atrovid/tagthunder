@@ -19,7 +19,6 @@ class HTMLPP(bs4.BeautifulSoup):
 class Keyword(BaseModel):
     text: str
     score: Optional[float] = None
-    lang: Optional[str] = None
 
     class Config:
         arbitrary_types_allowed = True

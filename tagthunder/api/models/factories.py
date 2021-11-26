@@ -10,7 +10,11 @@ class AlgorithmInput:
 
     @classmethod
     def Keyword(cls, keyword: schemas.Keyword) -> algos_responses.Keyword:
-        return schemas.Keyword(keyword=keyword.keyword, score=keyword.score)
+        return algos_responses.Keyword(text=keyword.text, score=keyword.score)
+
+    @classmethod
+    def Keywords(cls, keywords: schemas.Keywords) -> algos_responses.Keywords:
+        return [cls.Keyword(k) for k in keywords]
 
     @classmethod
     def Zone(cls, zone: schemas.Zone) -> algos_responses.Zone:
@@ -43,11 +47,11 @@ class Responses:
 
     @classmethod
     def Keyword(cls, keyword: algos_responses.Keyword) -> schemas.Keyword:
-        return schemas.Keyword(keyword=keyword.keyword, score=keyword.score)
+        return schemas.Keyword(text=keyword.text, score=keyword.score)
 
     @classmethod
     def Keywords(cls, keywords: algos_responses.Keywords) -> schemas.Keywords:
-        return schemas.Keywords(__root__=[cls.Keyword(k) for k in keywords])
+        return [cls.Keyword(k) for k in keywords]
 
     @classmethod
     def Zone(cls, zone: algos_responses.Zone) -> schemas.Zone:
