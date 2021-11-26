@@ -1,0 +1,1 @@
+from pipeline.blocks.vocalization.google_tts import GoogleTTS

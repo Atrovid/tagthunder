@@ -5,20 +5,21 @@ from pydub.playback import play
 from typing import List, Dict
 
 import pycld2
+import langdetect
 
 
-def detect(text) -> List[Dict[str, str]]:
-    languages = []
-    _, _, _, detected_language = pycld2.detect(text, returnVectors=True)
+class LanguageDetector:
 
-    for start, end, _, lang in detected_language:
-        languages.append({
-            text[start:end]: lang
-        })
+    @classmethod
+    def cld2(cls, text) -> List[Dict[str, str]]:
+        """Not working for short sequence"""
+        _, _, _, detected_language = pycld2.detect(text, returnVectors=True)
 
-    return languages
+        for start, end, LANG, lang in detected_language:
+            yield text[start:end], LANG
 
+    @classmethod
+    def langdetect(cls, text) -> List[Dict[str, str]]:
+        langdetect.DetectorFactory.seed = 0
+        yield text, langdetect.detect(text)
 
-def play_song(fp: io.BytesIO):
-    song = AudioSegment.from_file(fp, format="mp3")
-    play(song)

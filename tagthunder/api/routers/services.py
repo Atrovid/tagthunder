@@ -1,3 +1,4 @@
+import io
 from typing import Optional, overload
 from pydantic import HttpUrl
 import bs4
@@ -45,3 +46,8 @@ class AlgorithmServices:
         keywords = extraction_algorithm(text, **parameters)
 
         return factories.Responses.Keywords(keywords)
+
+    @classmethod
+    def vocalization(cls, keywords: schemas.Keywords, algorithm_name: str, parameters) -> io.BytesIO:
+        vocalization_algorithm = algorithms_conf.VocalizationAlgorithms.get_algorithm(algorithm_name)
+        return vocalization_algorithm(factories.AlgorithmInput.Keywords(keywords), **parameters)

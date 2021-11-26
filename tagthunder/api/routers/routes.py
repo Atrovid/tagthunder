@@ -1,10 +1,14 @@
+import io
 from typing import List
 
 import fastapi
+import pydantic
 
 import api.routers.queries as queries
 import api.models.schemas as schemas
 import api.routers.services as services
+
+pydantic.BaseConfig.arbitrary_types_allowed = True
 
 tag_name = "Algorithms"
 tag = {
@@ -23,6 +27,7 @@ class Routes:
     CLEANING: str = "/cleaning/"
     SEGMENTATION: str = "/segmentation/"
     EXTRACTION: str = "/extraction/"
+    VOCALIZATION: str = "/vocalization/"
     PIPELINE: str = "/pipeline/"
 
 
@@ -78,6 +83,23 @@ def extraction(
         query.algorithm.name,
         query.algorithm.parameters.dict()
     )
+
+
+@router.post(
+    Routes.VOCALIZATION,
+    description="Vocalization of key-terms",
+    response_class=fastapi.responses.StreamingResponse
+)
+async def vocalization(
+        query: queries.VocalizationQuery
+):
+    audio = services.AlgorithmServices.vocalization(
+        query.keywords,
+        query.algorithm.name,
+        query.algorithm.parameters.dict()
+    )
+     
+    return fastapi.responses.StreamingResponse(audio, media_type="audio/mpeg3")
 
 
 @router.post(
