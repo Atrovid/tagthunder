@@ -43,7 +43,7 @@ class Responses:
 
     @classmethod
     def Keyword(cls, keyword: algos_responses.Keyword) -> schemas.Keyword:
-        return schemas.Keyword(keyword=keyword.keyword, score=keyword.score)
+        return schemas.Keyword(text=keyword.text, score=keyword.score)
 
     @classmethod
     def Keywords(cls, keywords: algos_responses.Keywords) -> schemas.Keywords:

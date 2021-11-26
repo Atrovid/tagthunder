@@ -1,7 +1,7 @@
 from abc import ABC
 
-from pipeline.blocks.segmentation._abstract import AbstractSegmentationAlgorithm
+from pipeline.blocks.segmentation._abstract import AbstractSegmentationBlock
 
 
-class AbstractClusteringAlgorithm(AbstractSegmentationAlgorithm, ABC):
+class AbstractClusteringBlock(AbstractSegmentationBlock, ABC):
     ...

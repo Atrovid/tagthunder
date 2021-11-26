@@ -1,10 +1,10 @@
 import yake
 
-from pipeline.blocks.extraction._abstract import AbstractExtractionAlgorithm
+from pipeline.blocks.extraction._abstract import AbstractExtractionBlock
 from pipeline.models.responses import Keywords
 
 
-class Yake(AbstractExtractionAlgorithm):
+class Yake(AbstractExtractionBlock):
 
     def __call__(
             self,
