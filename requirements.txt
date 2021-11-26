@@ -38,7 +38,9 @@ pandas==1.3.4
 Pillow==8.4.0
 pluggy==1.0.0
 py==1.11.0
+pycld2==0.41
 pydantic==1.8.2
+pydub==0.25.1
 Pygments==2.10.0
 pyparsing==2.4.7
 pytest==6.2.5
@@ -67,6 +69,7 @@ sphinxcontrib-serializinghtml==1.1.5
 starlette==0.16.0
 sympy==1.9
 tabulate==0.8.9
+-e git+ssh://git@git.unicaen.fr/francois.ledoyen/tagthunder.git@a988ac78623a3a386dc147f5575f1ee6b74c8343#egg=tagthunder
 threadpoolctl==3.0.0
 tk==0.1.0
 toml==0.10.2
