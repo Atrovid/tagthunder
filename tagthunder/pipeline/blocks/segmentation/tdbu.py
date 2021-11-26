@@ -1,8 +1,8 @@
-from pipeline.blocks.segmentation._abstract import AbstractSegmentationAlgorithm
+from pipeline.blocks.segmentation._abstract import AbstractSegmentationBlock
 from pipeline.models.responses import Segmentation, HTMLPP
 
 
-class TopDownBottomUp(AbstractSegmentationAlgorithm):
+class TopDownBottomUp(AbstractSegmentationBlock):
     def __call__(self, text: str, *, nb_zones: int, **kwargs) -> Segmentation:
         raise NotImplementedError
 

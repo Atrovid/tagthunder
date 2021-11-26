@@ -7,7 +7,7 @@ import numpy as np
 from pipeline.models.responses import Segmentation, HTMLPP
 from pipeline.models.web_elements import BoundingBox, CoveringBoundingBox
 import pipeline.blocks.segmentation.clustering.utils.distances as seg_distances
-from pipeline.blocks.segmentation.clustering._abstract import AbstractClusteringAlgorithm
+from pipeline.blocks.segmentation.clustering._abstract import AbstractClusteringBlock
 from pipeline.blocks.segmentation.clustering.utils.features_extractors import (
     FeaturesDataFrame,
     LastBlockSemantic
@@ -16,7 +16,7 @@ import pipeline.blocks.segmentation.clustering.utils.seeds_initializer as seeds_
 from pipeline.experimentations.segmentation.visualisation import PlotClustering
 
 
-class KMeans(AbstractClusteringAlgorithm):
+class KMeans(AbstractClusteringBlock):
 
     def __call__(self, htmlpp: HTMLPP, *, nb_zones: int = 5, nb_iterations: int = 1e4) -> Segmentation:
         raise NotImplementedError
