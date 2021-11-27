@@ -64,7 +64,9 @@ source venv/bin/activate
 python -m pip install -e .
 ```
 
-- This create entry-point (*i.e* command line) to run `API` 
+This allows to :
+  - install requirements ;
+  - create entry-point (*i.e* command line) `api-run` to run `API`.
 
 
 
