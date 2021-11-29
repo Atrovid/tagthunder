@@ -1,8 +1,8 @@
-from api.configurations.pipeline._abstract import AlgorithmsEnum, AlgorithmConfig, ParametersModelFactory
+from api.configurations.pipeline._abstract import BlocksEnum, AlgorithmConfig, ParametersModelFactory
 import pipeline.blocks.cleaning
 
 
-class CleaningAlgorithms(AlgorithmsEnum):
+class CleaningBlocks(BlocksEnum):
     vision_based = AlgorithmConfig(
         name="vision_based",
         enable=True,

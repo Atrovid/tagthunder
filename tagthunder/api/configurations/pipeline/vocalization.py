@@ -1,8 +1,8 @@
-from api.configurations.pipeline._abstract import AlgorithmsEnum, AlgorithmConfig, ParametersModelFactory
+from api.configurations.pipeline._abstract import BlocksEnum, AlgorithmConfig, ParametersModelFactory
 import pipeline.blocks.vocalization
 
 
-class VocalizationAlgorithms(AlgorithmsEnum):
+class VocalizationBlocks(BlocksEnum):
     google_tts = AlgorithmConfig(
         name="google_tts",
         enable=True,

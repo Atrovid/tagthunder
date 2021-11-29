@@ -22,14 +22,14 @@ class AlgorithmServices:
 
     @classmethod
     def cleaning(cls, htmlp: schemas.HTMLP, algorithm_name: str, parameters) -> schemas.HTMLPP:
-        cleaning_algorithm = algorithms_conf.CleaningAlgorithms.get_algorithm(algorithm_name)
+        cleaning_algorithm = algorithms_conf.CleaningBlocks.get_algorithm(algorithm_name)
         html_cleaned = cleaning_algorithm(htmlp, **parameters)
 
         return factories.Responses.HTMLPP(html_cleaned)
 
     @classmethod
     def segmentation(cls, htmlpp: schemas.HTMLPP, algorithm_name: str, parameters) -> schemas.Segmentation:
-        segmentation_algorithm = algorithms_conf.SegmentationAlgorithms.get_algorithm(algorithm_name)
+        segmentation_algorithm = algorithms_conf.SegmentationBlocks.get_algorithm(algorithm_name)
         segmentation = segmentation_algorithm(
             factories.AlgorithmInput.HTMLPP(htmlpp),
             **parameters
@@ -42,12 +42,12 @@ class AlgorithmServices:
         text = TextContentExtractor.extract_all_text(factories.AlgorithmInput.HTMLPP(htmlpp))
         text = "; ".join(text)
 
-        extraction_algorithm = algorithms_conf.ExtractionAlgorithms.get_algorithm(algorithm_name)
+        extraction_algorithm = algorithms_conf.ExtractionBlocks.get_algorithm(algorithm_name)
         keywords = extraction_algorithm(text, **parameters)
 
         return factories.Responses.Keywords(keywords)
 
     @classmethod
     def vocalization(cls, keywords: schemas.Keywords, algorithm_name: str, parameters) -> io.BytesIO:
-        vocalization_algorithm = algorithms_conf.VocalizationAlgorithms.get_algorithm(algorithm_name)
+        vocalization_algorithm = algorithms_conf.VocalizationBlocks.get_algorithm(algorithm_name)
         return vocalization_algorithm(factories.AlgorithmInput.Keywords(keywords), **parameters)

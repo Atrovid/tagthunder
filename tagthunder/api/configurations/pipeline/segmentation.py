@@ -1,10 +1,10 @@
 import pydantic as pydantic
 
-from api.configurations.pipeline._abstract import AlgorithmsEnum, AlgorithmConfig, ParametersModelFactory
+from api.configurations.pipeline._abstract import BlocksEnum, AlgorithmConfig, ParametersModelFactory
 import pipeline.blocks.segmentation
 
 
-class SegmentationAlgorithms(AlgorithmsEnum):
+class SegmentationBlocks(BlocksEnum):
     tdbu = AlgorithmConfig(
         name="TDBU",
         enable=True,

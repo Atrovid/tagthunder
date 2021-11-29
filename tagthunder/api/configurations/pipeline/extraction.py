@@ -1,10 +1,10 @@
 import pydantic as pydantic
 
-from api.configurations.pipeline._abstract import AlgorithmsEnum, AlgorithmConfig, ParametersModelFactory
+from api.configurations.pipeline._abstract import BlocksEnum, AlgorithmConfig, ParametersModelFactory
 import pipeline.blocks.extraction
 
 
-class ExtractionAlgorithms(AlgorithmsEnum):
+class ExtractionBlocks(BlocksEnum):
     mots_blancs = AlgorithmConfig(
         name="mots_blancs",
         enable=False,

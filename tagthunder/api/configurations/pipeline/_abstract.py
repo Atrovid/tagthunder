@@ -76,7 +76,7 @@ class ABCEnumMeta(abc.ABCMeta, enum.EnumMeta):
 
 
 @enum.unique
-class AlgorithmsEnum(enum.Enum, metaclass=ABCEnumMeta):
+class BlocksEnum(enum.Enum, metaclass=ABCEnumMeta):
     @classmethod
     @property
     @abc.abstractmethod
@@ -90,7 +90,7 @@ class AlgorithmsEnum(enum.Enum, metaclass=ABCEnumMeta):
 
     @classmethod
     @property
-    def query_types(cls):
+    def query_types(cls) -> tuple:
         return tuple([algo.value.query for _, algo in cls.__members__.items() if algo.value.enable])
 
     @classmethod

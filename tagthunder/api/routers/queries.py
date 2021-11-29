@@ -13,17 +13,17 @@ class HTMLAugmentationQuery(BaseModel):
 
 
 class Queries:
-    EXTRACTION = Union[algos.ExtractionAlgorithms.query_types]
-    CLEANING = Union[algos.CleaningAlgorithms.query_types]
-    SEGMENTATION = Union[algos.SegmentationAlgorithms.query_types]
-    VOCALIZATION = Union[algos.VocalizationAlgorithms.query_types]
+    EXTRACTION = Union[algos.ExtractionBlocks.query_types]
+    CLEANING = Union[algos.CleaningBlocks.query_types]
+    SEGMENTATION = Union[algos.SegmentationBlocks.query_types]
+    VOCALIZATION = Union[algos.VocalizationBlocks.query_types]
 
 
 class DefaultQueries:
-    EXTRACTION = algos.ExtractionAlgorithms.default_query
-    CLEANING = algos.CleaningAlgorithms.default_query
-    SEGMENTATION = algos.SegmentationAlgorithms.default_query
-    VOCALIZATION = algos.VocalizationAlgorithms.default_query
+    EXTRACTION = algos.ExtractionBlocks.default_query
+    CLEANING = algos.CleaningBlocks.default_query
+    SEGMENTATION = algos.SegmentationBlocks.default_query
+    VOCALIZATION = algos.VocalizationBlocks.default_query
 
 
 class AlgorithmQuery(BaseModel):
