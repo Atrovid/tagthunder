@@ -3,17 +3,22 @@ from typing import Optional, List, Union, Tuple, NewType, Type
 import bs4
 from pydantic import BaseModel, Field
 
-from pipeline.models.web_elements import Tag
+from pipeline.models.web_elements import HTMLPTag, HTMLPPTag
+
+
+class HTML(bs4.BeautifulSoup):
+    def __init__(self, markup=""):
+        super(HTML, self).__init__(markup=markup, features="html.parser")
 
 
 class HTMLP(bs4.BeautifulSoup):
     def __init__(self, markup=""):
-        super(HTMLP, self).__init__(markup=markup, features="html.parser", element_classes={bs4.Tag: Tag})
+        super(HTMLP, self).__init__(markup=markup, features="html.parser", element_classes={bs4.Tag: HTMLPTag})
 
 
 class HTMLPP(bs4.BeautifulSoup):
     def __init__(self, markup=""):
-        super(HTMLPP, self).__init__(markup=markup, features="html.parser", element_classes={bs4.Tag: Tag})
+        super(HTMLPP, self).__init__(markup=markup, features="html.parser", element_classes={bs4.Tag: HTMLPPTag})
 
 
 class Keyword(BaseModel):

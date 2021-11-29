@@ -62,6 +62,10 @@ class BoundingBox:
             [c.to_numpy() for c in self.corners],
         )
 
+    @property
+    def is_visible(self):
+        return any(map(bool, (self.width, self.height)))
+
 
 @dataclass
 class CoveringBoundingBox(BoundingBox):
@@ -72,10 +76,19 @@ class CoveringBoundingBox(BoundingBox):
         super(CoveringBoundingBox, self).__init__(*top_left, *dims)
 
 
-class Tag(bs4.Tag):
+class Styles(dict):
+    def __init__(self, styles=None):
+        if styles is None:
+            styles = {}
+        super(Styles, self).__init__(styles)
+
+    def __getitem__(self, item):
+        return self.get(item, default=None)
+
+
+class HTMLPTag(bs4.Tag):
     _BBOX_KEY = "data-bbox"
     _STYLES_KEY = "data-style"
-    _CLEAN_KEY = "data-cleaned"
 
     def __init__(self, parser=None, builder=None, name=None, namespace=None,
                  prefix=None, attrs=None, parent=None, previous=None,
@@ -83,17 +96,16 @@ class Tag(bs4.Tag):
                  can_be_empty_element=None, cdata_list_attributes=None,
                  preserve_whitespace_tags=None, interesting_string_types=None,
                  bbox: BoundingBox = None, styles: Dict[str, Any] = None):
-        super(Tag, self).__init__(parser=parser, builder=builder, name=name, namespace=namespace,
-                                  prefix=prefix, attrs=attrs, parent=parent, previous=previous,
-                                  is_xml=is_xml, sourceline=sourceline, sourcepos=sourcepos,
-                                  can_be_empty_element=can_be_empty_element,
-                                  cdata_list_attributes=cdata_list_attributes,
-                                  preserve_whitespace_tags=preserve_whitespace_tags,
-                                  interesting_string_types=interesting_string_types)
+        super(HTMLPTag, self).__init__(parser=parser, builder=builder, name=name, namespace=namespace,
+                                       prefix=prefix, attrs=attrs, parent=parent, previous=previous,
+                                       is_xml=is_xml, sourceline=sourceline, sourcepos=sourcepos,
+                                       can_be_empty_element=can_be_empty_element,
+                                       cdata_list_attributes=cdata_list_attributes,
+                                       preserve_whitespace_tags=preserve_whitespace_tags,
+                                       interesting_string_types=interesting_string_types)
 
         self._bbox: Optional[BoundingBox] = bbox
         self._styles: Optional[Dict[str, Any]] = styles
-        self._visible: Optional[bool] = None
 
     @property
     def bbox(self):
@@ -112,22 +124,55 @@ class Tag(bs4.Tag):
                 styles = self.attrs[self._STYLES_KEY].split(";")
                 styles = filter(lambda couple: ":" in couple, styles)
 
-                self._styles = {
+                styles = {
                     style: value
                     for style, value
                     in map(lambda sv: sv.split(":", 1), styles)
                 }
             except KeyError:
-                self._styles = {}
+                styles = {}
+            self._styles = Styles(styles)
 
         return self._styles
 
+
+class HTMLPPTag(HTMLPTag):
+    _CLEAN_KEY = "data-cleaned"
+
+    def __init__(self, parser=None, builder=None, name=None, namespace=None,
+                 prefix=None, attrs=None, parent=None, previous=None,
+                 is_xml=None, sourceline=None, sourcepos=None,
+                 can_be_empty_element=None, cdata_list_attributes=None,
+                 preserve_whitespace_tags=None, interesting_string_types=None,
+                 bbox: BoundingBox = None, styles: Dict[str, Any] = None):
+
+        super(HTMLPPTag, self).__init__(parser=parser, builder=builder, name=name, namespace=namespace,
+                                        prefix=prefix, attrs=attrs, parent=parent, previous=previous,
+                                        is_xml=is_xml, sourceline=sourceline, sourcepos=sourcepos,
+                                        can_be_empty_element=can_be_empty_element,
+                                        cdata_list_attributes=cdata_list_attributes,
+                                        preserve_whitespace_tags=preserve_whitespace_tags,
+                                        interesting_string_types=interesting_string_types,
+                                        bbox=bbox, styles=styles)
+
+        self._visible: Optional[bool] = None
+
     @property
-    def visible(self):
+    def is_visible(self):
         if not self._visible:
             try:
                 visible = self.attrs[self._CLEAN_KEY] == "false"
             except KeyError:
-                visible = False
+                self.attrs[self._CLEAN_KEY] = self.compute_data_cleaned_value()
+                visible = self.is_visible
             self._visible = visible
         return self._visible
+
+    def compute_data_cleaned_value(self) -> bool:
+        return any([
+            self.bbox.is_visible,
+            self.styles["display"] == "none",
+            self.styles["visiblity"] == "hidden",
+            self.styles["hidden"] == "true",
+            self.styles["x-visible"] == "invisible"
+        ])

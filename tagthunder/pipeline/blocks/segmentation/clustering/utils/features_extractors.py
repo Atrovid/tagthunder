@@ -31,7 +31,7 @@ class FeaturesDataFrame(DataFrame):
         res = Series({
             "name": tag.name,
             "bbox": tag.bbox,
-            "visible": tag.visible,
+            "visible": tag.is_visible,
             "styles": tag.styles,
             "tag": tag
         })
@@ -58,7 +58,7 @@ class AbstractFeaturesExtractor(ABC):
 
     @classmethod
     def is_visible(cls, node: Tag):
-        return node.visible
+        return node.is_visible
 
     @classmethod
     def is_block(cls, node: Tag, block_attrs=None):
@@ -255,7 +255,7 @@ class TOIS(AbstractFeaturesExtractor):
 
     @classmethod
     def is_visible(cls, node: Tag):
-        return node.visible
+        return node.is_visible
 
     @classmethod
     def all_children(cls, node: Tag, condition):
