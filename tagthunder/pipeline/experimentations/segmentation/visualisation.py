@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
-from pipeline.models.web_elements import BoundingBox, Tag
+from pipeline.models.web_elements import BoundingBox, HTMLPPTag
 
 
 class PlotClustering:
@@ -20,7 +20,7 @@ class PlotClustering:
         self.current_row = 0
 
     @classmethod
-    def bboxes(cls, ax, tags: Iterable[Tag], labels=None, **kwargs):
+    def bboxes(cls, ax, tags: Iterable[HTMLPPTag], labels=None, **kwargs):
         bboxes = [tag.bbox for tag in tags]
 
         if labels is None:
@@ -56,7 +56,8 @@ class PlotClustering:
         cls.bboxes(ax, tags, labels, hatch="//", ls="--")
         return cls
 
-    def plot_centers(self, title, subtitle=None, population: Iterable[Tag] = None, centers: Iterable[Tag] = None):
+    def plot_centers(self, title, subtitle=None, population: Iterable[HTMLPPTag] = None,
+                     centers: Iterable[HTMLPPTag] = None):
         fig = self.subfigs[self.current_row]
         fig.suptitle(title)
         ax = self._axes(fig, nrows=1, ncols=1)[0]
@@ -73,7 +74,8 @@ class PlotClustering:
         self.current_row += 1
         return self
 
-    def plot(self, title, population: Iterable[Tag], init_centers: Iterable[Tag], centers: Iterable[Tag], labels):
+    def plot(self, title, population: Iterable[HTMLPPTag], init_centers: Iterable[HTMLPPTag],
+             centers: Iterable[HTMLPPTag], labels):
 
         fig = self.subfigs[self.current_row]
         fig.suptitle(title, fontweight='semibold')
@@ -84,7 +86,6 @@ class PlotClustering:
         axes = self._axes(fig, nrows=1, ncols=2)
 
         ax = axes[0]
-        print(df.columns)
         ax.set_title("Initialisation")
         self.population(ax, population)
         self.centers(ax, init_centers, centers_labels)

@@ -3,14 +3,7 @@ import json
 import pipeline.experimentations.segmentation.visualisation as visualisation
 import pipeline.blocks.segmentation.clustering.utils.features_extractors as features_extractors
 from pipeline.models.responses import HTMLPP
-
-
-def get_htmlpp(json_file) -> HTMLPP:
-    with open(json_file, "r") as f:
-        content = json.load(f)
-        htmlpp = HTMLPP(content["html"])
-
-    return htmlpp
+import pipeline.experimentations._utils as expe_utils
 
 
 def extraction(htmlpp: HTMLPP, extractor: features_extractors.AbstractFeaturesExtractor,
@@ -24,9 +17,8 @@ def extraction(htmlpp: HTMLPP, extractor: features_extractors.AbstractFeaturesEx
         population=features)
 
 
-def main():
-    json_file = "../../data/html++/calvados.raw.json"
-    htmlpp = get_htmlpp(json_file)
+def main(json_file):
+    htmlpp = expe_utils.get_htmlpp(json_file)
 
     extractors = [
         features_extractors.TOIS(),
@@ -43,4 +35,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    json_file = "../../data/html++/calvados.raw.json"
+    main(json_file)

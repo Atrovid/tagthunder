@@ -12,7 +12,7 @@ import pandas as pd
 from pandas import DataFrame, Series
 
 from pipeline.models.responses import HTMLPP
-from pipeline.models.web_elements import BoundingBox, Tag
+from pipeline.models.web_elements import BoundingBox, HTMLPPTag
 
 
 class FeaturesDataFrame(DataFrame):
@@ -27,7 +27,7 @@ class FeaturesDataFrame(DataFrame):
         )
 
     @classmethod
-    def _tag_to_entry(cls, tag: Tag):
+    def _tag_to_entry(cls, tag: HTMLPPTag):
         res = Series({
             "name": tag.name,
             "bbox": tag.bbox,
@@ -44,7 +44,7 @@ class FeaturesDataFrame(DataFrame):
             verify_integrity: bool = False,
             sort: bool = False,
     ) -> DataFrame:
-        if isinstance(other, Tag):
+        if isinstance(other, HTMLPPTag):
             other = self._tag_to_entry(other)
             ignore_index = True
         return super(FeaturesDataFrame, self).append(other, ignore_index, verify_integrity, sort)
@@ -57,18 +57,18 @@ class AbstractFeaturesExtractor(ABC):
         ...
 
     @classmethod
-    def is_visible(cls, node: Tag):
+    def is_visible(cls, node: HTMLPPTag):
         return node.is_visible
 
     @classmethod
-    def is_block(cls, node: Tag, block_attrs=None):
+    def is_block(cls, node: HTMLPPTag, block_attrs=None):
         if block_attrs is None:
             block_attrs = ["block", "inline-block"]
         style = node.styles.get("display")
         return style in block_attrs
 
     @classmethod
-    def has_content(cls, node: Tag):
+    def has_content(cls, node: HTMLPPTag):
         return bool(node.contents)
 
 
@@ -117,7 +117,7 @@ class LastBlockSemantic(AbstractFeaturesExtractor):
         ])
 
     @classmethod
-    def contents_text(cls, node: Tag):
+    def contents_text(cls, node: HTMLPPTag):
         return len(node.text)
 
     @classmethod
@@ -125,7 +125,7 @@ class LastBlockSemantic(AbstractFeaturesExtractor):
         return node.name in cls.TVE
 
     @classmethod
-    def no_child_in_tve(cls, node: Tag):
+    def no_child_in_tve(cls, node: HTMLPPTag):
         return not len(node.find_all(cls.in_tve))
 
 
@@ -137,7 +137,7 @@ class LastBlocksWithComputedStyles(AbstractFeaturesExtractor):
         return df
 
     @classmethod
-    def keep_node(cls, node: Tag):
+    def keep_node(cls, node: HTMLPPTag):
         return all([
             cls.is_basic_block(node),
             cls.has_content(node),
@@ -149,7 +149,7 @@ class LastBlocksWithComputedStyles(AbstractFeaturesExtractor):
         return cls.is_visible(node) and cls.is_block(node, ["block"])
 
     @classmethod
-    def has_basic_block_children(cls, node: Tag):
+    def has_basic_block_children(cls, node: HTMLPPTag):
         return bool(node.find_all(lambda child: cls.is_basic_block(child)))
 
 
@@ -254,32 +254,32 @@ class TOIS(AbstractFeaturesExtractor):
         return False
 
     @classmethod
-    def is_visible(cls, node: Tag):
+    def is_visible(cls, node: HTMLPPTag):
         return node.is_visible
 
     @classmethod
-    def all_children(cls, node: Tag, condition):
+    def all_children(cls, node: HTMLPPTag, condition):
         return all(
             cls.is_visible(child) and condition(child)
             for child in node.find_all(True)
         )
 
     @classmethod
-    def in_not_tve(cls, node: Tag):
+    def in_not_tve(cls, node: HTMLPPTag):
         return node.name in cls.NOT_TVE
 
     @classmethod
-    def in_tve(cls, node: Tag):
+    def in_tve(cls, node: HTMLPPTag):
         return node.name in cls.TVE
 
     @classmethod
-    def is_inline(cls, node: Tag):
+    def is_inline(cls, node: HTMLPPTag):
         return node.styles["display"] == "inline"
 
     @classmethod
-    def has_children(cls, node: Tag):
+    def has_children(cls, node: HTMLPPTag):
         return bool(node.contents)
 
     @classmethod
-    def has_exactly_one_child(cls, node: Tag):
+    def has_exactly_one_child(cls, node: HTMLPPTag):
         return len(node.contents) == 1
