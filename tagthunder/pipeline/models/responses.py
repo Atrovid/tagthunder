@@ -17,11 +17,16 @@ class HTMLP(bs4.BeautifulSoup):
 
 
 class HTMLPP(bs4.BeautifulSoup):
-    def __init__(self, markup=""):
-        super(HTMLPP, self).__init__(markup=markup, features="html5lib", element_classes={bs4.Tag: HTMLPPTag})
+    def __init__(self, markup="", parser="html5lib"):
+        super(HTMLPP, self).__init__(markup=markup, features=parser, element_classes={bs4.Tag: HTMLPPTag})
 
     def find_all_visible(self, attrs={}, recursive=True, text=None, limit=None, **kwargs):
-        return self.find_all(lambda tag: tag.is_visible, attrs={}, recursive=True, text=None, limit=None, **kwargs)
+        return self.find_all(lambda tag: tag.is_visible, attrs=attrs, recursive=recursive, text=text, limit=limit,
+                             **kwargs)
+
+    @property
+    def bbox(self):
+        return self.body.bbox
 
 
 class Keyword(BaseModel):
@@ -47,3 +52,7 @@ class Zone(BaseModel):
 
 class Segmentation(BaseModel):
     zones: List[Zone] = []
+
+    @property
+    def htmlpp(self):
+        return [z.htmlpp for z in self.zones]

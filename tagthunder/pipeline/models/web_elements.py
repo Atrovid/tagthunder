@@ -64,7 +64,7 @@ class BoundingBox:
 
     @property
     def is_visible(self):
-        return any(map(bool, (self.width, self.height)))
+        return self.width > 5 and self.height > 5
 
 
 @dataclass
@@ -83,7 +83,7 @@ class Styles(dict):
         super(Styles, self).__init__(styles)
 
     def __getitem__(self, item):
-        return self.get(item, default=None)
+        return self.get(item)
 
 
 class HTMLPTag(bs4.Tag):
@@ -113,7 +113,12 @@ class HTMLPTag(bs4.Tag):
             try:
                 params = map(int, self.attrs[self._BBOX_KEY].split(" "))
             except KeyError:
-                params = (0, 0, 0, 0)
+                children = self.find_all(True, recursive=False)
+                if children:
+                    bbox = CoveringBoundingBox([c.bbox for c in children])
+                    params = (bbox.top_left.x, bbox.top_left.y, bbox.width, bbox.height)
+                else:
+                    params = (0, 0, 0, 0)
             self._bbox = BoundingBox(*params)
         return self._bbox
 
@@ -134,6 +139,10 @@ class HTMLPTag(bs4.Tag):
             self._styles = Styles(styles)
 
         return self._styles
+
+    @property
+    def classes(self):
+        return self.attrs.get("class", [])
 
 
 class HTMLPPTag(HTMLPTag):
@@ -160,19 +169,28 @@ class HTMLPPTag(HTMLPTag):
     @property
     def is_visible(self):
         if not self._visible:
-            try:
-                visible = self.attrs[self._CLEAN_KEY] == "false"
-            except KeyError:
-                self.attrs[self._CLEAN_KEY] = self.compute_data_cleaned_value()
-                visible = self.is_visible
+            visible = self.compute_data_cleaned_value() == "false"
             self._visible = visible
         return self._visible
 
-    def compute_data_cleaned_value(self) -> bool:
-        return any([
-            self.bbox.is_visible,
-            self.styles["display"] == "none",
-            self.styles["visiblity"] == "hidden",
-            self.styles["hidden"] == "true",
-            self.styles["x-visible"] == "invisible"
-        ])
+    def compute_data_cleaned_value(self) -> str:
+        return str(
+            not self.bbox.is_visible
+            or any([
+                self.styles.get("display") == "none",
+                self.styles.get("visiblity") == "hidden",
+                self.styles.get("hidden") == "true",
+                self.styles.get("x-visible") == "invisible"
+            ])
+        ).lower()
+
+    def find_all_visible(self, attrs=None, recursive=True, text=None,
+                         limit=None, **kwargs):
+        if attrs is None:
+            attrs = {}
+        return self.find_all(lambda tag: tag.is_visible, attrs=attrs, recursive=recursive, text=text, limit=limit,
+                             **kwargs)
+
+    @property
+    def has_visible_children(self):
+        return bool(len(self.find_all_visible(recursive=False)))
