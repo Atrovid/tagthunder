@@ -8,17 +8,20 @@ from pipeline.models.web_elements import HTMLPTag, HTMLPPTag
 
 class HTML(bs4.BeautifulSoup):
     def __init__(self, markup=""):
-        super(HTML, self).__init__(markup=markup, features="html.parser")
+        super(HTML, self).__init__(markup=markup, features="html5lib")
 
 
 class HTMLP(bs4.BeautifulSoup):
     def __init__(self, markup=""):
-        super(HTMLP, self).__init__(markup=markup, features="html.parser", element_classes={bs4.Tag: HTMLPTag})
+        super(HTMLP, self).__init__(markup=markup, features="html5lib", element_classes={bs4.Tag: HTMLPTag})
 
 
 class HTMLPP(bs4.BeautifulSoup):
     def __init__(self, markup=""):
-        super(HTMLPP, self).__init__(markup=markup, features="html.parser", element_classes={bs4.Tag: HTMLPPTag})
+        super(HTMLPP, self).__init__(markup=markup, features="html5lib", element_classes={bs4.Tag: HTMLPPTag})
+
+    def find_all_visible(self, attrs={}, recursive=True, text=None, limit=None, **kwargs):
+        return self.find_all(lambda tag: tag.is_visible, attrs={}, recursive=True, text=None, limit=None, **kwargs)
 
 
 class Keyword(BaseModel):
