@@ -13,12 +13,11 @@ import api.configurations.pipeline as algorithms_conf
 class AlgorithmServices:
 
     @classmethod
-    def html_augmentation(cls, url: [HttpUrl], recompute: bool = False) -> Optional[schemas.HTMLP]:
-        response = get_augmented_html(url, recompute)
+    def augmentation(cls, url: [HttpUrl], algorithm_name: str, parameters) -> Optional[schemas.HTMLP]:
+        augmentation_block = algorithms_conf.AugmentationBlocks.get_algorithm(algorithm_name)
 
-        if get_augmented_html.is_ok(response):
-            return factories.Responses.HTMLP(response)
-        return
+        htmlp = augmentation_block(url, **parameters)
+        return factories.Responses.HTMLP(htmlp)
 
     @classmethod
     def cleaning(cls, htmlp: schemas.HTMLP, algorithm_name: str, parameters) -> schemas.HTMLPP:

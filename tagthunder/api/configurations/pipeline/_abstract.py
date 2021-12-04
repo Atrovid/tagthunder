@@ -37,6 +37,13 @@ class ParametersModelFactory:
         )
 
     @classmethod
+    def augmentation(cls, algorithm_name: str, **kwargs) -> Type[pydantic.BaseModel]:
+        return cls.meta(
+            algorithm_name,
+            **kwargs
+        )
+
+    @classmethod
     def extraction(cls, algorithm_name: str, nb_keywords: int, **kwargs) -> Type[pydantic.BaseModel]:
         return cls.meta(
             algorithm_name,
@@ -60,8 +67,12 @@ class ParametersModelFactory:
             **kwargs
         )
 
+    @classmethod
+    def vocalization(cls, algorithm_name: str, **kwargs) -> Type[pydantic.BaseModel]:
+        return cls.meta(algorithm_name, **kwargs)
 
-class AlgorithmConfig(pydantic.BaseModel):
+
+class BlockConfig(pydantic.BaseModel):
     name: str
     enable: bool
     algorithm: object

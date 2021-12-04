@@ -1,11 +1,11 @@
 import pydantic as pydantic
 
-from api.configurations.pipeline._abstract import BlocksEnum, AlgorithmConfig, ParametersModelFactory
+from api.configurations.pipeline._abstract import BlocksEnum, BlockConfig, ParametersModelFactory
 import pipeline.blocks.extraction
 
 
 class ExtractionBlocks(BlocksEnum):
-    mots_blancs = AlgorithmConfig(
+    mots_blancs = BlockConfig(
         name="mots_blancs",
         enable=False,
         algorithm=pipeline.blocks.extraction.MotsBlancs(),
@@ -15,7 +15,7 @@ class ExtractionBlocks(BlocksEnum):
         )
     )
 
-    yake = AlgorithmConfig(
+    yake = BlockConfig(
         name="yake",
         enable=True,
         algorithm=pipeline.blocks.extraction.Yake(),

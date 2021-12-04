@@ -6,7 +6,8 @@ class HTMLAugmentedRequester:
     STATUS_KEY = "status"
     STATUS_OK = 'Ok'
     STATUS_KO = 'Ko'
-    
+    CONTENT_KEY = "html"
+
     def __init__(self, crawler_address: HttpUrl):
         self.crawler_address = crawler_address
 
@@ -29,6 +30,10 @@ class HTMLAugmentedRequester:
     @classmethod
     def is_ok(cls, response):
         return response[cls.STATUS_KEY] == cls.STATUS_OK
+
+    @classmethod
+    def get_content(cls, response):
+        return response[cls.CONTENT_KEY]
 
     def __call__(self, url: HttpUrl, recompute: bool):
         return self.request(url, recompute)

@@ -1,11 +1,11 @@
 import pydantic as pydantic
 
-from api.configurations.pipeline._abstract import BlocksEnum, AlgorithmConfig, ParametersModelFactory
+from api.configurations.pipeline._abstract import BlocksEnum, BlockConfig, ParametersModelFactory
 import pipeline.blocks.segmentation
 
 
 class SegmentationBlocks(BlocksEnum):
-    tdbu = AlgorithmConfig(
+    tdbu = BlockConfig(
         name="TDBU",
         enable=True,
         algorithm=pipeline.blocks.segmentation.TopDownBottomUp(),
@@ -15,7 +15,7 @@ class SegmentationBlocks(BlocksEnum):
         )
     )
 
-    ge = AlgorithmConfig(
+    ge = BlockConfig(
         name="GE",
         enable=False,
         algorithm=pipeline.blocks.segmentation.GuidedExpansion(),

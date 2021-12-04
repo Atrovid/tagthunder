@@ -7,19 +7,16 @@ from pydantic.main import BaseModel
 from pydantic.networks import HttpUrl
 
 
-class HTMLAugmentationQuery(BaseModel):
-    url: Union[HttpUrl]
-    recompute: Optional[bool] = False
-
-
 class Queries:
+    AUGMENTATION = Union[algos.AugmentationBlocks.query_types]
     EXTRACTION = Union[algos.ExtractionBlocks.query_types]
     CLEANING = Union[algos.CleaningBlocks.query_types]
     SEGMENTATION = Union[algos.SegmentationBlocks.query_types]
     VOCALIZATION = Union[algos.VocalizationBlocks.query_types]
 
 
-class DefaultQueries:
+class DefaultQuery:
+    AUGMENTATION = algos.AugmentationBlocks.default_query
     EXTRACTION = algos.ExtractionBlocks.default_query
     CLEANING = algos.CleaningBlocks.default_query
     SEGMENTATION = algos.SegmentationBlocks.default_query
@@ -30,31 +27,36 @@ class AlgorithmQuery(BaseModel):
     pass
 
 
+class AugmentationQuery(BaseModel):
+    url: HttpUrl
+    algorithm: Optional[Queries.AUGMENTATION] = DefaultQuery.AUGMENTATION
+
+
 class CleaningQuery(AlgorithmQuery):
     htmlp: api_schemas.HTMLP
-    algorithm: Optional[Queries.CLEANING] = DefaultQueries.CLEANING
+    algorithm: Optional[Queries.CLEANING] = DefaultQuery.CLEANING
 
 
 class SegmentationQuery(AlgorithmQuery):
     htmllpp: api_schemas.HTMLPP
-    algorithm: Optional[Queries.SEGMENTATION] = DefaultQueries.SEGMENTATION
+    algorithm: Optional[Queries.SEGMENTATION] = DefaultQuery.SEGMENTATION
 
 
 class ExtractionQuery(AlgorithmQuery):
     htmlpp: api_schemas.HTMLPP
-    algorithm: Optional[Queries.EXTRACTION] = DefaultQueries.EXTRACTION
+    algorithm: Optional[Queries.EXTRACTION] = DefaultQuery.EXTRACTION
 
 
 class VocalizationQuery(AlgorithmQuery):
     keywords: api_schemas.Keywords
-    algorithm: Optional[Queries.VOCALIZATION] = DefaultQueries.VOCALIZATION
+    algorithm: Optional[Queries.VOCALIZATION] = DefaultQuery.VOCALIZATION
 
 
 class PipelineQuery(AlgorithmQuery):
     url: HttpUrl
     htmlpp: Optional[api_schemas.HTMLPP]
     recompute: bool = False
-    cleaning: Optional[Queries.CLEANING] = DefaultQueries.CLEANING
-    segmentation: Optional[Queries.SEGMENTATION] = DefaultQueries.SEGMENTATION
-    extraction: Optional[Queries.EXTRACTION] = DefaultQueries.EXTRACTION
-    vocalization: Optional[Queries.VOCALIZATION] = DefaultQueries.VOCALIZATION
+    cleaning: Optional[Queries.CLEANING] = DefaultQuery.CLEANING
+    segmentation: Optional[Queries.SEGMENTATION] = DefaultQuery.SEGMENTATION
+    extraction: Optional[Queries.EXTRACTION] = DefaultQuery.EXTRACTION
+    vocalization: Optional[Queries.VOCALIZATION] = DefaultQuery.VOCALIZATION

@@ -11,19 +11,17 @@ const del = require('del');
 //const cs      = require('./content_script')
 
 const config = {
-    proxy: ('http_proxy' in process.env ? process.env["http_proxy"] : "")
-
+    proxy_address: ('http_proxy' in process.env ? process.env["http_proxy"] : "")
+    dir_cache_path: ("puppeteer_crawler_data" in process.env ? process.env["puppeteer_crawler_data"] : "/tmp/")
 }
 
-const PUBLIC_REP_PATH_RELATIVE = "../public/";
-//const PUBLIC_REP_PATH_ABSOLUTE = "/home/condami202/TagThunder/tagt/public/";
-//const PUBLIC_REP_PATH_ABSOLUTE = "/www/tagthunder/uwsgi-prod/public/";
+const PUBLIC_REP_PATH_RELATIVE = process.env["puppeteer_crawler_data"];
 
 // Browser and page instance
 async function instance(){
     const browser = await puppeteer.launch({
      headless: true,
-     args: [`--proxy-server=${config.proxy}`],
+     args: [`--proxy-server=${config.proxy_address}`],
      defaultViewport: null
   });
 
@@ -68,7 +66,6 @@ async function runPuppeteer(baseURL, force=false){
 
                 // URL given may be a redirection to an actuel (more complex) url of the webpage
                 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-//                await delay(3000); // gives some extra time to load.
 
                 await page.waitForSelector('body')
 

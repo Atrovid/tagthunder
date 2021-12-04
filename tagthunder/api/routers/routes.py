@@ -1,6 +1,3 @@
-import io
-from typing import List
-
 import fastapi
 import pydantic
 
@@ -36,8 +33,12 @@ class Routes:
     description="HTML+ generation",
     response_model=schemas.HTMLP
 )
-def post_html_augmentation(query: queries.HTMLAugmentationQuery):
-    return services.AlgorithmServices.html_augmentation(query.url, query.recompute)
+def post_html_augmentation(query: queries.AugmentationQuery):
+    return services.AlgorithmServices.augmentation(
+        query.url,
+        query.algorithm.name,
+        query.algorithm.parameters.dict()
+    )
 
 
 @router.post(
@@ -98,7 +99,7 @@ async def vocalization(
         query.algorithm.name,
         query.algorithm.parameters.dict()
     )
-     
+
     return fastapi.responses.StreamingResponse(audio, media_type="audio/mpeg3")
 
 
