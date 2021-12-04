@@ -20,13 +20,22 @@ class HTMLPP(bs4.BeautifulSoup):
     def __init__(self, markup="", parser="html5lib"):
         super(HTMLPP, self).__init__(markup=markup, features=parser, element_classes={bs4.Tag: HTMLPPTag})
 
-    def find_all_visible(self, attrs={}, recursive=True, text=None, limit=None, **kwargs):
+    def find_all_visible(self, attrs=None, recursive=True, text=None, limit=None, **kwargs):
+        if attrs is None:
+            attrs = {}
         return self.find_all(lambda tag: tag.is_visible, attrs=attrs, recursive=recursive, text=text, limit=limit,
                              **kwargs)
 
     @property
     def bbox(self):
         return self.body.bbox
+
+    def __copy__(self):
+        return type(self)(self.prettify())
+
+    @classmethod
+    def from_tags(cls, tags: List[HTMLPPTag]):
+        return cls("".join(map(str, tags)))
 
 
 class Keyword(BaseModel):

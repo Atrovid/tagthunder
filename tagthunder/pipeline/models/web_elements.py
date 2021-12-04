@@ -109,7 +109,7 @@ class HTMLPTag(bs4.Tag):
 
     @property
     def bbox(self):
-        if not self._bbox:
+        if self._bbox is None:
             try:
                 params = map(int, self.attrs[self._BBOX_KEY].split(" "))
             except KeyError:
@@ -124,7 +124,7 @@ class HTMLPTag(bs4.Tag):
 
     @property
     def styles(self):
-        if not self._styles:
+        if self._styles is None:
             try:
                 styles = self.attrs[self._STYLES_KEY].split(";")
                 styles = filter(lambda couple: ":" in couple, styles)
@@ -146,7 +146,7 @@ class HTMLPTag(bs4.Tag):
 
 
 class HTMLPPTag(HTMLPTag):
-    _CLEAN_KEY = "data-cleaned"
+    _DATA_CLEANED_KEY = "data-cleaned"
 
     def __init__(self, parser=None, builder=None, name=None, namespace=None,
                  prefix=None, attrs=None, parent=None, previous=None,
@@ -165,24 +165,34 @@ class HTMLPPTag(HTMLPTag):
                                         bbox=bbox, styles=styles)
 
         self._visible: Optional[bool] = None
+        self._cleaned: Optional[bool] = None
 
     @property
     def is_visible(self):
-        if not self._visible:
-            visible = self.compute_data_cleaned_value() == "false"
+        if self._visible is None:
+            visible = not self.is_cleaned
             self._visible = visible
         return self._visible
 
-    def compute_data_cleaned_value(self) -> str:
-        return str(
-            not self.bbox.is_visible
-            or any([
+    @property
+    def is_cleaned(self) -> bool:
+        if self._cleaned is None:
+            res = (
+                    not self.bbox.is_visible
+                    or any([
                 self.styles.get("display") == "none",
                 self.styles.get("visiblity") == "hidden",
                 self.styles.get("hidden") == "true",
                 self.styles.get("x-visible") == "invisible"
             ])
-        ).lower()
+            )
+            self.set_data_cleaned_hmtl_attr(res)
+            self._cleaned = res
+
+        return self._cleaned
+
+    def set_data_cleaned_hmtl_attr(self, value: bool):
+        self.attrs[self._DATA_CLEANED_KEY] = str(value)
 
     def find_all_visible(self, attrs=None, recursive=True, text=None,
                          limit=None, **kwargs):
