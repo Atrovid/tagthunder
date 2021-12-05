@@ -1,0 +1,22 @@
+{
+  "name": "puppeteer-crawler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "del": "^6.0.0",
+    "fs": "^0.0.1-security",
+    "html-augmentation": "file:../html-augmentation",
+    "https": "^1.0.0",
+    "jsdom": "^19.0.0",
+    "node-fetch": "^3.1.0",
+    "package.json": "^2.0.1",
+    "puppeteer": "^12.0.1",
+    "request": "^2.88.2"
+  }
+}
