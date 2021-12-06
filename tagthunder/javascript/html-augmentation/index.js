@@ -5,9 +5,9 @@ const getXPath = require('get-xpath');
 
 function addBoundingBox(el){
 
-    let rectangle = node.getBoundingClientRect();
+    let rectangle = el.getBoundingClientRect();
     value = `${rectangle.x} ${rectangle.y} ${rectangle.width} ${rectangle.height}`
-    node.setAttribute("bbox", value);
+    el.setAttribute("bbox", value);
 }
 
 function addComputedStyles(el, styles){
@@ -20,15 +20,15 @@ function addComputedStyles(el, styles){
     );
 }
 
-function addXpath(el){
+function addXPath(el){
     el.setAttribute("xpath", getXPath(el));
 }
 
-function getElementByXpath(path) {
+function getElementByXPath(path) {
     return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 }
 
-exports.getElementByXpath = getElementByXpath;
+exports.getElementByXPath = getElementByXPath;
 exports.addComputedStyles = addComputedStyles;
 exports.addBoundingBox = addBoundingBox;
-exports.addXpath = addXpath;
+exports.addXPath = addXPath;
