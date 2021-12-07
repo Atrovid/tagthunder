@@ -12,6 +12,8 @@ async function init(){
     let browser = await puppeteer.launch({
         headless: false,
         args: [
+            '--no-sandbox', 
+            '--disable-setuid-sandbox',
             `--proxy-server=${config.proxy_address}`,
             `--disable-extensions-except=${cookieIgnorePath}`,
             `--load-extension=${cookieIgnorePath}`,

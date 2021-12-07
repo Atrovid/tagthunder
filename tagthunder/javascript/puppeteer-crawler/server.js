@@ -5,8 +5,9 @@ const cors = require('cors')
 const bodyParser = require('body-parser');
 const crawler = require("./crawler")
 
-
-let browser = crawler.init();
+const PORT = 8080;
+const HOST = '0.0.0.0';
+const browser = crawler.init();
 
 
 const app = express()
@@ -35,4 +36,6 @@ app.post('/', (req, res) => {
     )
 })
 
-app.listen(8080, "127.0.0.1");
+
+app.listen(PORT, HOST);
+console.log(`[*] Running on http:\/\/${HOST}:${PORT}`)
