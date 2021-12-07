@@ -25,9 +25,13 @@ app.post('/', (req, res) => {
             let page = crawler.goto(browser, body.url, body.width, body.height)
             return page.then((page) => {
                 return crawler.processPage(page, body.styles).then(() => {
-                    return crawler.getBody(page);
+                    return crawler.getBody(page).then((html) => {
+                    page.close();
+                    return html;
+                    });
                 })
             })
+
     })
 
     res.setHeader('Content-Type', 'application/json');

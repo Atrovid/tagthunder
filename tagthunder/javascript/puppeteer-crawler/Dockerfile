@@ -1,4 +1,4 @@
-FROM node:1
+FROM node:16
 
 # update and add all the steps for running with xvfb
 RUN apt-get update
