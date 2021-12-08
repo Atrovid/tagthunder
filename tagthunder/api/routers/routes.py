@@ -31,6 +31,7 @@ class Routes:
 @router.post(
     Routes.AUGMENTATION,
     description="HTML+ generation",
+    response_class=fastapi.responses.HTMLResponse,
     response_model=schemas.HTMLP
 )
 def post_html_augmentation(query: queries.AugmentationQuery):

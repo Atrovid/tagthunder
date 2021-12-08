@@ -5,7 +5,6 @@ import bs4
 
 import api.models.schemas as schemas
 import api.models.factories as factories
-from api.services.dom_managment.augmentation import get_augmented_html
 from api.services.dom_managment.text_content_extraction import TextContentExtractor
 import api.configurations.pipeline as algorithms_conf
 

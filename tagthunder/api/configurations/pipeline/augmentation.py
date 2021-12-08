@@ -1,7 +1,10 @@
+from typing import List
+
 import pydantic
 
 from api.configurations.pipeline._abstract import BlocksEnum, BlockConfig, ParametersModelFactory
 from api.configurations.api import settings
+import pipeline.blocks
 import pipeline.blocks.augmentation
 
 
@@ -12,9 +15,9 @@ class AugmentationBlocks(BlocksEnum):
         algorithm=pipeline.blocks.augmentation.Puppeteer(settings.crawler_address),
         query=ParametersModelFactory.augmentation(
             "puppeteer",
-            recompute=(bool,
-                       pydantic.Field(True, description="Force to recompute cached HTML+")
-                       )
+            page_width=(int, pydantic.Field(1200, description="Width of the emulate web page.")),
+            page_height=(int, pydantic.Field(1200, description="Height of the emulate web page.")),
+            styles=(List[str], pydantic.Field(pipeline.blocks.REQUIRED_STYLES, description="Styles to be retrieved.")),
         )
     )
 

@@ -39,11 +39,11 @@ class Responses:
 
     @classmethod
     def HTMLP(cls, htmlp: algos_responses.HTMLP) -> schemas.HTMLP:
-        return schemas.HTMLP(__root__=htmlp.prettify())
+        return schemas.HTMLP(__root__=str(htmlp))
 
     @classmethod
     def HTMLPP(cls, htmlpp: algos_responses.HTMLPP) -> schemas.HTMLPP:
-        return schemas.HTMLPP(__root__=htmlpp.prettify())
+        return schemas.HTMLPP(__root__=str(htmlpp))
 
     @classmethod
     def Keyword(cls, keyword: algos_responses.Keyword) -> schemas.Keyword:
