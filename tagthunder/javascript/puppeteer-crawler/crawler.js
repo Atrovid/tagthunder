@@ -8,15 +8,14 @@ const config = require('./config');
 
 
 async function init(){
-    let cookieIgnorePath = `${process.cwd()}/extensions/cookieconsent`
     let browser = await puppeteer.launch({
         headless: false,
         args: [
             '--no-sandbox', 
             '--disable-setuid-sandbox',
-            `--proxy-server=${config.proxy_address}`,
-            `--disable-extensions-except=${cookieIgnorePath}`,
-            `--load-extension=${cookieIgnorePath}`,
+            `--proxy-server=${config.PROXY}`,
+            `--disable-extensions-except=${config.cookieIgnorePath}`,
+            `--load-extension=${config.cookieIgnorePath}`,
         ],
 
         defaultViewport: null
@@ -50,15 +49,18 @@ async function getBody(page){
 async function addStyles(page, styles){
     await page.addScriptTag({ url : "https://unpkg.com/computed-style-to-inline-style"})
     await page.evaluateHandle((styles) => {
-        computedStyleToInlineStyle(document.body, {
+        let options = {
             recursive: true,
-            properties: styles
-        })
+        }
+        if (!!styles.length){options.properties = styles}
+
+        computedStyleToInlineStyle(document.body, options)
     }, styles)
 }
 async function addBoundingBox(page){
     await page.addScriptTag({content: htmlAugmentation.addBoundingBox.toString()})
     await page.evaluateHandle(() => {
+        addBoundingBox(document.querySelector("body"));
         Array.from(document.querySelectorAll("body *")).forEach(addBoundingBox);
     })
 }
@@ -67,6 +69,7 @@ async function addXPath(page){
     await page.addScriptTag({content: `const getXPath = ${getXPath.toString()}`})
     await page.addScriptTag({content: htmlAugmentation.addXPath.toString()})
     await page.evaluateHandle(() => {
+        addXPath(document.querySelector("body"));
         Array.from(document.querySelectorAll("body *")).forEach(addXPath);
     })
 }

@@ -4,9 +4,8 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser');
 const crawler = require("./crawler")
+const config = require("./config");
 
-const PORT = 8080;
-const HOST = '0.0.0.0';
 const browser = crawler.init();
 
 
@@ -34,12 +33,12 @@ app.post('/', (req, res) => {
 
     })
 
-    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Type', 'text/html');
     pageBody.then((html) =>
-        res.status(200).send({"html": html})
+        res.status(200).send(html)
     )
 })
 
 
-app.listen(PORT, HOST);
-console.log(`[*] Running on http:\/\/${HOST}:${PORT}`)
+app.listen(config.PORT, config.HOST);
+console.log(`[*] Running on http:\/\/${config.HOST}:${config.PORT}`)
