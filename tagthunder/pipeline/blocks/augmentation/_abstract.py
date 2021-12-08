@@ -9,5 +9,5 @@ from pipeline.models.responses import HTML, HTMLP
 class AbstractAugmentationBlock(ABC):
 
     @abstractmethod
-    def __call__(self, *, html: HTML, url: HttpUrl) -> HTMLP:
+    def __call__(self, *, html: HTML, url: HttpUrl, **kwargs) -> HTMLP:
         ...

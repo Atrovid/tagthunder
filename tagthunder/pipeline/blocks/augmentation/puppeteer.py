@@ -1,20 +1,60 @@
-from typing import Optional
+from typing import Optional, List
 
+import pydantic
+import requests
 from pydantic import HttpUrl
 
 from pipeline.blocks.augmentation._abstract import AbstractAugmentationBlock
 from pipeline.models.responses import HTMLP
 
-from webcrawler.wrapper import HTMLAugmentedRequester
-
 
 class Puppeteer(AbstractAugmentationBlock):
     def __init__(self, crawler_address):
         self.crawler_address: HttpUrl = crawler_address
-        self.requester = HTMLAugmentedRequester(crawler_address=self.crawler_address)
+        self.requester = PuppeteerCrawler(crawler_address=self.crawler_address)
 
-    def __call__(self, url: HttpUrl, recompute: bool = False) -> HTMLP:
-        response = self.requester(url, recompute=recompute)
-        if not self.requester.is_ok(response):
-            raise RuntimeError()
-        return HTMLP(markup=self.requester.get_content(response))
+    def __call__(self, url: HttpUrl, page_width: int = 1200, page_height: int = 1200,
+                 styles: Optional[List[str]] = None) -> HTMLP:
+        if styles is None:
+            styles = []
+        response = self.requester(url=url, width=page_width, height=page_height, styles=styles)
+        return HTMLP(markup=response.content)
+
+
+class PuppeteerCrawler:
+
+    def __init__(self, crawler_address: HttpUrl):
+        self.crawler_address = crawler_address
+
+    class Body(pydantic.BaseModel):
+        url: HttpUrl
+        width: int
+        height: int
+        styles: List[str]
+
+    def request(self, request) -> requests.Response:
+        return requests.post(
+            url=self.crawler_address,
+            json=request,
+            allow_redirects=True, verify=False,
+            proxies={'http': None, 'https': None})
+
+    @property
+    def is_running(self):
+        try:
+            return requests.get(url=self.crawler_address).status_code == 200
+        except requests.exceptions.ConnectionError:
+            return False
+
+    @classmethod
+    def is_OK(cls, response: requests.Response):
+        return response.status_code == 200
+
+    def __call__(self, **kwargs):
+        return self.request(self.Body(**kwargs).dict())
+
+
+if __name__ == '__main__':
+    block = Puppeteer("http://0.0.0.0:8080")
+    htmlp = block(url="https://calvados.fr", page_width=1200, page_height=1200, styles=["display", "visibility"])
+    print(str(htmlp))
