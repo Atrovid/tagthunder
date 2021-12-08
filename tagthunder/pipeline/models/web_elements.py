@@ -64,7 +64,7 @@ class BoundingBox:
 
     @property
     def is_visible(self):
-        return self.width > 5 and self.height > 5
+        return self.width > 0 and self.height > 0
 
 
 @dataclass
