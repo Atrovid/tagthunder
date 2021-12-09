@@ -11,7 +11,7 @@ from pipeline.models.responses import HTMLP
 class Puppeteer(AbstractAugmentationBlock):
     def __init__(self, crawler_address):
         self.crawler_address: HttpUrl = crawler_address
-        self.requester = PuppeteerCrawler(crawler_address=self.crawler_address)
+        self.requester = PuppeteerCrawlerWrapper(crawler_address=self.crawler_address)
 
     def __call__(self, url: HttpUrl, page_width: int = 1200, page_height: int = 1200,
                  styles: Optional[List[str]] = None) -> HTMLP:
@@ -21,7 +21,7 @@ class Puppeteer(AbstractAugmentationBlock):
         return HTMLP(markup=response.content)
 
 
-class PuppeteerCrawler:
+class PuppeteerCrawlerWrapper:
 
     def __init__(self, crawler_address: HttpUrl):
         self.crawler_address = crawler_address
@@ -52,9 +52,3 @@ class PuppeteerCrawler:
 
     def __call__(self, **kwargs):
         return self.request(self.Body(**kwargs).dict())
-
-
-if __name__ == '__main__':
-    block = Puppeteer("http://0.0.0.0:8080")
-    htmlp = block(url="https://calvados.fr", page_width=1200, page_height=1200, styles=["display", "visibility"])
-    print(str(htmlp))

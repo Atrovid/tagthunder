@@ -88,8 +88,9 @@ class Styles(dict):
 
 
 class HTMLPTag(bs4.Tag):
-    _BBOX_KEY = "bbox"
-    _STYLES_KEY = "style"
+    _BBOX_ATTR = "bbox"
+    _STYLES_ATTR = "style"
+    _XPATH_ATTR = "xpath"
 
     def __init__(self, parser=None, builder=None, name=None, namespace=None,
                  prefix=None, attrs=None, parent=None, previous=None,
@@ -112,7 +113,7 @@ class HTMLPTag(bs4.Tag):
     def bbox(self):
         if self._bbox is None:
             try:
-                params = map(int, self.attrs[self._BBOX_KEY].split(" "))
+                params = map(lambda n: int(float(n)), self.attrs[self._BBOX_ATTR].split(" "))
             except KeyError:
                 children = self.find_all(True, recursive=False)
                 if children:
@@ -127,7 +128,7 @@ class HTMLPTag(bs4.Tag):
     def styles(self):
         if self._styles is None:
             try:
-                styles = self.attrs[self._STYLES_KEY].split(";")
+                styles = self.attrs[self._STYLES_ATTR].split(";")
                 styles = filter(lambda couple: ":" in couple, styles)
 
                 styles = {

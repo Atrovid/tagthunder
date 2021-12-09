@@ -1,1 +1,1 @@
-REQUIRED_STYLES = ["display", "visibility", "hidden"]
+REQUIRED_STYLES = ["display", "visibility"]
