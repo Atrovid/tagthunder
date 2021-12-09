@@ -23,7 +23,7 @@ class HTMLPP(bs4.BeautifulSoup):
     def find_all_visible(self, attrs=None, recursive=True, text=None, limit=None, **kwargs):
         if attrs is None:
             attrs = {}
-        return self.find_all(lambda tag: tag.is_visible, attrs=attrs, recursive=recursive, text=text, limit=limit,
+        return self.find_all(lambda tag: tag.is_usable, attrs=attrs, recursive=recursive, text=text, limit=limit,
                              **kwargs)
 
     @property

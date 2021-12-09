@@ -77,6 +77,7 @@ class CoveringBoundingBox(BoundingBox):
 
 
 class Styles(dict):
+
     def __init__(self, styles=None):
         if styles is None:
             styles = {}
@@ -87,8 +88,8 @@ class Styles(dict):
 
 
 class HTMLPTag(bs4.Tag):
-    _BBOX_KEY = "data-bbox"
-    _STYLES_KEY = "data-style"
+    _BBOX_KEY = "bbox"
+    _STYLES_KEY = "style"
 
     def __init__(self, parser=None, builder=None, name=None, namespace=None,
                  prefix=None, attrs=None, parent=None, previous=None,
@@ -146,7 +147,7 @@ class HTMLPTag(bs4.Tag):
 
 
 class HTMLPPTag(HTMLPTag):
-    _DATA_CLEANED_KEY = "data-cleaned"
+    IS_USABLE_HTML_ATTR_KEY = "is-usable"
 
     def __init__(self, parser=None, builder=None, name=None, namespace=None,
                  prefix=None, attrs=None, parent=None, previous=None,
@@ -154,7 +155,6 @@ class HTMLPPTag(HTMLPTag):
                  can_be_empty_element=None, cdata_list_attributes=None,
                  preserve_whitespace_tags=None, interesting_string_types=None,
                  bbox: BoundingBox = None, styles: Dict[str, Any] = None):
-
         super(HTMLPPTag, self).__init__(parser=parser, builder=builder, name=name, namespace=namespace,
                                         prefix=prefix, attrs=attrs, parent=parent, previous=previous,
                                         is_xml=is_xml, sourceline=sourceline, sourcepos=sourcepos,
@@ -164,43 +164,27 @@ class HTMLPPTag(HTMLPTag):
                                         interesting_string_types=interesting_string_types,
                                         bbox=bbox, styles=styles)
 
-        self._visible: Optional[bool] = None
-        self._cleaned: Optional[bool] = None
-
     @property
-    def is_visible(self):
-        if self._visible is None:
-            visible = not self.is_cleaned
-            self._visible = visible
-        return self._visible
+    def is_usable(self):
+        return self.get_is_usable_html_attr() == "true"
 
-    @property
-    def is_cleaned(self) -> bool:
-        if self._cleaned is None:
-            res = (
-                    not self.bbox.is_visible
-                    or any([
-                self.styles.get("display") == "none",
-                self.styles.get("visiblity") == "hidden",
-                self.styles.get("hidden") == "true",
-                self.styles.get("x-visible") == "invisible"
-            ])
-            )
-            self.set_data_cleaned_hmtl_attr(res)
-            self._cleaned = res
+    def set_is_usable_html_attr(self, value: bool):
+        return self.set_is_usable_hmtl_attr(self, value)
 
-        return self._cleaned
+    def get_is_usable_html_attr(self):
+        return self.attrs[self.IS_USABLE_HTML_ATTR_KEY]
 
-    def set_data_cleaned_hmtl_attr(self, value: bool):
-        self.attrs[self._DATA_CLEANED_KEY] = str(value)
+    @classmethod
+    def set_is_usable_hmtl_attr(cls, tag, value: bool):
+        tag.attrs[cls.IS_USABLE_HTML_ATTR_KEY] = str(value)
 
-    def find_all_visible(self, attrs=None, recursive=True, text=None,
-                         limit=None, **kwargs):
+    def find_all_usable(self, attrs=None, recursive=True, text=None,
+                        limit=None, **kwargs):
         if attrs is None:
             attrs = {}
-        return self.find_all(lambda tag: tag.is_visible, attrs=attrs, recursive=recursive, text=text, limit=limit,
+        return self.find_all(lambda tag: tag.is_usable, attrs=attrs, recursive=recursive, text=text, limit=limit,
                              **kwargs)
 
     @property
     def has_visible_children(self):
-        return bool(len(self.find_all_visible(recursive=False)))
+        return bool(len(self.find_all_usable(recursive=False)))

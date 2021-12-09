@@ -34,7 +34,7 @@ class TopDownBottomUp(AbstractSegmentationBlock):
 
     def fit(self, htmlpp: HTMLPP, nb_zones: int, **kwargs):
         htmlpp = copy.copy(htmlpp)
-        zones = htmlpp.body.find_all_visible(recursive=False)
+        zones = htmlpp.body.find_all_usable(recursive=False)
         nb_visible_children = len(htmlpp.find_all_visible())
         if nb_visible_children < nb_zones:
             nb_zones = nb_visible_children
@@ -97,7 +97,7 @@ class TopDownBottomUp(AbstractSegmentationBlock):
 
     @classmethod
     def split_node(cls, tag: HTMLPPTag):
-        return tag.find_all_visible(recursive=False)
+        return tag.find_all_usable(recursive=False)
 
     @classmethod
     def sort_by_area(cls, tags: List[HTMLPPTag], reverse=False):

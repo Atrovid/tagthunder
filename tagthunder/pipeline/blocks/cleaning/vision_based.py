@@ -15,12 +15,25 @@ class VisionBased(AbstractCleaningBlock):
 
     def __call__(self, htmlp: HTMLP) -> HTMLPP:
         for tag in htmlp.find_all(True):
-            if any([c(tag) for c in self.conditions]):
+            if any([c(tag) for c in self.remove_conditions]):
                 tag.decompose()
+            else:
+                self.mark_as_usable_tag(tag, self._is_usable_tag(tag))
+
         return HTMLPP(htmlp)
 
+    @classmethod
+    def _is_usable_tag(cls, tag: HTMLPTag):
+        return (tag.bbox.is_usable
+                and not any([
+                    tag.styles.get("display") == "none",
+                    tag.styles.get("visiblity") == "hidden",
+                    tag.styles.get("hidden") == "true",
+                ])
+                )
+
     @property
-    def conditions(self) -> Iterable[Callable]:
+    def remove_conditions(self) -> Iterable[Callable]:
         return (
             self.is_comments,
             self.is_useless_tag,
@@ -46,4 +59,4 @@ class VisionBased(AbstractCleaningBlock):
 
     @classmethod
     def is_flat_tag(cls, tag: HTMLPTag) -> bool:
-        return tag.bbox.is_visible
+        return tag.bbox.is_usable
