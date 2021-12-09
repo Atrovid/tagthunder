@@ -10,16 +10,6 @@ import pkg_resources
 # https://packaging.python.org/guides/single-sourcing-package-version/
 # http://blog.ionelmc.ro/2014/05/25/python-packaging/
 
-_PATH_ROOT = dirname(__file__)
-_PATH_REQUIRE = join(_PATH_ROOT, "requirements.txt")
-
-with pathlib.Path(_PATH_REQUIRE).open() as requirements_txt:
-    install_requires = [
-        str(requirement)
-        for requirement
-        in pkg_resources.parse_requirements(requirements_txt)
-    ]
-
 setup(
     name="tagthunder",
     version="0.0.1",
@@ -36,7 +26,14 @@ setup(
     ],
     python_requires=">=3.9",
     setup_requires=[],
-    install_requires=install_requires,
+    install_requires=[
+        "fastapi", "uvicorn", 
+        "pydantic", "dacite", "email-validator",
+        "requests", "beautifulsoup4", "urllib3",
+        "numpy", "pandas", "sklearn", "pillow", "scipy",
+        "gtts", "langdetect", "googletrans",        
+        "yake"
+    ],
     entry_points={
         "console_scripts": [
             "run-api=api.main:run"

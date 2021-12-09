@@ -1,7 +1,6 @@
 from typing import List, Callable, Iterable
 
 import bs4
-from past.builtins import apply
 
 from pipeline.blocks.cleaning._abstract import AbstractCleaningBlock
 from pipeline.models.responses import HTMLPP, HTMLP
