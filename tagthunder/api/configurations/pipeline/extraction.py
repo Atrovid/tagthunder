@@ -5,16 +5,6 @@ import pipeline.blocks.extraction
 
 
 class ExtractionBlocks(BlocksEnum):
-    mots_blancs = BlockConfig(
-        name="mots_blancs",
-        enable=False,
-        algorithm=pipeline.blocks.extraction.MotsBlancs(),
-        query=ParametersModelFactory.extraction(
-            "mots_blancs",
-            nb_keywords=5
-        )
-    )
-
     yake = BlockConfig(
         name="yake",
         enable=True,
