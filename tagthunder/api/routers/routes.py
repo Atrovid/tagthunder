@@ -45,6 +45,7 @@ def post_html_augmentation(query: queries.AugmentationQuery):
 @router.post(
     Routes.CLEANING,
     description="Web page cleaning operation",
+    response_class=fastapi.responses.JSONResponse,
     response_model=schemas.HTMLPP
 )
 def cleaning(
@@ -60,6 +61,7 @@ def cleaning(
 @router.post(
     Routes.SEGMENTATION,
     description="Web page segmentation operation",
+    response_class=fastapi.responses.JSONResponse,
     response_model=schemas.Segmentation
 )
 def segmentation(
@@ -75,13 +77,14 @@ def segmentation(
 @router.post(
     Routes.EXTRACTION,
     description="Key terms extraction operation",
+    response_class=fastapi.responses.JSONResponse,
     response_model=schemas.Keywords
 )
 def extraction(
         query: queries.ExtractionQuery
 ):
     return services.AlgorithmServices.extraction(
-        query.htmlpp,
+        query.segmentation,
         query.algorithm.name,
         query.algorithm.parameters.dict()
     )
