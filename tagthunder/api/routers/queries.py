@@ -43,7 +43,7 @@ class SegmentationQuery(AlgorithmQuery):
 
 
 class ExtractionQuery(AlgorithmQuery):
-    htmlpp: api_schemas.HTMLPP
+    segmentation: api_schemas.Segmentation
     algorithm: Optional[Queries.EXTRACTION] = DefaultQuery.EXTRACTION
 
 

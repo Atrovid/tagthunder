@@ -1,20 +1,23 @@
+from typing import List
+
 import yake
 
 from pipeline.blocks.extraction._abstract import AbstractExtractionBlock
-from pipeline.models.responses import Keywords
+from pipeline.blocks.extraction.utils.text_content_extraction import TextExtractor
+from pipeline.models.responses import Keywords, Segmentation
 
 
 class Yake(AbstractExtractionBlock):
 
     def __call__(
             self,
-            text: str,
+            segmentation: Segmentation,
             *,
             nb_keywords: int,
             language: str = "fr",
             max_ngram_size: int = 4,
             window_size: int = 3
-    ) -> Keywords:
+    ) -> Segmentation:
         custom_extractor = yake.KeywordExtractor(
             n=max_ngram_size,
             windowsSize=window_size,
@@ -22,6 +25,7 @@ class Yake(AbstractExtractionBlock):
             lan=language
         )
 
-        keywords = custom_extractor.extract_keywords(text)
+        for zone in segmentation.zones:
+            zone.keywords = Keywords(custom_extractor.extract_keywords(TextExtractor.extract(zone.htmlpp)))
 
-        return keywords
+        return segmentation

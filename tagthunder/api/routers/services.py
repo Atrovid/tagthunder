@@ -1,11 +1,9 @@
 import io
-from typing import Optional, overload
+from typing import Optional
 from pydantic import HttpUrl
-import bs4
 
 import api.models.schemas as schemas
 import api.models.factories as factories
-from api.services.dom_managment.text_content_extraction import TextContentExtractor
 import api.configurations.pipeline as algorithms_conf
 
 
@@ -36,14 +34,11 @@ class AlgorithmServices:
         return factories.Responses.Segmentation(segmentation)
 
     @classmethod
-    def extraction(cls, htmlpp: schemas.HTMLPP, algorithm_name: str, parameters) -> schemas.Keywords:
-        text = TextContentExtractor.extract_all_text(factories.AlgorithmInput.HTMLPP(htmlpp))
-        text = "; ".join(text)
-
+    def extraction(cls, segmentation: schemas.Segmentation, algorithm_name: str, parameters) -> schemas.Segmentation:
         extraction_algorithm = algorithms_conf.ExtractionBlocks.get_algorithm(algorithm_name)
-        keywords = extraction_algorithm(text, **parameters)
+        segmentation = extraction_algorithm(factories.AlgorithmInput.Segmentation(segmentation), **parameters)
 
-        return factories.Responses.Keywords(keywords)
+        return factories.Responses.Segmentation(segmentation)
 
     @classmethod
     def vocalization(cls, keywords: schemas.Keywords, algorithm_name: str, parameters) -> io.BytesIO:
