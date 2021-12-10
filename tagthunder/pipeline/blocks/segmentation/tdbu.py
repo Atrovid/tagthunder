@@ -35,7 +35,7 @@ class TopDownBottomUp(AbstractSegmentationBlock):
     def fit(self, htmlpp: HTMLPP, nb_zones: int, **kwargs):
         htmlpp = copy.copy(htmlpp)
         zones = htmlpp.body.find_all_usable(recursive=False)
-        nb_visible_children = len(htmlpp.find_all_visible())
+        nb_visible_children = len(htmlpp.find_all_usable())
         if nb_visible_children < nb_zones:
             nb_zones = nb_visible_children
 

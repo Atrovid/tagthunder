@@ -1,11 +1,10 @@
-import pipeline.experimentations._utils as expe_utils
+from pipeline.blocks.cleaning import VisionBased
 from pipeline.blocks.segmentation import TopDownBottomUp
 from pipeline.experimentations.segmentation.visualisation import PlotClustering
-from pipeline.models.responses import HTMLPP, Segmentation
+from pipeline.models.responses import HTMLPP, Segmentation, HTMLP
 
 
-def main(json_file):
-    htmlpp = expe_utils.get_htmlpp(json_file)
+def main(htmlpp: HTMLPP):
     algo = TopDownBottomUp()
     segmentation: Segmentation = algo(htmlpp, nb_zones=5)
 
@@ -15,5 +14,7 @@ def main(json_file):
 
 
 if __name__ == '__main__':
-    json_file = "../../data/html++/calvados.raw.json"
-    main(json_file)
+    file = "data/calvados.html"
+    with open(file, "r") as f:
+        htmlpp = VisionBased()(HTMLP(f))
+    main(htmlpp)
