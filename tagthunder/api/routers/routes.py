@@ -45,7 +45,7 @@ def post_html_augmentation(query: queries.AugmentationQuery):
 @router.post(
     Routes.CLEANING,
     description="Web page cleaning operation",
-    response_class=fastapi.responses.JSONResponse,
+    response_class=fastapi.responses.HTMLResponse,
     response_model=schemas.HTMLPP
 )
 def cleaning(

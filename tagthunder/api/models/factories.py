@@ -3,6 +3,9 @@ import api.models.schemas as schemas
 
 
 class AlgorithmInput:
+    @classmethod
+    def HTMLP(cls, htmlp: schemas.HTMLP) -> algos_responses.HTMLP:
+        return algos_responses.HTMLP(htmlp.__root__)
 
     @classmethod
     def HTMLPP(cls, htmlpp: schemas.HTMLPP) -> algos_responses.HTMLPP:

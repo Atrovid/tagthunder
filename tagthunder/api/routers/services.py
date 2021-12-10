@@ -1,5 +1,6 @@
 import io
 from typing import Optional
+
 from pydantic import HttpUrl
 
 import api.models.schemas as schemas
@@ -19,8 +20,7 @@ class AlgorithmServices:
     @classmethod
     def cleaning(cls, htmlp: schemas.HTMLP, algorithm_name: str, parameters) -> schemas.HTMLPP:
         cleaning_algorithm = algorithms_conf.CleaningBlocks.get_algorithm(algorithm_name)
-        html_cleaned = cleaning_algorithm(htmlp, **parameters)
-
+        html_cleaned = cleaning_algorithm(factories.AlgorithmInput.HTMLP(htmlp), **parameters)
         return factories.Responses.HTMLPP(html_cleaned)
 
     @classmethod
