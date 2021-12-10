@@ -7,20 +7,26 @@ from pipeline.models.web_elements import HTMLPTag, HTMLPPTag
 
 
 class HTML(bs4.BeautifulSoup):
-    def __init__(self, markup=""):
-        super(HTML, self).__init__(markup=markup, features="lxml")
+    def __init__(self, markup="", parser="lxml", **kwargs):
+        super(HTML, self).__init__(markup=markup, features=parser, **kwargs)
 
 
-class HTMLP(bs4.BeautifulSoup):
-    def __init__(self, markup=""):
-        super(HTMLP, self).__init__(markup=markup, features="lxml", element_classes={bs4.Tag: HTMLPTag})
+class HTMLP(HTML):
+    def __init__(self, markup="", tag_class=HTMLPTag, **kwargs):
+        super(HTMLP, self).__init__(markup=markup, element_classes={bs4.Tag: tag_class}, **kwargs)
+
+    def get_comments(self, recursive=False):
+        return self(text=lambda text: isinstance(text, bs4.Comment), recursive=recursive)
+
+    def contains_comments(self, recursive=False):
+        return bool(self.get_comments(recursive))
 
 
-class HTMLPP(bs4.BeautifulSoup):
-    def __init__(self, markup="", parser="lxml"):
-        super(HTMLPP, self).__init__(markup=markup, features=parser, element_classes={bs4.Tag: HTMLPPTag})
+class HTMLPP(HTMLP):
+    def __init__(self, markup="", **kwargs):
+        super(HTMLPP, self).__init__(markup=markup, tag_class=HTMLPPTag, **kwargs)
 
-    def find_all_visible(self, attrs=None, recursive=True, text=None, limit=None, **kwargs):
+    def find_all_usable(self, attrs=None, recursive=True, text=None, limit=None, **kwargs):
         if attrs is None:
             attrs = {}
         return self.find_all(lambda tag: tag.is_usable, attrs=attrs, recursive=recursive, text=text, limit=limit,

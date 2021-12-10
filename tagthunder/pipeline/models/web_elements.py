@@ -132,7 +132,7 @@ class HTMLPTag(bs4.Tag):
                 styles = filter(lambda couple: ":" in couple, styles)
 
                 styles = {
-                    style: value
+                    style.strip(): value.strip()
                     for style, value
                     in map(lambda sv: sv.split(":", 1), styles)
                 }
@@ -145,6 +145,12 @@ class HTMLPTag(bs4.Tag):
     @property
     def classes(self):
         return self.attrs.get("class", [])
+
+    def get_comments(self, recursive=False):
+        return self.find_all(recursive=recursive, text=lambda text: isinstance(text, bs4.Comment))
+
+    def contains_comments(self, recursive=False):
+        return bool(self.get_comments(recursive))
 
 
 class HTMLPPTag(HTMLPTag):
@@ -167,13 +173,10 @@ class HTMLPPTag(HTMLPTag):
 
     @property
     def is_usable(self):
-        return self.get_is_usable_html_attr() == "true"
+        return self.attrs[self.IS_USABLE_HTML_ATTR_KEY] == "true"
 
     def set_is_usable_html_attr(self, value: bool):
-        return self.set_is_usable_hmtl_attr(self, value)
-
-    def get_is_usable_html_attr(self):
-        return self.attrs[self.IS_USABLE_HTML_ATTR_KEY]
+        self.attrs[self.IS_USABLE_HTML_ATTR_KEY] = value
 
     @classmethod
     def set_is_usable_hmtl_attr(cls, tag, value: bool):
