@@ -29,10 +29,11 @@ setup(
     install_requires=[
         "fastapi", "uvicorn", 
         "pydantic", "dacite", "email-validator",
-        "requests", "beautifulsoup4", "urllib3",
-        "numpy", "pandas", "sklearn", "pillow", "scipy",
+        "requests", "urllib3",
+        "beautifulsoup4", "lxml", "html5lib", 
+        "numpy", "pandas", "sklearn", "pillow", "scipy", "matplotlib",
         "gtts", "langdetect", "googletrans",        
-        "yake"
+        "yake", 
     ],
     entry_points={
         "console_scripts": [
