@@ -1,0 +1,1082 @@
+<html is-usable="true">
+ <body bbox="0 0 1185 5827.28125" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body">
+  <div bbox="0 0 1185 5827.28125" class="bodywrapper" id="bodywrapper" is-usable="true" style="display: block; visibility: visible;" xpath='//*[@id="bodywrapper"]'>
+   <header bbox="0 0 1185 139.125" id="banner" is-usable="true" role="banner" style="display: block; visibility: visible;" xpath='//*[@id="banner"]'>
+    <button bbox="447.6875 -46.5625 289.625 46.5625" class="lien_standard texte-couleur3 hover-couleur2 sr-only-focusable" is-usable="true" onclick="tarteaucitron.userInterface.openPanel();" style="display: block; visibility: visible;" type="button" xpath="/html/body/div/header/button">
+     Aller à la bannière de cookies
+    </button>
+    <div bbox="0 0 1185 41.28125" class="cal_nav-secondaire hidden-xs" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/header/div[3]">
+     <div bbox="0 0 1185 41.28125" class="container-fluid" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/header/div[3]/div[1]">
+      <div bbox="15 0 133 41.28125" class="cal_reseaux-sociaux" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/header/div[3]/div[1]/div[1]">
+       <div bbox="15 10 133 21.28125" class="reseaux-sociaux" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/header/div[3]/div[1]/div[1]/div[1]">
+        <a bbox="27 10 17 21.28125" href="/accueil/accessibilite-numerique.html" is-usable="true" style="display: inline-block; visibility: visible;" target="_self" title="Accessibilité Numérique" xpath="/html/body/div/header/div[3]/div[1]/div[1]/div[1]/a[1]">
+         <img alt="Logo accessibilité" bbox="27 10 17 17" height="17/&gt;" is-usable="true" src="/files/live/sites/calvados/files/documents/images/Accessibilite/a11y.png" style="display: inline-block; visibility: visible;" width="17/&gt;" xpath="/html/body/div/header/div[3]/div[1]/div[1]/div[1]/a[1]/img"/>
+        </a>
+        <a bbox="56 13 8 18.28125" href="https://www.facebook.com/CalvadosDep/" is-usable="true" style="display: inline-block; visibility: visible;" target="_blank" title="La page Facebook du Département du Calvados" xpath="/html/body/div/header/div[3]/div[1]/div[1]/div[1]/a[2]">
+         <img alt="Logo Facebook" bbox="56 13 8 14" height="14/&gt;" is-usable="true" src="/files/live/sites/calvados/files/documents/images/logo-facebook-gris.png" style="display: inline-block; visibility: visible;" width="8/&gt;" xpath="/html/body/div/header/div[3]/div[1]/div[1]/div[1]/a[2]/img"/>
+        </a>
+        <a bbox="76 13 16 18.28125" href="https://twitter.com/calvadosdep" is-usable="true" style="display: inline-block; visibility: visible;" target="_blank" title="Le compte Twitter du Département du Calvados" xpath="/html/body/div/header/div[3]/div[1]/div[1]/div[1]/a[3]">
+         <img alt="Logo Twitter" bbox="76 13 16 14" height="14/&gt;" is-usable="true" src="/files/live/sites/calvados/files/documents/images/logo-twitter-gris.png" style="display: inline-block; visibility: visible;" width="16/&gt;" xpath="/html/body/div/header/div[3]/div[1]/div[1]/div[1]/a[3]/img"/>
+        </a>
+        <a bbox="104 13 15 18.28125" href="https://www.instagram.com/calvadosdepartement/" is-usable="true" style="display: inline-block; visibility: visible;" target="_blank" title="Le compte Instagram du Département" xpath="/html/body/div/header/div[3]/div[1]/div[1]/div[1]/a[4]">
+         <img alt="Le compte Instagram du Département" bbox="104 13 15 14" height="14/&gt;" is-usable="true" src="/files/live/sites/calvados/files/documents/images/logo-instagram-gris.png" style="display: inline-block; visibility: visible;" width="15/&gt;" xpath="/html/body/div/header/div[3]/div[1]/div[1]/div[1]/a[4]/img"/>
+        </a>
+        <a bbox="131 10 17 21.28125" href="https://fr.linkedin.com/company/d%C3%A9partementducalvados" is-usable="true" style="display: inline-block; visibility: visible;" target="_blank" title="Le compte LinkedIn du Département" xpath="/html/body/div/header/div[3]/div[1]/div[1]/div[1]/a[5]">
+         <img alt="Logo LinkedIn" bbox="131 10 17 17" height="17/&gt;" is-usable="true" src="/files/live/sites/calvados/files/documents/images/logo-linkedin-gris-17.png" style="display: inline-block; visibility: visible;" width="17/&gt;" xpath="/html/body/div/header/div[3]/div[1]/div[1]/div[1]/a[5]/img"/>
+        </a>
+       </div>
+      </div>
+      <div bbox="300.515625 0 869.484375 40" class="cal_liens" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/header/div[3]/div[1]/div[2]">
+       <div bbox="300.515625 8 54.828125 24.84375" class="cal_police" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/header/div[3]/div[1]/div[2]/div[1]">
+        <button aria-disabled="false" bbox="300.515625 14 22.75 16.28125" class="cal_reduire-police" is-usable="true" style="display: inline-block; visibility: visible;" title="A- Diminuer la taille de la police " type="button" xpath="/html/body/div/header/div[3]/div[1]/div[2]/div[1]/button[1]">
+         A-
+        </button>
+        <button aria-disabled="false" bbox="325.828125 8 29.515625 24.84375" class="cal_augmenter-police" is-usable="true" style="display: inline-block; visibility: visible;" title="A+ Augmenter la taille de la police " type="button" xpath="/html/body/div/header/div[3]/div[1]/div[2]/div[1]/button[2]">
+         A+
+        </button>
+       </div>
+       <a bbox="358.125 0 176.734375 40" class="liensIcone entete" href="/contact" is-usable="true" style="display: inline-block; visibility: visible;" target="_blank" title="Vous avez une question, trouvez la réponse" xpath="/html/body/div/header/div[3]/div[1]/div[2]/a[1]">
+        <span bbox="390.671875 12 129.1875 16" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/header/div[3]/div[1]/div[2]/a[1]/span[2]">
+         Contactez-nous
+        </span>
+       </a>
+       <div bbox="557.640625 0 103.015625 40" class="cal_mag fond-couleur1" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/header/div[3]/div[1]/div[2]/div[2]">
+        <a bbox="572.640625 12 73.015625 16" href="http://emag.calvados.fr" is-usable="true" style="display: inline; visibility: visible;" target="_blank" title="Le magazine numérique du Département du calvados" xpath="/html/body/div/header/div[3]/div[1]/div[2]/div[2]/a">
+         <span bbox="590.109375 12 55.546875 16" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/header/div[3]/div[1]/div[2]/div[2]/a/span[2]">
+          L'E-mag
+         </span>
+        </a>
+       </div>
+       <div bbox="663.4375 0 215.375 40" class="linkListMenu dropdown" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/header/div[3]/div[1]/div[2]/div[3]">
+        <button aria-expanded="false" aria-haspopup="true" aria-labelledby="tousNosSitesLabel" bbox="678.4375 10 185.375 20" class="dropdown-toggle" data-toggle="dropdown" id="tousNosSites" is-usable="true" style="display: inline-block; visibility: visible;" title="Déployer le menu, tous nos sites web" type="button" xpath='//*[@id="tousNosSites"]'>
+         <span bbox="695.984375 12 148.09375 16" class="cal_libelle" id="tousNosSitesLabel" is-usable="true" style="display: inline; visibility: visible;" xpath='//*[@id="tousNosSitesLabel"]'>
+          Tous nos sites Web
+         </span>
+        </button>
+       </div>
+       <a bbox="881.59375 0 187.046875 40" class="liensIcone entete" href="/pres-de-chez-vous" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/header/div[3]/div[1]/div[2]/a[2]">
+        <span bbox="914.140625 12 139.5 16" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/header/div[3]/div[1]/div[2]/a[2]/span[2]">
+         Près de chez vous
+        </span>
+       </a>
+      </div>
+     </div>
+    </div>
+    <nav arial-label="Menu de navigation" bbox="0 41.28125 1185 97.84375" class="cal_nav-principale cal_desktop hidden-xs affix-top" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/header/nav">
+     <div bbox="0 41.28125 324 90.28125" class="cal_logo" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/header/nav/div[1]">
+      <a bbox="30 98.28125 264 11" href="/accueil.html" is-usable="true" style="display: inline; visibility: visible;" title="Aller sur la page d'accueil" xpath="/html/body/div/header/nav/div[1]/a">
+       <img alt="Logo Calvados - Le département" bbox="30 61.28125 264 46" is-usable="true" src="/files/live/sites/calvados/files/documents/images/logo-calvados-transparent.png" style="display: inline-block; visibility: visible;" xpath="/html/body/div/header/nav/div[1]/a/img"/>
+      </a>
+     </div>
+     <ul bbox="402.3125 41.28125 782.6875 97.84375" class="cal_liens" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/header/nav/ul">
+      <li bbox="403.3125 41.28125 230.703125 97.84375" class="cal_lien couleur2" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/header/nav/ul/li[2]">
+       <a bbox="404.3125 41.28125 229.703125 92.84375" data-id="9f11993a-8790-49dc-b90b-6b29c7e7cbc3" href="/accueil/le-departement.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Le Département" xpath="/html/body/div/header/nav/ul/li[2]/a">
+        Le Département
+       </a>
+      </li>
+      <li bbox="634.015625 41.28125 230.890625 97.84375" class="cal_lien couleur3" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/header/nav/ul/li[3]">
+       <a bbox="635.015625 41.28125 229.890625 92.84375" data-id="c943989d-0aee-4f46-abe2-f5636d5ed895" href="/accueil/aides--services.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Aides &amp; services" xpath="/html/body/div/header/nav/ul/li[3]/a">
+        Aides &amp; services
+       </a>
+      </li>
+      <li bbox="864.90625 41.28125 197.09375 97.84375" class="cal_lien couleur1" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/header/nav/ul/li[4]">
+       <a bbox="865.90625 41.28125 196.09375 92.84375" data-id="265b26fb-2fcd-4e39-8824-c39fd6823d27" href="/accueil/toute-linfo.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Toute l'info" xpath="/html/body/div/header/nav/ul/li[4]/a">
+        Toute l'info
+       </a>
+      </li>
+      <li bbox="1062 41.28125 123 96.84375" class="cal_recherche recherche_native" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/header/nav/ul/li[5]">
+       <span bbox="1063 86.28125 122 19" is-usable="true" role="search" style="display: inline; visibility: visible;" xpath="/html/body/div/header/nav/ul/li[5]/span">
+        <button aria-expanded="false" aria-owns="search-popin" bbox="1063 41.28125 122 96.84375" data-id="search" is-usable="true" style="display: inline-block; visibility: visible;" title="Ouvrir la recherche" type="button" xpath="/html/body/div/header/nav/ul/li[5]/span/button">
+         <span bbox="1107 107.125 1 1" class="sr-only" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/header/nav/ul/li[5]/span/button/span[2]">
+          Ouvrir la recherche"
+         </span>
+        </button>
+       </span>
+      </li>
+     </ul>
+    </nav>
+   </header>
+   <main bbox="0 139.125 1185 4998.96875" id="main" is-usable="true" role="main" style="display: block; visibility: visible;" xpath='//*[@id="main"]'>
+    <section aria-label="Carousel" bbox="0 139.125 1185 550" class="cal_slider grand slick-initialized slick-slider" id="cal_slider38b15f27-813c-48bc-8357-97f4eceac942" is-usable="true" style="display: block; visibility: visible;" xpath='//*[@id="cal_slider38b15f27-813c-48bc-8357-97f4eceac942"]'>
+     <div bbox="0 139.125 1185 550" class="slick-list draggable" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/section/div">
+      <div bbox="0 139.125 1185 550" class="slick-track" is-usable="true" style="opacity: 1; width: 1185px; transform: translate3d(0px, 0px, 0px); display: block; visibility: visible;" xpath="/html/body/div/main/section/div/div">
+       <a aria-hidden="false" bbox="0 139.125 1185 550" class="cal_slide slick-slide slick-current slick-active" data-slick-index="0" href="/culture/patrimoine/mordus-du-patrimoine" is-usable="true" style='background-image: url("/files/live/sites/calvados/files/documents/images/actions-du-departement/culture-sport-tourisme/Patrimoine/mordus-du-patrimoine-1660x550.jpg"); width: 1185px; display: block; visibility: visible;' tabindex="0" title="Aller sur la page : Les Mordus du Patrimoine" xpath="/html/body/div/main/section/div/div/a">
+        <div bbox="7.5 289.125 1170 140" class="container" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div">
+         <div bbox="22.5 309.125 1140 120" class="cal_contenant" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div">
+          <div bbox="22.5 309.125 1140 120" class="carousel-data elements customisableImageSlider" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div/div">
+           <div bbox="22.5 309.125 1140 120" class="cal_titre" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div/div/div">
+            <div bbox="22.5 309.125 798 120" class="cal_multilignes" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div/div/div/div">
+             <h1 bbox="22.5 309.125 798 120" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div/div/div/div/h1">
+              <span bbox="22.5 309.125 93.25 54" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div/div/div/div/h1/span[1]">
+               Les
+              </span>
+              <span bbox="115.75 309.125 195.5 54" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div/div/div/div/h1/span[2]">
+               Mordus
+              </span>
+              <span bbox="311.25 309.125 77.78125 54" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div/div/div/div/h1/span[3]">
+               du
+              </span>
+              <span bbox="389.03125 309.125 271.71875 54" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div/div/div/div/h1/span[4]">
+               Patrimoine
+              </span>
+              <span bbox="660.75 309.125 28.890625 54" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div/div/div/div/h1/span[5]">
+               :
+              </span>
+              <span bbox="689.640625 309.125 106.671875 54" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div/div/div/div/h1/span[6]">
+               une
+              </span>
+              <span bbox="22.5 369.125 243.203125 54" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div/div/div/div/h1/span[7]">
+               web-série
+              </span>
+              <span bbox="265.703125 369.125 277.234375 54" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div/div/div/div/h1/span[8]">
+               événement
+              </span>
+              <span bbox="542.9375 369.125 29.90625 54" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/section/div/div/a/div/div/div/div/div/h1/span[9]">
+               !
+              </span>
+             </h1>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </a>
+      </div>
+     </div>
+    </section>
+    <div bbox="0 710.125 1185 1078.859375" class="offsetArea margeTop-20 margeBot-aucune zIndex-2" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]">
+     <div bbox="7.5 710.125 1170 1078.859375" class="container" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]">
+      <div bbox="22.5 710.125 1140 70.296875" class="fil-info alert-container" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]">
+       <div bbox="22.5 710.125 1140 70.296875" class="cal_alert fond-couleur3-transparent-80" is-usable="true" style="display: flex; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div">
+        <div bbox="22.5 710.125 135.28125 70.296875" class="cal_filinfo-entete fond-couleur1" is-usable="true" style="display: flex; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[1]">
+         <h3 bbox="71.5 735.125 56.28125 20.296875" class="cal_libelle" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[1]/h3">
+          Fil info
+         </h3>
+        </div>
+        <div aria-live="off" bbox="157.78125 710.125 877.59375 70.296875" class="content cal_contenu slick-initialized slick-slider" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[2]">
+         <div bbox="167.78125 725.125 857.59375 20" class="slick-list draggable" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[2]/div">
+          <div bbox="167.78125 725.125 4290 20" class="slick-track" is-usable="true" style="opacity: 1; width: 4290px; display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[2]/div/div">
+           <div aria-hidden="false" bbox="167.78125 725.125 858 20" class="cal_slide slick-slide slick-current slick-active" data-slick-index="0" is-usable="true" style="width: 858px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1; display: block; visibility: visible;" tabindex="0" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[2]/div/div/div[1]">
+            Deux nouveaux Points info 14 ouvrent leurs portes : Caen Chemin Vert et Le Molay-Littry
+            <a bbox="762.125 727.125 75.09375 16" class="texte-couleur1" href="/pres-de-chez-vous" is-usable="true" style="display: inline; visibility: visible;" tabindex="0" target="_self" title="En savoir plus, Annuaire pratique" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[2]/div/div/div[1]/a">
+             En savoir +
+            </a>
+           </div>
+           <div aria-hidden="true" bbox="167.78125 725.125 858 20" class="cal_slide slick-slide" data-slick-index="1" is-usable="true" style="width: 858px; position: relative; left: -858px; top: 0px; z-index: 998; opacity: 0; display: block; visibility: visible;" tabindex="-1" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[2]/div/div/div[2]">
+            ICI on cultive le bien manger
+            <a bbox="361.5 727.125 75.09375 16" class="texte-couleur1" href="/ici-on-cultive-le-bien-manger" is-usable="true" style="display: inline; visibility: visible;" tabindex="-1" target="_self" title="En savoir plus, ICI on cultive le bien manger" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[2]/div/div/div[2]/a">
+             En savoir +
+            </a>
+           </div>
+           <div aria-hidden="true" bbox="167.78125 725.125 858 20" class="cal_slide slick-slide" data-slick-index="2" is-usable="true" style="width: 858px; position: relative; left: -1716px; top: 0px; z-index: 998; opacity: 0; display: block; visibility: visible;" tabindex="-1" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[2]/div/div/div[3]">
+            Le Calvados magazine 100 % numérique de l'été est en ligne ! Découvrez l'E-mag ici :
+            <a bbox="738.515625 727.125 75.09375 16" class="texte-couleur1" href="http://emag.calvados.fr/" is-usable="true" style="display: inline; visibility: visible;" tabindex="-1" target="_blank" title="En savoir plus, E-mag" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[2]/div/div/div[3]/a">
+             En savoir +
+            </a>
+           </div>
+           <div aria-hidden="true" bbox="167.78125 725.125 858 20" class="cal_slide slick-slide" data-slick-index="3" is-usable="true" style="width: 858px; position: relative; left: -2574px; top: 0px; z-index: 998; opacity: 0; display: block; visibility: visible;" tabindex="-1" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[2]/div/div/div[4]">
+            Coronavirus SARS-CoV-2 - Covid-19 : les questions fréquentes
+            <a bbox="590.203125 727.125 75.09375 16" class="texte-couleur1" href="/faq/coronavirus-covid-19" is-usable="true" style="display: inline; visibility: visible;" tabindex="-1" target="_self" title="En savoir plus, Coronavirus - Covid-19" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[2]/div/div/div[4]/a">
+             En savoir +
+            </a>
+           </div>
+           <div aria-hidden="true" bbox="167.78125 725.125 858 20" class="cal_slide slick-slide" data-slick-index="4" is-usable="true" style="width: 858px; position: relative; left: -3432px; top: 0px; z-index: 998; opacity: 0; display: block; visibility: visible;" tabindex="-1" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[2]/div/div/div[5]">
+            Calvados et Basse-Franconie : 35 ans d'amitié
+            <a bbox="479.234375 727.125 75.09375 16" class="texte-couleur1" href="/jumelages/Calvados-et-Basse-Franconie-35-ans-d-amitie" is-usable="true" style="display: inline; visibility: visible;" tabindex="-1" target="_self" title="En savoir plus, Calvados et Basse-Franconie : 35 ans d'amitié" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[2]/div/div/div[5]/a">
+             En savoir +
+            </a>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div bbox="1035.375 730.28125 127.125 29.984375" class="cal_bouton-control" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[3]">
+         <button bbox="1035.375 730.28125 40.59375 29.984375" class="cal_control-prev" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[3]/button[1]">
+          <span bbox="1040.375 758.265625 1 1" class="sr-only" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[3]/button[1]/span[2]">
+           Information prÃ©cÃ©dente
+          </span>
+         </button>
+         <button bbox="1079.859375 730.28125 38.15625 29.984375" class="cal_control active" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[3]/button[2]">
+          <span bbox="1084.859375 758.265625 1 1" class="sr-only" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[3]/button[2]/span">
+           Mettre en pause le Fil info
+          </span>
+         </button>
+         <button bbox="1121.90625 730.28125 40.59375 29.984375" class="cal_control-next" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[3]/button[3]">
+          <span bbox="1126.90625 758.265625 1 1" class="sr-only" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/div[1]/div/div[3]/button[3]/span[2]">
+           Information suivante
+          </span>
+         </button>
+        </div>
+       </div>
+      </div>
+      <section aria-label="Section temps forts" bbox="22.5 790.421875 1140 998.5625" class="cal_informations" id="cal_informations-d4b20bf9-2bd6-4a7d-8cbb-42f2c51893db" is-usable="true" style="display: block; visibility: visible;" xpath='//*[@id="cal_informations-d4b20bf9-2bd6-4a7d-8cbb-42f2c51893db"]'>
+       <div bbox="22.5 790.421875 1140 78.5625" class="cal_liens" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[1]">
+        <ul bbox="22.5 790.421875 1140 78.5625" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[1]/ul">
+         <li bbox="94.828125 790.421875 184.3125 78.5625" class="active" id="f43f03fd-5cfd-46c5-9f75-70998cc5a733" is-usable="true" style="display: inline-block; visibility: visible;" xpath='//*[@id="f43f03fd-5cfd-46c5-9f75-70998cc5a733"]'>
+          <span bbox="159.9375 815.421875 89.203125 28.5625" class="cal_libelle" is-usable="true" style="display: inline-block; visibility: visible;" title="Afficher le contenu de type : A la une" xpath="/html/body/div/main/div[4]/div[1]/section/div[1]/ul/li[1]/span[2]">
+           A la une
+          </span>
+         </li>
+         <li bbox="281.921875 790.421875 214.75 78.5625" class="" id="35edcf4d-7bb9-46d7-b419-7c3db31876b8" is-usable="true" style="display: inline-block; visibility: visible;" xpath='//*[@id="35edcf4d-7bb9-46d7-b419-7c3db31876b8"]'>
+          <span bbox="347.03125 815.421875 119.640625 28.5625" class="cal_libelle" is-usable="true" style="display: inline-block; visibility: visible;" title="Afficher le contenu de type : Actualités" xpath="/html/body/div/main/div[4]/div[1]/section/div[1]/ul/li[2]/span[2]">
+           Actualités
+          </span>
+         </li>
+         <li bbox="499.453125 790.421875 177.375 78.5625" class="" id="3ddf4a7e-a95f-4f8d-8c36-e69aa709b084" is-usable="true" style="display: inline-block; visibility: visible;" xpath='//*[@id="3ddf4a7e-a95f-4f8d-8c36-e69aa709b084"]'>
+          <span bbox="564.5625 815.421875 82.265625 28.5625" class="cal_libelle" is-usable="true" style="display: inline-block; visibility: visible;" title="Afficher le contenu de type : Agenda" xpath="/html/body/div/main/div[4]/div[1]/section/div[1]/ul/li[3]/span[2]">
+           Agenda
+          </span>
+         </li>
+         <li bbox="679.609375 790.421875 216.71875 78.5625" class="" id="0ef3283a-ff7c-437c-93a3-05f481a06b18" is-usable="true" style="display: inline-block; visibility: visible;" xpath='//*[@id="0ef3283a-ff7c-437c-93a3-05f481a06b18"]'>
+          <span bbox="744.71875 815.421875 121.609375 28.5625" class="cal_libelle" is-usable="true" style="display: inline-block; visibility: visible;" title="Afficher le contenu de type : Multimédia" xpath="/html/body/div/main/div[4]/div[1]/section/div[1]/ul/li[4]/span[2]">
+           Multimédia
+          </span>
+         </li>
+         <li bbox="899.109375 790.421875 191.0625 78.5625" class="" id="540b513b-fa77-4ba5-92e5-73abed116dab" is-usable="true" style="display: inline-block; visibility: visible;" xpath='//*[@id="540b513b-fa77-4ba5-92e5-73abed116dab"]'>
+          <span bbox="964.21875 815.421875 95.953125 28.5625" class="cal_libelle" is-usable="true" style="display: inline-block; visibility: visible;" title="Afficher le contenu de type : Dossiers" xpath="/html/body/div/main/div[4]/div[1]/section/div[1]/ul/li[5]/span[2]">
+           Dossiers
+          </span>
+         </li>
+        </ul>
+       </div>
+       <div bbox="22.5 878.984375 1140 910" class="cal_contenu-information" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]">
+        <div bbox="22.5 878.984375 1140 910" class="remonteeContenu" id="remonteeContenu-f43f03fd-5cfd-46c5-9f75-70998cc5a733" is-usable="true" style="display: block; visibility: visible;" xpath='//*[@id="remonteeContenu-f43f03fd-5cfd-46c5-9f75-70998cc5a733"]'>
+         <div bbox="22.5 878.984375 1140 910" class="cal_contenu-information" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]">
+          <div bbox="22.5 878.984375 1140 910" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]">
+           <div bbox="7.5 878.984375 1170 520" class="row" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]">
+            <div bbox="7.5 878.984375 585 520" class="col-md-6 col-xs-6" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]">
+             <a bbox="22.5 878.984375 555 490" class="cal_information cal_big-box" href="/actu/repondez-a-notre-enquete-en-ligne-sur-l-accueil-des-usagers" is-usable="true" style='background-image: url("/files/live/sites/calvados/files/documents/images/actualites/enquete-usagers-2021-555x555.jpg;"); height: 490px; display: block; visibility: visible;' title="Aller sur la page : Répondez à notre enquête en ligne sur l'accueil des usagers" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a">
+              <div bbox="22.5 1248.421875 555 120.5625" class="cal_contenu" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a/div">
+               <div bbox="42.5 1248.421875 93.90625 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a/div/div[1]">
+                Territoire
+               </div>
+               <div bbox="42.5 1278.984375 515 80" class="cal_titre" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a/div/div[2]">
+                Répondez à notre enquête en ligne sur l'accueil des usagers
+               </div>
+              </div>
+             </a>
+            </div>
+            <div bbox="592.5 878.984375 585 520" class="col-md-6 col-xs-6" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]">
+             <div bbox="592.5 878.984375 585 520" class="row" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div">
+              <div bbox="592.5 878.984375 292.5 260" class="col-md-6" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[1]">
+               <a bbox="607.5 878.984375 262.5 230" class="cal_information cal_mini-box" href="/actu/CFPPA-appel-a-projets-pour-deploiement-AVP-habitats-inclusifs" is-usable="true" style='background-image: url("/files/live/sites/calvados/files/documents/images/actualites/habitat-inclusif-555x555.jpg?t=thumbnail2;"); height: 230px; display: block; visibility: visible;' title="Aller sur la page : Un appel à projets pour le déploiement de l’Aide à la vie partagée (AVP) au sein d’habitats inclusifs" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[1]/a">
+                <div bbox="607.5 977.046875 262.5 131.9375" class="cal_contenu" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[1]/a/div">
+                 <div bbox="627.5 977.046875 103.9375 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[1]/a/div/div[1]">
+                  Bien vieillir
+                 </div>
+                 <div bbox="627.5 1007.609375 222.5 91.375" class="cal_titre" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[1]/a/div/div[2]">
+                  Un appel à projets pour le déploiement de l’Aide à la vie partagée (AVP) au sein d’habitats inclusifs
+                 </div>
+                </div>
+               </a>
+              </div>
+              <div bbox="885 878.984375 292.5 260" class="col-md-6" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[2]">
+               <a bbox="900 878.984375 262.5 230" class="cal_information cal_mini-box" href="/video/cross-scolaire-2021" is-usable="true" style='background-image: url("/files/live/sites/calvados/files/documents/images/medias/cross-scolaire-2021-depart-987x555.jpg?t=thumbnail2;"); height: 230px; display: block; visibility: visible;' title="Aller sur la page : Retour en vidéo sur la 30e édition du cross scolaire" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[2]/a">
+                <div bbox="900 962.171875 262.5 146.8125" class="cal_contenu" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[2]/a/div">
+                 <div bbox="920 962.171875 62.28125 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[2]/a/div/div[1]">
+                  Sport
+                 </div>
+                 <div bbox="987.28125 962.171875 85.3125 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[2]/a/div/div[2]">
+                  Jeunesse
+                 </div>
+                 <div bbox="920 982.734375 86.34375 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[2]/a/div/div[3]">
+                  Collèges
+                 </div>
+                 <div bbox="920 1013.296875 222.5 45.6875" class="cal_titre" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[2]/a/div/div[4]">
+                  Retour en vidéo sur la 30e édition du cross scolaire
+                 </div>
+                 <div bbox="920 1068.984375 222.5 20" class="cal_date" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[2]/a/div/div[5]">
+                  vendredi 26 novembre 2021
+                 </div>
+                </div>
+               </a>
+              </div>
+              <div bbox="592.5 1138.984375 585 260" class="col-md-12" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[3]">
+               <a bbox="607.5 1138.984375 555 230" class="cal_information cal_half-box" href="/actu/resultats-cross-scolaire-2021" is-usable="true" style='background-image: url("/files/live/sites/calvados/files/documents/images/actualites/cross-scolaire-17112021-jeunes-filles-course-Thierry-Houyel-1140x450.jpg?t=thumbnail2;"); height: 230px; display: block; visibility: visible;' title="Aller sur la page : Cross scolaire 2021 : découvrez tous les résultats" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[3]/a">
+                <div bbox="607.5 1299.859375 555 69.125" class="cal_contenu" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[3]/a/div">
+                 <div bbox="627.5 1299.859375 86.34375 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[3]/a/div/div[1]">
+                  Collèges
+                 </div>
+                 <div bbox="627.5 1330.421875 515 28.5625" class="cal_titre" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[3]/a/div/div[2]">
+                  Cross scolaire 2021 : découvrez tous les résultats
+                 </div>
+                </div>
+               </a>
+              </div>
+             </div>
+            </div>
+           </div>
+           <div bbox="7.5 1398.984375 1170 390" class="row" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]">
+            <div bbox="7.5 1398.984375 390 390" class="col-md-4 col-xs-6" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]">
+             <a bbox="22.5 1398.984375 360 360" class="cal_information cal_normal-box" href="/video/regard-des-jeunes-de-15-ans-retour-sur-les-rencontres-AFP-2021" is-usable="true" style='background-image: url("/files/live/sites/calvados/files/documents/images/medias/regard-des-jeunes-15-ans-2021-halle-o-grains-987x555.jpg?t=thumbnail2;"); height: 360px; display: block; visibility: visible;' title="Aller sur la page : Regard des jeunes de 15 ans : retour sur les Rencontres AFP 2021" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/a">
+              <div bbox="22.5 1592.734375 360 166.25" class="cal_contenu" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/a/div">
+               <div bbox="42.5 1592.734375 86.34375 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/a/div/div[1]">
+                Collèges
+               </div>
+               <div bbox="133.84375 1592.734375 78.953125 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/a/div/div[2]">
+                Culture
+               </div>
+               <div bbox="217.796875 1592.734375 85.3125 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/a/div/div[3]">
+                Jeunesse
+               </div>
+               <div bbox="42.5 1623.296875 320 85.6875" class="cal_titre" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/a/div/div[4]">
+                Regard des jeunes de 15 ans : retour sur les Rencontres AFP 2021
+               </div>
+               <div bbox="42.5 1718.984375 320 20" class="cal_date" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/a/div/div[5]">
+                mardi 16 novembre 2021
+               </div>
+              </div>
+             </a>
+            </div>
+            <div bbox="397.5 1398.984375 390 390" class="col-md-4 col-xs-6" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]">
+             <a bbox="412.5 1398.984375 360 360" class="cal_information cal_normal-box" href="/diaporama/Equidays-diaporama-edition-2021" is-usable="true" style='background-image: url("/files/live/sites/calvados/files/documents/images/presse/equidays-2021_bilan_balade-cal%c3%a8che_555.gif?t=thumbnail2;"); height: 360px; display: block; visibility: visible;' title="Aller sur la page : Équidays - Diaporama de l'édition 2021" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/a">
+              <div bbox="412.5 1559.609375 360 199.375" class="cal_contenu" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/a/div">
+               <div bbox="432.5 1559.609375 118.203125 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/a/div/div[1]">
+                Filière équine
+               </div>
+               <div bbox="555.703125 1559.609375 62.28125 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/a/div/div[2]">
+                Sport
+               </div>
+               <div bbox="622.984375 1559.609375 93.90625 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/a/div/div[3]">
+                Territoire
+               </div>
+               <div bbox="432.5 1580.171875 86.359375 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/a/div/div[4]">
+                Tourisme
+               </div>
+               <div bbox="432.5 1600.734375 235.640625 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/a/div/div[5]">
+                Environnement / biodiversité
+               </div>
+               <div bbox="432.5 1621.296875 78.953125 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/a/div/div[6]">
+                Culture
+               </div>
+               <div bbox="516.453125 1621.296875 109.3125 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/a/div/div[7]">
+                Attractivité
+               </div>
+               <div bbox="432.5 1651.859375 320 57.125" class="cal_titre" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/a/div/div[8]">
+                Équidays - Diaporama de l'édition 2021
+               </div>
+               <div bbox="432.5 1718.984375 320 20" class="cal_date" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/a/div/div[9]">
+                lundi 15 novembre 2021
+               </div>
+              </div>
+             </a>
+            </div>
+            <div bbox="787.5 1398.984375 390 390" class="col-md-4 col-xs-6" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]">
+             <a bbox="802.5 1398.984375 360 360" class="cal_information cal_normal-box" href="/video/Equidays-2021-retour-en-images" is-usable="true" style='background-image: url("/files/live/sites/calvados/files/documents/images/medias/best-of-video-equidays-2021-555x312.jpg?t=thumbnail2;"); height: 360px; display: block; visibility: visible;' title="Aller sur la page : Vidéo : retour sur les Équidays 2021" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/a">
+              <div bbox="802.5 1600.734375 360 158.25" class="cal_contenu" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/a/div">
+               <div bbox="822.5 1600.734375 118.203125 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/a/div/div[1]">
+                Filière équine
+               </div>
+               <div bbox="945.703125 1600.734375 78.953125 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/a/div/div[2]">
+                Culture
+               </div>
+               <div bbox="1029.65625 1600.734375 62.28125 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/a/div/div[3]">
+                Sport
+               </div>
+               <div bbox="822.5 1621.296875 86.359375 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/a/div/div[4]">
+                Tourisme
+               </div>
+               <div bbox="913.859375 1621.296875 109.3125 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/a/div/div[5]">
+                Attractivité
+               </div>
+               <div bbox="1028.171875 1621.296875 85.3125 18.5625" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/a/div/div[6]">
+                Jeunesse
+               </div>
+               <div bbox="822.5 1651.859375 320 57.125" class="cal_titre" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/a/div/div[7]">
+                Vidéo : retour sur les Équidays 2021
+               </div>
+               <div bbox="822.5 1718.984375 320 20" class="cal_date" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[4]/div[1]/section/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/a/div/div[8]">
+                lundi 15 novembre 2021
+               </div>
+              </div>
+             </a>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </section>
+     </div>
+    </div>
+    <div bbox="7.5 1788.984375 1170 1988.921875" class="container" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]">
+     <section aria-label="Aides &amp; Services" bbox="22.5 1788.984375 1140 286.953125" class="cal_services" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/section">
+      <h2 bbox="22.5 1838.984375 1140 48.390625" class="bigTitle" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/section/h2">
+       Aides &amp; services
+      </h2>
+      <div bbox="22.5 1917.375 1140 158.5625" class="cal_filtre" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/section/div">
+       <p bbox="62.5 1937.375 1060 28.5625" class="cal_titre" id="titre-3a0c6249-300f-4b1f-b3ad-1d1afa55a7eb" is-usable="true" style="display: block; visibility: visible;" xpath='//*[@id="titre-3a0c6249-300f-4b1f-b3ad-1d1afa55a7eb"]'>
+        Trouver une aide ou un service en fonction de mon profil
+       </p>
+       <div bbox="47.5 1985.9375 1090 60" class="row" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/section/div/div">
+        <div bbox="47.5 1985.9375 454.15625 57.421875" class="col-sm-5" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/section/div/div/div[1]">
+         <div bbox="62.5 1985.9375 424.15625 57.421875" class="dropdown" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/section/div/div/div[1]/div">
+          <button aria-describedby="titre-3a0c6249-300f-4b1f-b3ad-1d1afa55a7eb" aria-expanded="false" aria-haspopup="true" bbox="62.5 1985.9375 424.15625 57.421875" class="dropdown-toggle" data-toggle="dropdown" id="dropdownProfil-3a0c6249-300f-4b1f-b3ad-1d1afa55a7eb" is-usable="true" style="display: block; visibility: visible;" type="button" xpath='//*[@id="dropdownProfil-3a0c6249-300f-4b1f-b3ad-1d1afa55a7eb"]'>
+           <span bbox="111.0625 2006.9375 75.15625 18" class="cal_libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/section/div/div/div[1]/div/button/span[2]">
+            Votre profil
+           </span>
+          </button>
+         </div>
+        </div>
+        <div bbox="501.65625 1985.9375 181.65625 60" class="col-sm-2" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/section/div/div/div[2]">
+         <span bbox="581.953125 2005.9375 21.0625 20" class="cal_petit-texte" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/section/div/div/div[2]/span">
+          Ou
+         </span>
+        </div>
+        <div bbox="683.3125 1985.9375 454.15625 57.421875" class="col-sm-5" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/section/div/div/div[3]">
+         <div bbox="698.3125 1985.9375 424.15625 57.421875" class="dropdown" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/section/div/div/div[3]/div">
+          <button aria-describedby="titre-3a0c6249-300f-4b1f-b3ad-1d1afa55a7eb" aria-expanded="false" aria-haspopup="true" bbox="698.3125 1985.9375 424.15625 57.421875" class="dropdown-toggle" data-toggle="dropdown" href="#" id="dropdownThematique-3a0c6249-300f-4b1f-b3ad-1d1afa55a7eb" is-usable="true" style="display: block; visibility: visible;" type="button" xpath='//*[@id="dropdownThematique-3a0c6249-300f-4b1f-b3ad-1d1afa55a7eb"]'>
+           <span bbox="746.875 2006.9375 83.875 18" class="cal_libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/section/div/div/div[3]/div/button/span[2]">
+            Thématique
+           </span>
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
+     <div bbox="22.5 2095.9375 855 1681.96875" class="col-md-9" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]">
+      <div bbox="37.5 2115.9375 825 392.53125" class="cal_liste-briques" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]">
+       <h3 bbox="37.5 2115.9375 825 22" class="hover-couleur3 texte-couleur3" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/h3">
+        Les aides &amp; services à la une
+       </h3>
+       <ul bbox="37.5 2167.9375 825 285.6875" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul">
+        <li bbox="37.5 2167.9375 200.59375 71.421875" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[1]">
+         <a bbox="37.5 2167.9375 190.59375 61.421875" class="fond-gris texte-noir" href="/sorties-scol-air" is-usable="true" style="display: inline-block; visibility: visible;" target="_self" title="Sorties Scol'Air" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[1]/a">
+          <span bbox="67.5 2188.9375 130.59375 18" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[1]/a/span">
+           Sorties Scol'Air
+          </span>
+         </a>
+        </li>
+        <li bbox="240.875 2167.9375 278.59375 71.421875" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[2]">
+         <a bbox="240.875 2167.9375 268.59375 61.421875" class="fond-couleur1_pale texte-noir" href="/contents/fiche/fiches-aide--services/trouver-une-assistante-maternell.html" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[2]/a">
+          <span bbox="270.875 2188.9375 208.59375 18" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[2]/a/span">
+           Assistantes maternelles
+          </span>
+         </a>
+        </li>
+        <li bbox="522.25 2167.9375 124.25 71.421875" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[3]">
+         <a bbox="522.25 2167.9375 114.25 61.421875" class="fond-gris texte-noir" href="/contents/fiche/fiches-aide--services/e-tude-plateforme-daide-aux-devo.html" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[3]/a">
+          <span bbox="552.25 2188.9375 54.25 18" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[3]/a/span">
+           E-Tude
+          </span>
+         </a>
+        </li>
+        <li bbox="649.28125 2167.9375 109.703125 71.421875" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[4]">
+         <a bbox="649.28125 2167.9375 99.703125 61.421875" class="fond-gris texte-noir" href="/contents/fiche/fiches-aide--services/aide-aux-petites-communes-rurale.html" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[4]/a">
+          <span bbox="679.28125 2188.9375 39.703125 18" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[4]/a/span">
+           APCR
+          </span>
+         </a>
+        </li>
+        <li bbox="37.5 2239.359375 170.421875 71.421875" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[5]">
+         <a bbox="37.5 2239.359375 160.421875 61.421875" class="fond-gris texte-noir" href="/contents/fiche/fiches-aide--services/lallocation-personnalisee-dauton.html" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[5]/a">
+          <span bbox="67.5 2260.359375 100.421875 18" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[5]/a/span">
+           APA en ligne
+          </span>
+         </a>
+        </li>
+        <li bbox="210.703125 2239.359375 191.859375 71.421875" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[6]">
+         <a bbox="210.703125 2239.359375 181.859375 61.421875" class="fond-gris texte-noir" href="/contents/fiche/fiches-aide--services/cd14---fiche-daides.html" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[6]/a">
+          <span bbox="240.703125 2260.359375 121.859375 18" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[6]/a/span">
+           Demande MDPH
+          </span>
+         </a>
+        </li>
+        <li bbox="405.34375 2239.359375 278.359375 71.421875" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[7]">
+         <a bbox="405.34375 2239.359375 268.359375 61.421875" class="fond-couleur1_pale texte-noir hover-couleur1" href="/teleassistance-calvados" is-usable="true" style="display: inline-block; visibility: visible;" title="Faire une demande de téléassistance" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[7]/a">
+          <span bbox="435.34375 2260.359375 208.359375 18" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[7]/a/span">
+           Téléassistance Calvados
+          </span>
+         </a>
+        </li>
+        <li bbox="37.5 2310.78125 192.140625 71.421875" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[8]">
+         <a bbox="37.5 2310.78125 182.140625 61.421875" class="fond-gris texte-noir" href="/contents/fiche/fiches-aide--services/demander-une-aide-menagere.html" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[8]/a">
+          <span bbox="67.5 2331.78125 122.140625 18" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[8]/a/span">
+           Aide-ménagère
+          </span>
+         </a>
+        </li>
+        <li bbox="232.421875 2310.78125 319.578125 71.421875" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[9]">
+         <a bbox="232.421875 2310.78125 309.578125 61.421875" class="fond-gris texte-noir" href="/contents/fiche/fiches-aide--services/aide-directe-pour-la-rehabilitat.html" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[9]/a">
+          <span bbox="262.421875 2331.78125 249.578125 18" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[9]/a/span">
+           Assainissement non collectif
+          </span>
+         </a>
+        </li>
+        <li bbox="554.78125 2310.78125 204.03125 71.421875" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[10]">
+         <a bbox="554.78125 2310.78125 194.03125 61.421875" class="fond-gris texte-noir" href="/contents/fiche/fiches-aide--services/mapeo-calvados.html" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[10]/a">
+          <span bbox="584.78125 2331.78125 134.03125 18" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[10]/a/span">
+           MAPEO Calvados
+          </span>
+         </a>
+        </li>
+        <li bbox="37.5 2382.203125 214.59375 71.421875" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[11]">
+         <a bbox="37.5 2382.203125 204.59375 61.421875" class="fond-gris texte-noir" href="/contents/fiche/fiches-aide--services/soutien-aux-initiatives-jeunes.html" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[11]/a">
+          <span bbox="67.5 2403.203125 144.59375 18" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[11]/a/span">
+           Initiatives Jeunes
+          </span>
+         </a>
+        </li>
+        <li bbox="254.875 2382.203125 192.390625 71.421875" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[12]">
+         <a bbox="254.875 2382.203125 182.390625 61.421875" class="fond-gris texte-noir" href="/contents/fiche/fiches-aide--services/viatrajectoire.html" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[12]/a">
+          <span bbox="284.875 2403.203125 122.390625 18" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/ul/li[12]/a/span">
+           ViaTrajectoire
+          </span>
+         </a>
+        </li>
+       </ul>
+       <a bbox="534.3125 2453.625 328.1875 54.84375" class="cal_voir-plus-liste cal_bouton-commun" href="/accueil/aides--services.html" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/a">
+        <span bbox="574.609375 2470.625 276.890625 19" class="cal_libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[1]/a/span[2]">
+         Voir l'ensemble des aides &amp; services
+        </span>
+       </a>
+      </div>
+      <div bbox="37.5 2568.46875 412.5 1209.4375" class="col-md-6" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]">
+       <div bbox="52.5 2568.46875 382.5 561" class="childPageRetrievalAction" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]">
+        <h2 bbox="52.5 2568.46875 382.5 96.78125" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/h2">
+         <a bbox="52.5 2568.46875 382.5 96.78125" href="/accueil/le-departement.html" is-usable="true" style="display: block; visibility: visible;" title="Consulter la page : &lt;p&gt;Les actions du département&lt;/p&gt; " xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/h2/a">
+          <p bbox="52.5 2563.46875 360.921875 106.390625" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/h2/a/p">
+           Les actions du département
+          </p>
+         </a>
+        </h2>
+        <a bbox="52.5 2685.25 382.5 230" bla="" href="/accueil/le-departement/solidarite---familles.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Solidarité &amp; Familles" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/a">
+         <img alt="solidarite-famille.jpg" bbox="52.5 2685.25 382.5 230" class="img-responsive" is-usable="true" src="/files/live/sites/calvados/files/documents/images/factice/departement/solidarite-famille.jpg" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/a/img"/>
+         <h3 bbox="52.5 2812.25 382.5 103" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/a/h3">
+          Solidarité &amp; Familles
+         </h3>
+        </a>
+        <ul bbox="52.5 2915.25 382.5 214.21875" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/ul">
+         <li bbox="97.5 2940.25 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/ul/li[1]">
+          <a bbox="97.5 2940.25 292.5 32.84375" href="/accueil/le-departement/solidarite---familles/enfance--familles.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Enfance &amp; familles" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/ul/li[1]/a">
+           Enfance &amp; familles
+          </a>
+         </li>
+         <li bbox="97.5 2973.09375 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/ul/li[2]">
+          <a bbox="97.5 2973.09375 292.5 32.84375" href="/autonomie" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Autonomie &amp; Handicap" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/ul/li[2]/a">
+           Autonomie &amp; Handicap
+          </a>
+         </li>
+         <li bbox="97.5 3005.9375 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/ul/li[3]">
+          <a bbox="97.5 3005.9375 292.5 32.84375" href="/emploi-insertion" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Emploi &amp; insertion" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/ul/li[3]/a">
+           Emploi &amp; insertion
+          </a>
+         </li>
+         <li bbox="97.5 3038.78125 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/ul/li[4]">
+          <a bbox="97.5 3038.78125 292.5 32.84375" href="/accueil/le-departement/solidarite---familles/aide-au-logement.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Aide au logement" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/ul/li[4]/a">
+           Aide au logement
+          </a>
+         </li>
+         <li bbox="97.5 3071.625 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/ul/li[5]">
+          <a bbox="97.5 3071.625 292.5 32.84375" href="/travail-social-et-numerique" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Travail social et numérique" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[1]/ul/li[5]/a">
+           Travail social et numérique
+          </a>
+         </li>
+        </ul>
+       </div>
+       <div bbox="52.5 3159.46875 382.5 588.4375" class="childPageRetrievalAction" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]">
+        <a bbox="52.5 3159.46875 382.5 230" bla="" href="/accueil/le-departement/routes-environnement--territoire.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Routes, environnement &amp; territoire" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/a">
+         <img alt="routes.jpg" bbox="52.5 3159.46875 382.5 230" class="img-responsive" is-usable="true" src="/files/live/sites/calvados/files/documents/images/factice/departement/routes.jpg" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/a/img"/>
+         <h3 bbox="52.5 3220.46875 382.5 169" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/a/h3">
+          Routes, environnement &amp; territoire
+         </h3>
+        </a>
+        <ul bbox="52.5 3389.46875 382.5 358.4375" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul">
+         <li bbox="97.5 3414.46875 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[1]">
+          <a bbox="97.5 3414.46875 292.5 32.84375" href="/accueil/le-departement/routes-environnement--territoire/routes--voiries.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Routes &amp; voiries" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[1]/a">
+           Routes &amp; voiries
+          </a>
+         </li>
+         <li bbox="97.5 3447.3125 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[2]">
+          <a bbox="97.5 3447.3125 292.5 32.84375" href="/accueil/le-departement/routes-environnement--territoire/se-deplacer-autrement.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Se déplacer autrement" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[2]/a">
+           Se déplacer autrement
+          </a>
+         </li>
+         <li bbox="97.5 3480.15625 292.5 55.6875" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[3]">
+          <a bbox="97.5 3480.15625 292.5 55.6875" href="/accueil/le-departement/routes-environnement--territoire/amenagement-du-territoire.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Aides aux territoires, économie, ingénierie et services au public" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[3]/a">
+           Aides aux territoires, économie, ingénierie et services au public
+          </a>
+         </li>
+         <li bbox="97.5 3535.84375 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[4]">
+          <a bbox="97.5 3535.84375 292.5 32.84375" href="/environnement-milieux-naturels" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Environnement &amp; milieux naturels" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[4]/a">
+           Environnement &amp; milieux naturels
+          </a>
+         </li>
+         <li bbox="97.5 3568.6875 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[5]">
+          <a bbox="97.5 3568.6875 292.5 32.84375" href="/accueil/le-departement/routes-environnement--territoire/agriculture--activites-maritimes.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Agriculture &amp; activités maritimes" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[5]/a">
+           Agriculture &amp; activités maritimes
+          </a>
+         </li>
+         <li bbox="97.5 3601.53125 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[6]">
+          <a bbox="97.5 3601.53125 292.5 32.84375" href="/accueil/le-departement/routes-environnement--territoire/securite-publique.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Sécurité publique" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[6]/a">
+           Sécurité publique
+          </a>
+         </li>
+         <li bbox="97.5 3634.375 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[7]">
+          <a bbox="97.5 3634.375 292.5 32.84375" href="/accueil/le-departement/routes-environnement--territoire/fibre-calvados-normandie.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Fibre Calvados-Normandie" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[7]/a">
+           Fibre Calvados-Normandie
+          </a>
+         </li>
+         <li bbox="97.5 3667.21875 292.5 55.6875" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[8]">
+          <a bbox="97.5 3667.21875 292.5 55.6875" href="/occupations-du-domaine-public-a-vocation-economique" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Occupations du domaine public à vocation économique" xpath="/html/body/div/main/div[5]/div[1]/div[3]/div[3]/ul/li[8]/a">
+           Occupations du domaine public à vocation économique
+          </a>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div bbox="450 2568.46875 412.5 933.34375" class="col-md-6" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]">
+       <div bbox="465 2568.46875 382.5 471.96875" class="childPageRetrievalAction" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]">
+        <a bbox="465 2568.46875 382.5 224.90625" bla="" href="/accueil/le-departement/culture-sport--tourisme.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Culture, Sport &amp; Tourisme" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/a">
+         <img alt="joueuse de basket © Gregory Wait" bbox="465 2568.46875 382.5 224.90625" class="img-responsive" is-usable="true" src="/files/live/sites/calvados/files/documents/images/actions-du-departement/culture-sport-tourisme/sport_vignette.jpg" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/a/img"/>
+         <h3 bbox="465 2657.375 382.5 136" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/a/h3">
+          Culture, Sport &amp; Tourisme
+         </h3>
+        </a>
+        <ul bbox="465 2793.375 382.5 247.0625" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/ul">
+         <li bbox="510 2818.375 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/ul/li[1]">
+          <a bbox="510 2818.375 292.5 32.84375" href="/accueil/le-departement/culture-sport--tourisme/acces-a-la-culture.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Accès à la culture" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/ul/li[1]/a">
+           Accès à la culture
+          </a>
+         </li>
+         <li bbox="510 2851.21875 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/ul/li[2]">
+          <a bbox="510 2851.21875 292.5 32.84375" href="/calvados-attractivite" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Calvados Attractivité" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/ul/li[2]/a">
+           Calvados Attractivité
+          </a>
+         </li>
+         <li bbox="510 2884.0625 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/ul/li[3]">
+          <a bbox="510 2884.0625 292.5 32.84375" href="/accueil/le-departement/culture-sport--tourisme/vie-associative.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Vie associative" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/ul/li[3]/a">
+           Vie associative
+          </a>
+         </li>
+         <li bbox="510 2916.90625 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/ul/li[4]">
+          <a bbox="510 2916.90625 292.5 32.84375" href="/jumelages" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Jumelages" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/ul/li[4]/a">
+           Jumelages
+          </a>
+         </li>
+         <li bbox="510 2949.75 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/ul/li[5]">
+          <a bbox="510 2949.75 292.5 32.84375" href="/accueil/le-departement/culture-sport--tourisme/sport-1.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Sport dans le Calvados" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/ul/li[5]/a">
+           Sport dans le Calvados
+          </a>
+         </li>
+         <li bbox="510 2982.59375 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/ul/li[6]">
+          <a bbox="510 2982.59375 292.5 32.84375" href="/le-cheval-ADN-du-Calvados" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Le cheval, ADN du Calvados" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[1]/ul/li[6]/a">
+           Le cheval, ADN du Calvados
+          </a>
+         </li>
+        </ul>
+       </div>
+       <div bbox="465 3070.4375 382.5 401.375" class="childPageRetrievalAction" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[3]">
+        <a bbox="465 3070.4375 382.5 230" bla="" href="/accueil/le-departement/jeunesse--colleges.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Jeunesse &amp; collèges" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[3]/a">
+         <img alt="jeunesse-college.jpg" bbox="465 3070.4375 382.5 230" class="img-responsive" is-usable="true" src="/files/live/sites/calvados/files/documents/images/factice/departement/jeunesse-college.jpg" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[3]/a/img"/>
+         <h3 bbox="465 3197.4375 382.5 103" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[3]/a/h3">
+          Jeunesse &amp; collèges
+         </h3>
+        </a>
+        <ul bbox="465 3300.4375 382.5 171.375" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[3]/ul">
+         <li bbox="510 3325.4375 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[3]/ul/li[1]">
+          <a bbox="510 3325.4375 292.5 32.84375" href="/accueil/le-departement/jeunesse--colleges/gestion-des-colleges-1.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Gestion des collèges" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[3]/ul/li[1]/a">
+           Gestion des collèges
+          </a>
+         </li>
+         <li bbox="510 3358.28125 292.5 32.84375" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[3]/ul/li[2]">
+          <a bbox="510 3358.28125 292.5 32.84375" href="/accueil/le-departement/jeunesse--colleges/vie-au-college.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Vie au collège" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[3]/ul/li[2]/a">
+           Vie au collège
+          </a>
+         </li>
+         <li bbox="510 3391.125 292.5 55.6875" is-usable="true" style="display: list-item; visibility: visible;" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[3]/ul/li[3]">
+          <a bbox="510 3391.125 292.5 55.6875" href="/accueil/le-departement/jeunesse--colleges/dispositifs-jeunesse-sur-le-temp.html" is-usable="true" style="display: block; visibility: visible;" title="Aller sur la page : Dispositifs Jeunesse sur le temps des loisirs" xpath="/html/body/div/main/div[5]/div[1]/div[4]/div[3]/ul/li[3]/a">
+           Dispositifs Jeunesse sur le temps des loisirs
+          </a>
+         </li>
+        </ul>
+       </div>
+      </div>
+     </div>
+     <div bbox="877.5 2095.9375 285 818.34375" class="col-md-3" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[2]">
+      <jahia:addcachedependency bbox="892.5 2095.9375 255 466.21875" is-usable="true" node="node /sites/calvados/files/documents/images/publicites/campagne-3---le-departement-proche-de-vous-240.jpg" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[2]/jahia:addcachedependency">
+       <a bbox="892.5 2095.9375 255 385.21875" class="cal_publicite hidden-xs" href="/accueil/aides--services.html" is-usable="true" style="display: block; visibility: visible;" title="Aides &amp; services" xpath="/html/body/div/main/div[5]/div[2]/jahia:addcachedependency/a">
+        <img alt="cd14---publicite-1" bbox="902.5 2105.9375 235 365.21875" class="img-responsive" is-usable="true" src="/files/live/sites/calvados/files/documents/images/publicites/campagne-3---le-departement-proche-de-vous-240.jpg" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[2]/jahia:addcachedependency/a/img"/>
+       </a>
+       <jahia:addcachedependency bbox="892.5 2562.15625 255 352.125" is-usable="true" node="node /sites/calvados/files/documents/images/publicites/fibre-calvados-chloe-300.jpg" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[5]/div[2]/jahia:addcachedependency/jahia:addcachedependency">
+        <a bbox="892.5 2562.15625 255 352.125" class="cal_publicite hidden-xs" href="https://www.fibre-calvados.fr/accueil.html" is-usable="true" style="display: block; visibility: visible;" target="_blank" title="Accueil" xpath="/html/body/div/main/div[5]/div[2]/jahia:addcachedependency/jahia:addcachedependency/a">
+         <img alt="cd14---publicite" bbox="902.5 2572.15625 235 332.125" class="img-responsive" is-usable="true" src="/files/live/sites/calvados/files/documents/images/publicites/fibre-calvados-chloe-300.jpg" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[5]/div[2]/jahia:addcachedependency/jahia:addcachedependency/a/img"/>
+        </a>
+       </jahia:addcachedependency>
+      </jahia:addcachedependency>
+     </div>
+    </div>
+    <div bbox="0 3777.90625 1185 181.953125" class="conteneurGenerique" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[7]">
+     <div bbox="0 3777.90625 1185 26.28125" class="cal_biseau superieur" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[7]/div[1]">
+      <img alt="" aria-hidden="true" bbox="0 3777.90625 1185 22" is-usable="true" role="presentation" src="/modules/calvados-commun/images/biseau-blanc-transparent-2.png" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[7]/div[1]/img"/>
+     </div>
+     <div bbox="0 3804.1875 1185 129.390625" class="contenu" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[7]/div[3]">
+      <div bbox="7.5 3804.1875 1170 128.390625" class="container" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[7]/div[3]/div[1]">
+       <h2 bbox="22.5 3804.1875 1140 98.390625" class="texte-couleur1 titreConteneur bigTitle" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[7]/div[3]/div[1]/h2">
+        Réseaux sociaux
+       </h2>
+      </div>
+     </div>
+     <div bbox="0 3938.578125 1185 26.28125" class="cal_biseau inferieur" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[7]/div[4]">
+      <img alt="" aria-hidden="true" bbox="0 3938.578125 1185 22" is-usable="true" role="presentation" src="/modules/calvados-commun/images/biseau-transparent-blanc-2.png" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[7]/div[4]/img"/>
+     </div>
+    </div>
+    <div bbox="0 3959.859375 1185 1178.234375" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]">
+     <div bbox="7.5 3959.859375 1170 1178.234375" class="container" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]">
+      <div bbox="22.5 3959.859375 1140 1178.234375" class="col-md-12" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div">
+       <section aria-label="Communiqués et dossiers de presse" bbox="37.5 3959.859375 1110 1178.234375" class="remonteContenu" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section">
+        <h2 bbox="37.5 4009.859375 1110 48.390625" class="texte-couleur1" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/h2">
+         <span bbox="98.296875 4004.859375 747.109375 58" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/h2/span[2]">
+          Communiqués et dossiers de presse
+         </span>
+        </h2>
+        <div bbox="22.5 4093.25 1140 940" class="row row-eq-height" is-usable="true" style="display: flex; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]">
+         <div bbox="22.5 4093.25 380 940" class="col-md-4 col-xs-12" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[1]">
+          <div bbox="37.5 4093.25 350 727" class="cal_media" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[1]/div">
+           <div bbox="37.5 4093.25 350 320" class="cal_image-media" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[1]/div/div[1]">
+            <img alt="" bbox="37.5 4093.25 350 320" class="img-responsive" is-usable="true" src="/files/live/sites/calvados/files/documents/images/presse/fouilles-place-de-la-r%c3%a9publique_dec.2021_555.jpg?t=thumbnail2" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[1]/div/div[1]/img"/>
+            <div bbox="37.5 4362.546875 157.171875 35.703125" class="cal_image-caption" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[1]/div/div[1]/div">
+             communiqué
+            </div>
+           </div>
+           <div bbox="52.5 4428.25 320 392" class="cal_informations" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[1]/div/div[2]">
+            <p bbox="52.5 4428.25 320 33" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[1]/div/div[2]/p[1]">
+             <span bbox="52.5 4438.25 107.953125 21" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[1]/div/div[2]/p[1]/span">
+              Patrimoine
+             </span>
+            </p>
+            <h3 bbox="52.5 4491.25 320 88" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[1]/div/div[2]/h3">
+             <a bbox="52.5 4489.25 319.28125 92" href="/presse/bilan-de-la-fouille-archeologique-entreprise-par-le-departement-du-cal" is-usable="true" style="display: inline; visibility: visible;" title="Consulter la page : Bilan de la fouille archéologique entreprise par le Département du Calvados place de la République à Caen" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[1]/div/div[2]/h3/a">
+              Bilan de la fouille archéologique entreprise par le Département du Calvados place de la République à Caen
+             </a>
+            </h3>
+            <div bbox="52.5 4599.25 320 180" class="richtext" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[1]/div/div[2]/div">
+             <p bbox="52.5 4599.25 320 180" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[1]/div/div[2]/div/p">
+              La fouille archéologique conduite place de la République à Caen depuis le 1er septembre dernier s’achève à la mi-décembre : bilan après 3 mois d’un chantier qui a attiré de très nombreux visiteurs.
+             </p>
+            </div>
+            <p bbox="52.5 4799.25 320 21" class="cal_date" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[1]/div/div[2]/p[2]">
+             lundi 13 décembre 2021
+            </p>
+           </div>
+          </div>
+         </div>
+         <div bbox="402.5 4093.25 380 940" class="col-md-4 col-xs-12" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]">
+          <div bbox="417.5 4093.25 350 798" class="cal_media" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]/div">
+           <div bbox="417.5 4093.25 350 320" class="cal_image-media" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]/div/div[1]">
+            <img alt="" bbox="417.5 4093.25 350 320" class="img-responsive" is-usable="true" src="/files/live/sites/calvados/files/documents/images/presse/Port-Deauville-JMGatey_Calvados_Attractivite_555.jpg?t=thumbnail2" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]/div/div[1]/img"/>
+            <div bbox="417.5 4362.546875 157.171875 35.703125" class="cal_image-caption" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]/div/div[1]/div">
+             communiqué
+            </div>
+           </div>
+           <div bbox="432.5 4428.25 320 463" class="cal_informations" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]/div/div[2]">
+            <p bbox="432.5 4428.25 320 66" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]/div/div[2]/p[1]">
+             <span bbox="432.5 4438.25 96.765625 21" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]/div/div[2]/p[1]/span[1]">
+              Nautisme
+             </span>
+             <span bbox="432.5 4471.25 225.9375 21" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]/div/div[2]/p[1]/span[2]">
+              Ports &amp; activités maritimes
+             </span>
+            </p>
+            <h3 bbox="432.5 4524.25 320 66" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]/div/div[2]/h3">
+             <a bbox="432.5 4522.25 282.78125 70" href="/presse/le-departement-du-calvados-reprend-en-regie-la-gestion-du-port-de-deau" is-usable="true" style="display: inline; visibility: visible;" title="Consulter la page : Le Département du Calvados reprend en main la gestion du port de Deauville" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]/div/div[2]/h3/a">
+              Le Département du Calvados reprend en main la gestion du port de Deauville
+             </a>
+            </h3>
+            <div bbox="432.5 4610.25 320 240" class="richtext" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]/div/div[2]/div">
+             <p bbox="432.5 4610.25 320 240" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]/div/div[2]/div/p">
+              Propriétaire du port de Deauville-Trouville, le Département du Calvados reprend en régie l’exploitation du port de plaisance de Deauville, suite à la liquidation judiciaire de la SAS Port Deauville, jusqu’alors concessionnaire de cette infrastructure publique.
+             </p>
+            </div>
+            <p bbox="432.5 4870.25 320 21" class="cal_date" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[2]/div/div[2]/p[2]">
+             lundi 13 décembre 2021
+            </p>
+           </div>
+          </div>
+         </div>
+         <div bbox="782.5 4093.25 380 940" class="col-md-4 col-xs-12" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]">
+          <div bbox="797.5 4093.25 350 910" class="cal_media" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]/div">
+           <div bbox="797.5 4093.25 350 320" class="cal_image-media" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]/div/div[1]">
+            <img alt="" bbox="797.5 4093.25 350 320" class="img-responsive" is-usable="true" src="/files/live/sites/calvados/files/documents/images/presse/pont-goldbach-courseulles_555.jpg?t=thumbnail2" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]/div/div[1]/img"/>
+            <div bbox="797.5 4362.546875 157.171875 35.703125" class="cal_image-caption" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]/div/div[1]/div">
+             communiqué
+            </div>
+           </div>
+           <div bbox="812.5 4428.25 320 575" class="cal_informations" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]/div/div[2]">
+            <p bbox="812.5 4428.25 320 66" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]/div/div[2]/p[1]">
+             <span bbox="812.5 4438.25 225.9375 21" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]/div/div[2]/p[1]/span[1]">
+              Ports &amp; activités maritimes
+             </span>
+             <span bbox="812.5 4471.25 96.765625 21" class="cal_type" is-usable="true" style="display: inline-block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]/div/div[2]/p[1]/span[2]">
+              Nautisme
+             </span>
+            </p>
+            <h3 bbox="812.5 4524.25 320 88" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]/div/div[2]/h3">
+             <a bbox="812.5 4522.25 310.421875 92" href="/presse/les-travaux-des-ouvrages-mobiles-du-port-departemental-de-courseulles" is-usable="true" style="display: inline; visibility: visible;" title="Consulter la page : Point sur l’avancement des travaux des ouvrages mobiles du port départemental de Courseulles-sur-Mer" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]/div/div[2]/h3/a">
+              Point sur l’avancement des travaux des ouvrages mobiles du port départemental de Courseulles-sur-Mer
+             </a>
+            </h3>
+            <div bbox="812.5 4632.25 320 330" class="richtext" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]/div/div[2]/div">
+             <p bbox="812.5 4632.25 320 330" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]/div/div[2]/div/p">
+              En septembre dernier, le Département du Calvados a engagé des travaux d’envergure sur les ouvrages mobiles du bassin Joinville, sur le port départemental de Courseulles-sur-Mer. Après 3 mois, la première phase de l’opération va pouvoir s’achever, avec cependant quelques travaux complémentaires à prévoir...
+             </p>
+            </div>
+            <p bbox="812.5 4982.25 320 21" class="cal_date" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/main/div[9]/div[1]/div/section/div[2]/div[3]/div/div[2]/p[2]">
+             lundi 13 décembre 2021
+            </p>
+           </div>
+          </div>
+         </div>
+        </div>
+        <a bbox="896.96875 5033.25 250.53125 54.84375" class="cal_bouton-commun" href="/accueil/toute-linfo/dossiers-1.html" is-usable="true" style="display: block; visibility: visible;" title="Consulter la page : Accéder à l'espace presse" xpath="/html/body/div/main/div[9]/div[1]/div/section/a">
+         Accéder à l'espace presse
+        </a>
+       </section>
+      </div>
+     </div>
+    </div>
+   </main>
+   <footer bbox="0 5138.09375 1185 689.1875" id="footer" is-usable="true" role="contentinfo" style="display: block; visibility: visible;" xpath='//*[@id="footer"]'>
+    <div bbox="7.5 5238.09375 1170 539.1875" class="container" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]">
+     <div bbox="7.5 5238.09375 1170 539.1875" class="row" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div">
+      <div bbox="7.5 5238.09375 292.5 152.59375" class="col-md-3" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]">
+       <div bbox="22.5 5238.09375 262.5 75.75" class="address" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]">
+        <div bbox="37.5 5238.09375 247.5 75.75" class="richtext" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]/div">
+         <p bbox="37.5 5238.09375 247.5 18.1875" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]/div/p[1]">
+          <strong bbox="37.5 5239.09375 230.40625 16" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]/div/p[1]/strong">
+           <span bbox="37.5 5239.09375 230.40625 16" is-usable="true" style="color: rgb(72, 185, 95); display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]/div/p[1]/strong/span">
+            <span bbox="37.5 5237.09375 230.40625 19" is-usable="true" style="font-size: 16px; display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]/div/p[1]/strong/span/span">
+             DÉPARTEMENT DU CALVADOS
+            </span>
+           </span>
+          </strong>
+         </p>
+         <p bbox="37.5 5256.28125 247.5 57.5625" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]/div/p[2]">
+          <span bbox="37.5 5259.28125 63.640625 14" is-usable="true" style="font-size: 12px; display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]/div/p[2]/span[1]">
+           <span bbox="40.5625 5257.28125 60.578125 16" is-usable="true" style="font-size: 14px; display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]/div/p[2]/span[1]/span">
+            BP 20520
+           </span>
+          </span>
+          <span bbox="37.5 5278.46875 132.984375 33.1875" is-usable="true" style="font-size: 12px; display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]/div/p[2]/span[2]">
+           <span bbox="37.5 5276.46875 132.984375 16" is-usable="true" style="font-size: 14px; display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]/div/p[2]/span[2]/span[1]">
+            14035 Caen CEDEX 1
+           </span>
+           <span bbox="37.5 5295.65625 117.25 16" is-usable="true" style="font-size: 14px; display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]/div/p[2]/span[2]/span[2]">
+            <span bbox="37.5 5295.65625 117.25 16" is-usable="true" style="color: rgb(72, 185, 95); display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]/div/p[2]/span[2]/span[2]/span">
+             Tél. :
+             <a bbox="68.890625 5295.65625 85.859375 16" href="tel:+33231571414" is-usable="true" style="display: inline; visibility: visible;" target="_blank" title="Appeler le Département du Calvados" xpath="/html/body/div/footer/div[1]/div/div[1]/div[1]/div/p[2]/span[2]/span[2]/span/a">
+              02 31 57 14 14
+             </a>
+            </span>
+           </span>
+          </span>
+         </p>
+        </div>
+       </div>
+       <span bbox="22.5 5333.84375 262.5 56.84375" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/span">
+        <a bbox="22.5 5333.84375 262.5 56.84375" class="footerHugeLink" href="/contact" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/span/a">
+         <span bbox="36.8125 5351.84375 233.875 19" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[1]/span/a/span">
+          Contacter la collectivité
+         </span>
+        </a>
+       </span>
+      </div>
+      <div bbox="300 5238.09375 292.5 210" class="col-md-3" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]">
+       <div bbox="315 5238.09375 262.5 210" class="cal_liens" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div">
+        <span bbox="315 5238.09375 262.5 20" class="footerSmallLink" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[1]">
+         <a bbox="315 5238.09375 262.5 20" href="/accueil/toute-linfo/actualites.html" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[1]/a">
+          <span bbox="345 5240.09375 84.140625 16" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[1]/a/span">
+           Actualités
+          </span>
+         </a>
+        </span>
+        <span bbox="315 5273.09375 262.5 20" class="footerSmallLink" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[2]">
+         <a bbox="315 5273.09375 262.5 20" href="/accueil/espace-marches-publics.html" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[2]/a">
+          <span bbox="345 5275.09375 129.921875 16" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[2]/a/span">
+           Marchés publics
+          </span>
+         </a>
+        </span>
+        <span bbox="315 5308.09375 262.5 20" class="footerSmallLink" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[3]">
+         <a bbox="315 5308.09375 262.5 20" href="/accueil/toute-linfo/dossiers-1.html" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[3]/a">
+          <span bbox="345 5310.09375 107.203125 16" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[3]/a/span">
+           Espace presse
+          </span>
+         </a>
+        </span>
+        <span bbox="315 5343.09375 262.5 20" class="footerSmallLink" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[4]">
+         <a bbox="315 5343.09375 262.5 20" href="/espace-emploi" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[4]/a">
+          <span bbox="345 5345.09375 106.671875 16" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[4]/a/span">
+           Espace emploi
+          </span>
+         </a>
+        </span>
+        <span bbox="315 5378.09375 262.5 20" class="footerSmallLink" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[5]">
+         <a bbox="315 5378.09375 262.5 20" href="/accueil/faq.html" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[5]/a">
+          <span bbox="345 5380.09375 26.609375 16" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[5]/a/span">
+           FAQ
+          </span>
+         </a>
+        </span>
+        <span bbox="315 5413.09375 262.5 20" class="footerSmallLink" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[6]">
+         <a bbox="315 5413.09375 262.5 20" href="https://sso.calvados.fr/cas/login?service=https://beta.calvados.fr/cms/edit/default/fr/sites/calvados/accueil.html" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[6]/a">
+          <span bbox="362.46875 5415.09375 88.109375 16" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[2]/div/span[6]/a/span[2]">
+           Accès privé
+          </span>
+         </a>
+        </span>
+       </div>
+      </div>
+      <div bbox="592.5 5238.09375 292.5 161.59375" class="col-md-3" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[3]">
+       <div bbox="607.5 5238.09375 262.5 161.59375" class="padding-left-30" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[3]/div">
+        <div bbox="637.5 5238.09375 232.5 18.1875" class="richtext" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[1]">
+         <p bbox="637.5 5238.09375 232.5 18.1875" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[1]/p">
+          <span bbox="637.5 5239.09375 161.15625 16" is-usable="true" style="color: rgb(115, 115, 115); font-family: Raleway, sans-serif; font-size: 14px; font-weight: 600; text-transform: uppercase; display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[1]/p/span">
+           RETROUVEZ-NOUS SUR
+          </span>
+         </p>
+        </div>
+        <div bbox="637.5 5266.28125 232.5 40.28125" class="reseaux-sociaux" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[2]">
+         <a bbox="642.5 5266.28125 36 40.28125" href="https://www.facebook.com/CalvadosDep/" is-usable="true" style="display: inline-block; visibility: visible;" target="_blank" title="La page Facebook du Département du Calvados" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[2]/a[1]">
+          <img alt="Logo Facebook" bbox="642.5 5266.28125 36 36" height="36/&gt;" is-usable="true" src="/files/live/sites/calvados/files/documents/images/logo-facebook-bleu.png" style="display: inline-block; visibility: visible;" width="36/&gt;" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[2]/a[1]/img"/>
+         </a>
+         <a bbox="688.5 5266.28125 36 40.28125" href="https://twitter.com/calvadosdep" is-usable="true" style="display: inline-block; visibility: visible;" target="_blank" title="Le compte Twitter du Département du Calvados" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[2]/a[2]">
+          <img alt="Logo Twitter" bbox="688.5 5266.28125 36 36" height="36/&gt;" is-usable="true" src="/files/live/sites/calvados/files/documents/images/logo-twitter-bleu.png" style="display: inline-block; visibility: visible;" width="36/&gt;" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[2]/a[2]/img"/>
+         </a>
+         <a bbox="734.5 5266.28125 36 40.28125" href="https://www.instagram.com/calvadosdepartement/" is-usable="true" style="display: inline-block; visibility: visible;" target="_blank" title="Le compte Instagram du Département du Calvados" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[2]/a[3]">
+          <img alt="Logo Instagram" bbox="734.5 5266.28125 36 36" height="36/&gt;" is-usable="true" src="/files/live/sites/calvados/files/documents/images/logo-instagram-bleu.png" style="display: inline-block; visibility: visible;" width="36/&gt;" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[2]/a[3]/img"/>
+         </a>
+        </div>
+        <div bbox="637.5 5316.5625 232.5 40.28125" class="reseaux-sociaux" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[3]">
+         <a bbox="642.5 5316.5625 36 40.28125" href="https://www.linkedin.com/company/d%C3%A9partementducalvados" is-usable="true" style="display: inline-block; visibility: visible;" target="_blank" title="Le compte LinkedIn du Département du Calvados" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[3]/a[1]">
+          <img alt="Logo LinkedIn" bbox="642.5 5316.5625 36 36" height="36/&gt;" is-usable="true" src="/files/live/sites/calvados/files/documents/images/logo-linkedin-bleu.png" style="display: inline-block; visibility: visible;" width="36/&gt;" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[3]/a[1]/img"/>
+         </a>
+         <a bbox="688.5 5316.5625 36 40.28125" href="https://www.youtube.com/user/CGduCalvados" is-usable="true" style="display: inline-block; visibility: visible;" target="_blank" title="Le compte YouTube du Département du Calvados" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[3]/a[2]">
+          <img alt="Logo YouTube" bbox="688.5 5316.5625 36 36" height="36/&gt;" is-usable="true" src="/files/live/sites/calvados/files/documents/images/logo-youtube-bleu.png" style="display: inline-block; visibility: visible;" width="36/&gt;" xpath="/html/body/div/footer/div[1]/div/div[3]/div/div[3]/a[2]/img"/>
+         </a>
+        </div>
+        <span bbox="647.5 5376.84375 222.5 22.84375" class="footerBigLink" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[3]/div/span">
+         <a bbox="647.5 5377.84375 127.125 19" href="https://services.ownpage.fr/subscribe/d8f9cc2931744c33984fe81556d7c61f" is-usable="true" style="display: inline; visibility: visible;" target="_blank" title="Inscrivez-vous à la newsletter du calvados | nouvelle fenêtre" xpath="/html/body/div/footer/div[1]/div/div[3]/div/span/a">
+          <span bbox="667.453125 5377.84375 107.171875 19" class="libelle" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[3]/div/span/a/span[2]">
+           Newsletter
+          </span>
+         </a>
+        </span>
+       </div>
+      </div>
+      <div bbox="885 5238.09375 292.5 141.28125" class="col-md-3" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[4]">
+       <div bbox="900 5238.09375 262.5 141.28125" class="padding-left-30" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[4]/div">
+        <div bbox="930 5238.09375 232.5 141.28125" class="text-center hidden-xs" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[4]/div/div[1]">
+         <img alt="" bbox="962.25 5238.09375 168 137" height="137/&gt;" is-usable="true" src="/files/live/sites/calvados/files/documents/images/logo-calvados-vertical-transparent.png" style="display: inline-block; visibility: visible;" width="168/&gt;" xpath="/html/body/div/footer/div[1]/div/div[4]/div/div[1]/img"/>
+        </div>
+       </div>
+      </div>
+      <div bbox="7.5 5468.09375 1170 39.1875" class="copyright" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[6]">
+       <div bbox="22.5 5489.09375 1155 18.1875" class="richtext" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[6]/div">
+        <p bbox="22.5 5489.09375 1155 18.1875" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[6]/div/p">
+         <span bbox="166.46875 5490.09375 185.046875 16" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[6]/div/p/span">
+          © Département du Calvados
+         </span>
+         -
+         <u bbox="364.578125 5490.09375 75.078125 16" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[6]/div/p/u[1]">
+          <a bbox="364.578125 5490.09375 75.078125 16" href="/accueil/sitemap.html" is-usable="true" style="display: inline; visibility: visible;" title="Plan du site" xpath="/html/body/div/footer/div[1]/div/div[6]/div/p/u[1]/a">
+           Plan du site
+          </a>
+         </u>
+         -
+         <a bbox="452.71875 5490.09375 113.84375 16" href="/accueil/mentions-legales.html" is-usable="true" style="display: inline; visibility: visible;" title="Mentions légales" xpath="/html/body/div/footer/div[1]/div/div[6]/div/p/a">
+          <u bbox="452.71875 5490.09375 110.265625 16" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[6]/div/p/a/u">
+           Mentions légales
+          </u>
+         </a>
+         -
+         <u bbox="576.046875 5490.09375 94.296875 16" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[6]/div/p/u[2]">
+          <a bbox="576.046875 5490.09375 94.296875 16" href="/accueil/logo-et-charte.html" is-usable="true" style="display: inline; visibility: visible;" title="Logo du Département du Calvados et charte d'utilisation" xpath="/html/body/div/footer/div[1]/div/div[6]/div/p/u[2]/a">
+           Logo et charte
+          </a>
+         </u>
+         -
+         <u bbox="683.40625 5490.09375 153.640625 16" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[6]/div/p/u[3]">
+          <a bbox="683.40625 5490.09375 153.640625 16" href="/accueil/protection-des-donnees-personnel.html" is-usable="true" style="display: inline; visibility: visible;" title="Protection des données personnelles" xpath="/html/body/div/footer/div[1]/div/div[6]/div/p/u[3]/a">
+           Protection des données
+          </a>
+         </u>
+         -
+         <u bbox="849.671875 5490.09375 183.859375 16" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[6]/div/p/u[4]">
+          <a bbox="849.671875 5490.09375 183.859375 16" href="/accueil/accessibilite-numerique.html" is-usable="true" style="display: inline; visibility: visible;" title="Accessibilité" xpath="/html/body/div/footer/div[1]/div/div[6]/div/p/u[4]/a">
+           Accessibilité : Non conforme
+          </a>
+         </u>
+        </p>
+       </div>
+      </div>
+      <div bbox="7.5 5537.28125 1170 240" class="offsetArea margeTop-30 margeBot-aucune zIndex-1" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]">
+       <div bbox="22.5 5537.28125 1170 240" class="container" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]">
+        <div bbox="22.5 5537.28125 1170 240" class="row" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div">
+         <div bbox="22.5 5537.28125 585 240" class="col-md-6" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[1]">
+          <a bbox="37.5 5537.28125 555 200" class="cal_photo-texte img-responsive" href="https://www.acce-o.fr/client/calvados" is-usable="true" style="display: block; visibility: visible;" target="_blank" title="Aller sur la page : Baisse d'audition, sourd ou malentendant, appelez-nous en cliquant ici | nouvelle fenêtre" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[1]/a">
+           <img alt="Baisse d'audition, sourd ou malentendant, appelez-nous en cliquant ici | nouvelle fenêtre" bbox="37.5 5537.28125 380 200" class="img-responsive" is-usable="true" src="/files/live/sites/calvados/files/documents/images/Accessibilite/banniere%20-%20Copie-resize380x200.png" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[1]/a/img"/>
+          </a>
+         </div>
+         <div bbox="607.5 5537.28125 585 111.75" class="col-md-6" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]">
+          <section aria-label="paragraphe 0a55884d-6326-4cbb-85f9-f5e2e55046b2" bbox="622.5 5537.28125 555 39" class="conteneurBiseaux-redactionnel texte-noir hover-couleur3" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[1]">
+           <div bbox="622.5 5537.28125 555 39" class="paragraphe" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[1]/div">
+            <div bbox="622.5 5537.28125 555 39" class="" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[1]/div/div">
+             <div bbox="622.5 5537.28125 555 39" class="richtext texte-noir" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[1]/div/div/div">
+              <p bbox="622.5 5537.28125 555 39" is-usable="true" style="text-align: center; display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[1]/div/div/div/p">
+               <a bbox="622.5 5537.28125 555 39" href="https://www.access-man.com/abilitybrowser/download.php" is-usable="true" style="display: inline; visibility: visible;" target="_blank" title="Lien d'installation de Ability browser | nouvelle fenêtre" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[1]/div/div/div/p/a">
+                <img alt="Logo Ability browser" bbox="622.5 5537.28125 196 39" class="img-responsive" height="39" is-usable="true" src="/files/live/sites/calvados/files/documents/images/Accessibilite/logo_noir-resize196x39.png" style="display: block; visibility: visible;" width="196" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[1]/div/div/div/p/a/img"/>
+               </a>
+              </p>
+             </div>
+            </div>
+           </div>
+          </section>
+          <section aria-label="paragraphe b308bffe-2cfd-4880-95ce-edd125710b3c" bbox="622.5 5576.28125 555 36.375" class="conteneurBiseaux-redactionnel texte-noir hover-couleur3" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[2]">
+           <div bbox="622.5 5576.28125 555 36.375" class="paragraphe" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[2]/div">
+            <div bbox="622.5 5576.28125 555 36.375" class="" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[2]/div/div">
+             <div bbox="622.5 5576.28125 555 36.375" class="richtext texte-noir" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[2]/div/div/div">
+              <p bbox="622.5 5594.46875 555 18.1875" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[2]/div/div/div/p[2]">
+               <u bbox="622.5 5595.46875 220.609375 16" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[2]/div/div/div/p[2]/u">
+                <a bbox="622.5 5595.46875 220.609375 16" href="https://www.access-man.com/ability-browser-le-navigateur-accessible/" is-usable="true" style="display: inline; visibility: visible;" target="_blank" title="Lien vers page d'informations sur ability browser | nouvelle fenêtre" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[2]/div/div/div/p[2]/u/a">
+                 Qu'est-ce que Ability Browser ?
+                </a>
+               </u>
+              </p>
+             </div>
+            </div>
+           </div>
+          </section>
+          <section aria-label="paragraphe 66010814-85d1-4cd0-8342-efe89ff6bcec" bbox="622.5 5612.65625 555 36.375" class="conteneurBiseaux-redactionnel texte-noir hover-couleur3" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[3]">
+           <div bbox="622.5 5612.65625 555 36.375" class="paragraphe" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[3]/div">
+            <div bbox="622.5 5612.65625 555 36.375" class="" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[3]/div/div">
+             <div bbox="622.5 5612.65625 555 36.375" class="richtext texte-noir" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[3]/div/div/div">
+              <p bbox="622.5 5630.84375 555 18.1875" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[3]/div/div/div/p[2]">
+               <u bbox="622.5 5631.84375 210 16" is-usable="true" style="display: inline; visibility: visible;" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[3]/div/div/div/p[2]/u">
+                <a bbox="622.5 5631.84375 210 16" href="https://www.access-man.com/abilitybrowser/download.php" is-usable="true" style="display: inline; visibility: visible;" target="_blank" title="Lien d'installation de Ability browser | nouvelle fenêtre" xpath="/html/body/div/footer/div[1]/div/div[8]/div[1]/div/div[2]/section[3]/div/div/div/p[2]/u/a">
+                 Installation de Ability Browser
+                </a>
+               </u>
+              </p>
+             </div>
+            </div>
+           </div>
+          </section>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <a bbox="20 1132 48 48" class="contact-button" href="/contact" is-usable="true" style="display: block; visibility: visible;" xpath="/html/body/a">
+   <span bbox="20 1132 48 48" is-usable="true" style="display: flex; visibility: visible;" xpath="/html/body/a/span">
+    ?
+    <span bbox="71.359375 1141 110.71875 27" class="contact-button-label" is-usable="false" style="display: block; visibility: hidden;" xpath="/html/body/a/span/span">
+     contactez-nous
+    </span>
+   </span>
+  </a>
+ </body>
+</html>

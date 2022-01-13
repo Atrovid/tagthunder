@@ -9,8 +9,9 @@ from pipeline.models.web_elements import HTMLPTag
 class TestPuppeteerCrawler(TestCase):
     crawler_address = "http://0.0.0.0:8080"
     block = Puppeteer(crawler_address)
+    block.config(1200, 1200, REQUIRED_STYLES)
     url = "https://www.example.com"
-    htmlp: HTMLP = block(url=url, page_width=1200, page_height=1200, styles=REQUIRED_STYLES)
+    htmlp: HTMLP = block(url=url)
 
     def test_is_running(self):
         assert self.block.requester.is_running
