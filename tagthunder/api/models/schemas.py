@@ -1,5 +1,6 @@
 from typing import Optional, List, Any, Union
 
+import fastapi
 from pydantic import BaseModel, Field
 
 
@@ -29,7 +30,7 @@ Keywords = List[Keyword]
 class Zone(BaseModel):
     id: int
     htmlpp: Union[List[HTMLPP], HTMLPP]
-    keywords: Optional[Keywords] = None
+    keywords: Optional[Keywords] = []
 
     class Config:
         arbitrary_types_allowed = True

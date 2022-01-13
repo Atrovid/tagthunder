@@ -50,11 +50,17 @@ class Responses:
 
     @classmethod
     def Keyword(cls, keyword: algos_responses.Keyword) -> schemas.Keyword:
-        return schemas.Keyword(text=keyword.text, score=keyword.score)
+        if keyword is None:
+            return None
+        else:
+            return schemas.Keyword(text=keyword.text, score=keyword.score)
 
     @classmethod
     def Keywords(cls, keywords: algos_responses.Keywords) -> schemas.Keywords:
-        return [cls.Keyword(k) for k in keywords]
+        if not keywords:
+            return []
+        else:
+            return [cls.Keyword(k) for k in keywords]
 
     @classmethod
     def Zone(cls, zone: algos_responses.Zone) -> schemas.Zone:
