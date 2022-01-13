@@ -9,6 +9,9 @@ class VisionBased(AbstractCleaningBlock):
     USELESS_TAGS = ["title", "link", "script", "noscript", "style", "doctype", "head", "base", "command",
                     "meta", "br"]
 
+    def config(self, **kwargs):
+        pass
+
     def __call__(self, htmlp: HTMLP) -> HTMLPP:
         self.remove_comments(htmlp)
         for tag in list(htmlp())[::-1]:

@@ -1,4 +1,4 @@
-from typing import Optional, List
+from typing import Optional, List, Tuple
 
 import pydantic
 import requests
@@ -10,14 +10,17 @@ from pipeline.models.responses import HTMLP
 
 class Puppeteer(AbstractAugmentationBlock):
     def __init__(self, crawler_address):
-        self.crawler_address: HttpUrl = crawler_address
-        self.requester = PuppeteerCrawlerWrapper(crawler_address=self.crawler_address)
+        super(Puppeteer, self).__init__()
+        self.page_height = None
+        self.page_width = None
+        self.requester = PuppeteerCrawlerWrapper(crawler_address=crawler_address)
 
-    def __call__(self, url: HttpUrl, page_width: int = 1200, page_height: int = 1200,
-                 styles: Optional[List[str]] = None) -> HTMLP:
-        if styles is None:
-            styles = []
-        response = self.requester(url=url, width=page_width, height=page_height, styles=styles)
+    def config(self, page_width: int = 1200, page_height: int = 1200, styles: Optional[List[str]] = None):
+        super(Puppeteer, self).config(styles)
+        self.page_width, self.page_height = page_width, page_height
+
+    def __call__(self, url: HttpUrl, **kwargs) -> HTMLP:
+        response = self.requester(url=url, width=self.page_width, height=self.page_height, styles=self.styles)
         return HTMLP(markup=response.content)
 
 

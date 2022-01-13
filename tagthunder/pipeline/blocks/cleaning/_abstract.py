@@ -5,8 +5,10 @@ import bs4
 from pipeline.models.responses import HTMLPP, HTMLP
 from pipeline.models.web_elements import HTMLPTag, HTMLPPTag
 
+from pipeline.blocks._abstract import AbstractPipelineBlock
 
-class AbstractCleaningBlock(ABC):
+
+class AbstractCleaningBlock(AbstractPipelineBlock):
     NON_CONTAINER_TAGS = ["img"]
 
     @abstractmethod

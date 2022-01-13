@@ -13,8 +13,14 @@ class TopDownBottomUp(AbstractSegmentationBlock):
     _MERGED_ZONE_TAG = "div"
     _MERGED_ZONE_CLASS = "tt_merged_zone"
 
-    def __call__(self, htmlpp: HTMLPP, *, nb_zones: int, **kwargs) -> Segmentation:
-        zones = sorted(self.fit(htmlpp=htmlpp, nb_zones=nb_zones), key=lambda tag: tag.bbox.top_left.y)
+    def __init__(self):
+        self.nb_zones = None
+
+    def config(self, nb_zones):
+        self.nb_zones = nb_zones
+
+    def __call__(self, htmlpp: HTMLPP) -> Segmentation:
+        zones = sorted(self.fit(htmlpp=htmlpp), key=lambda tag: tag.bbox.top_left.y)
 
         return Segmentation(zones=[
             Zone(id=i, htmlpp=self.prepare_zone(z))
@@ -32,19 +38,18 @@ class TopDownBottomUp(AbstractSegmentationBlock):
             res = HTMLPP(str(zone))
         return res
 
-    def fit(self, htmlpp: HTMLPP, nb_zones: int, **kwargs):
+    def fit(self, htmlpp: HTMLPP):
         htmlpp = copy.copy(htmlpp)
         zones = htmlpp.body.find_all_usable(recursive=False)
-        nb_visible_children = len(htmlpp.find_all_usable())
-        if nb_visible_children < nb_zones:
-            nb_zones = nb_visible_children
+        nb_visible_children = len(htmlpp.get_leafs())
+        if nb_visible_children < self.nb_zones:
+            self.nb_zones = nb_visible_children
 
-        while len(zones) != nb_zones:
-            if len(zones) > nb_zones:
+        while len(zones) != self.nb_zones:
+            if len(zones) > self.nb_zones:
                 self.merge(zones)
             else:
                 self.split(zones)
-
         return zones
 
     @classmethod
@@ -65,7 +70,7 @@ class TopDownBottomUp(AbstractSegmentationBlock):
     @classmethod
     def merge_nodes(cls, *nodes):
         bbox = CoveringBoundingBox([node.bbox for node in nodes])
-        new_tag = HTMLPPTag(name=cls._MERGED_ZONE_TAG, bbox=bbox, attrs={"class": [cls._MERGED_ZONE_TAG]})
+        new_tag = HTMLPPTag(name=cls._MERGED_ZONE_TAG, bbox=bbox, attrs={"class": [cls._MERGED_ZONE_CLASS]})
 
         sub_nodes = []
         for node in nodes:
@@ -92,8 +97,9 @@ class TopDownBottomUp(AbstractSegmentationBlock):
             lambda i: zones[i].has_visible_children,
             cls.sort_by_area(zones, reverse=True)
         ))
-        zone = zones.pop(ids[0])
-        zones.extend(cls.split_node(zone))
+        if ids:
+            zone = zones.pop(ids[0])
+            zones.extend(cls.split_node(zone))
 
     @classmethod
     def split_node(cls, tag: HTMLPPTag):

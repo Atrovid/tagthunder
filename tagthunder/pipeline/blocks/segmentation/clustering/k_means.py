@@ -10,7 +10,7 @@ import pipeline.blocks.segmentation.clustering.utils.distances as seg_distances
 from pipeline.blocks.segmentation.clustering._abstract import AbstractClusteringBlock
 from pipeline.blocks.segmentation.clustering.utils.features_extractors import (
     FeaturesDataFrame,
-    LastBlockSemantic
+    LastBlockSemantic, AbstractFeaturesExtractor
 )
 import pipeline.blocks.segmentation.clustering.utils.seeds_initializer as seeds_initializer
 from pipeline.experimentations.segmentation.visualisation import PlotClustering
@@ -18,13 +18,18 @@ from pipeline.experimentations.segmentation.visualisation import PlotClustering
 
 class KMeans(AbstractClusteringBlock):
 
-    def __call__(self, htmlpp: HTMLPP, *, nb_zones: int = 5, nb_iterations: int = 1e4) -> Segmentation:
+    def __init__(self, nb_zones: int = 5, nb_iterations: int = 1e4, features_extractor: str = None):
+        self.nb_zones = nb_zones
+        self.nb_iterations = nb_iterations
+        self.features_extractor = features_extractor
+
+    def __call__(self, htmlpp: HTMLPP) -> Segmentation:
         raise NotImplementedError
 
-    def fit(self, features: FeaturesDataFrame, centers: FeaturesDataFrame, nb_zones: int = 5, nb_iterations: int = 1e4):
+    def fit(self, features: FeaturesDataFrame, centers: FeaturesDataFrame):
         bboxes = np.array(features.bboxes, dtype=object)
         centers = centers.bboxes
-        final_centers, labels = self.k_means(bboxes, centers.copy(), nb_zones, nb_iterations)
+        final_centers, labels = self.k_means(bboxes, centers.copy(), self.nb_zones, self.nb_iterations)
 
         return final_centers, labels
 
