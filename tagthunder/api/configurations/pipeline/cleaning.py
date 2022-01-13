@@ -1,13 +1,17 @@
-from api.configurations.pipeline._abstract import BlocksEnum, BlockConfig, ParametersModelFactory
+from api.configurations.pipeline._abstract import BlocksEnum, BlockConfig
 import pipeline.blocks.cleaning
 
 
+class CleaningBlockConfig(BlockConfig):
+    pass
+
+
 class CleaningBlocks(BlocksEnum):
-    vision_based = BlockConfig(
+    vision_based = CleaningBlockConfig(
         name="vision_based",
         enable=True,
         algorithm=pipeline.blocks.cleaning.VisionBased(),
-        query=ParametersModelFactory.cleaning(
+        query=CleaningBlockConfig.build_request_body(
             "vision_based"
         )
     )

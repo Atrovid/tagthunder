@@ -1,17 +1,22 @@
 import abc
 import enum
-from typing import Type, Iterable
+from typing import Type, Iterable, Optional, Union
 
-import pipeline as algorithms
 import pydantic
 
 
-class ParametersModelFactory:
+class BlockConfig(pydantic.BaseModel):
+    name: str
+    enable: bool
+    algorithm: object
+    query: Type[pydantic.BaseModel]
+
+    class Config:
+        arbitrary_types_allowed = True
 
     @classmethod
-    def meta(cls, algorithm_name: str, **kwargs) -> Type[pydantic.BaseModel]:
+    def build_request_body(cls, algorithm_name: str, **kwargs) -> Type[pydantic.BaseModel]:
         """
-
         :param algorithm_name: must be in snake_case
         :param kwargs:
         :return:
@@ -35,51 +40,6 @@ class ParametersModelFactory:
             parameters=parameters(),
             __validators__=validators,
         )
-
-    @classmethod
-    def augmentation(cls, algorithm_name: str, **kwargs) -> Type[pydantic.BaseModel]:
-        return cls.meta(
-            algorithm_name,
-            **kwargs
-        )
-
-    @classmethod
-    def extraction(cls, algorithm_name: str, nb_keywords: int, **kwargs) -> Type[pydantic.BaseModel]:
-        return cls.meta(
-            algorithm_name,
-            nb_keywords=(int, pydantic.Field(nb_keywords, description="Number of keywords / keyphrases.")),
-            **kwargs
-        )
-
-    @classmethod
-    def segmentation(cls, algorithm_name: str, nb_zones: int, le: int = None, ge: int = None, **kwargs) -> Type[
-        pydantic.BaseModel]:
-        return cls.meta(
-            algorithm_name,
-            nb_zones=(int, pydantic.Field(nb_zones, description="Number of zones", le=le, ge=ge)),
-            **kwargs
-        )
-
-    @classmethod
-    def cleaning(cls, algorithm_name: str, **kwargs) -> Type[pydantic.BaseModel]:
-        return cls.meta(
-            algorithm_name,
-            **kwargs
-        )
-
-    @classmethod
-    def vocalization(cls, algorithm_name: str, **kwargs) -> Type[pydantic.BaseModel]:
-        return cls.meta(algorithm_name, **kwargs)
-
-
-class BlockConfig(pydantic.BaseModel):
-    name: str
-    enable: bool
-    algorithm: object
-    query: Type[pydantic.BaseModel]
-
-    class Config:
-        arbitrary_types_allowed = True
 
 
 class ABCEnumMeta(abc.ABCMeta, enum.EnumMeta):

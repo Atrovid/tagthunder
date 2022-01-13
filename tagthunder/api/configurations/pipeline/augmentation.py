@@ -1,19 +1,23 @@
-from typing import List
+from typing import List, Type
 
 import pydantic
 
-from api.configurations.pipeline._abstract import BlocksEnum, BlockConfig, ParametersModelFactory
+from api.configurations.pipeline._abstract import BlocksEnum, BlockConfig
 from api.configurations.api import settings
 import pipeline.blocks
 import pipeline.blocks.augmentation
 
 
+class AugmentationBlockConfig(BlockConfig):
+    pass
+
+
 class AugmentationBlocks(BlocksEnum):
-    puppeteer = BlockConfig(
+    puppeteer = AugmentationBlockConfig(
         name="puppeteer",
         enable=True,
         algorithm=pipeline.blocks.augmentation.Puppeteer(settings.crawler_address),
-        query=ParametersModelFactory.augmentation(
+        query=AugmentationBlockConfig.build_request_body(
             "puppeteer",
             page_width=(int, pydantic.Field(1200, description="Width of the emulate web page.")),
             page_height=(int, pydantic.Field(1200, description="Height of the emulate web page.")),
@@ -25,3 +29,7 @@ class AugmentationBlocks(BlocksEnum):
     @property
     def default_query(cls):
         return cls.puppeteer.value.query()
+
+    @classmethod
+    def build_request_body_factory(cls):
+        pass
