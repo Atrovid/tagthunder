@@ -1,5 +1,8 @@
 from typing import Optional, Union
 
+import fastapi
+import pydantic
+
 import api.configurations.pipeline as algos
 import api.models.schemas as api_schemas
 
@@ -27,8 +30,8 @@ class AlgorithmQuery(BaseModel):
     pass
 
 
-class AugmentationQuery(BaseModel):
-    url: HttpUrl
+class AugmentationQuery(AlgorithmQuery):
+    url: HttpUrl = pydantic.Field(..., description="url", example="https://www.example.com")
     algorithm: Optional[Queries.AUGMENTATION] = DefaultQuery.AUGMENTATION
 
 
@@ -48,15 +51,15 @@ class ExtractionQuery(AlgorithmQuery):
 
 
 class VocalizationQuery(AlgorithmQuery):
-    keywords: api_schemas.Keywords
+    segmentation: api_schemas.Segmentation
     algorithm: Optional[Queries.VOCALIZATION] = DefaultQuery.VOCALIZATION
 
 
 class PipelineQuery(AlgorithmQuery):
-    url: HttpUrl
-    htmlpp: Optional[api_schemas.HTMLPP]
-    recompute: bool = False
-    cleaning: Optional[Queries.CLEANING] = DefaultQuery.CLEANING
-    segmentation: Optional[Queries.SEGMENTATION] = DefaultQuery.SEGMENTATION
-    extraction: Optional[Queries.EXTRACTION] = DefaultQuery.EXTRACTION
-    vocalization: Optional[Queries.VOCALIZATION] = DefaultQuery.VOCALIZATION
+    url: HttpUrl = pydantic.Field(..., description="url", example="https://www.example.com")
+    htmlpp: Optional[api_schemas.HTMLPP] = pydantic.Field(..., description="HTML++", example="")
+    augmentation: Optional[Queries.AUGMENTATION] = None
+    cleaning: Optional[Queries.CLEANING] = None
+    segmentation: Optional[Queries.SEGMENTATION] = None
+    extraction: Optional[Queries.EXTRACTION] = None
+    vocalization: Optional[Queries.VOCALIZATION] = None

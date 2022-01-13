@@ -1,3 +1,7 @@
+import base64
+import io
+import typing
+
 import fastapi
 import pydantic
 
@@ -98,21 +102,60 @@ def extraction(
 async def vocalization(
         query: queries.VocalizationQuery
 ):
-    audio = services.AlgorithmServices.vocalization(
-        query.keywords,
+    return services.AlgorithmServices.vocalization(
+        query.segmentation,
         query.algorithm.name,
         query.algorithm.parameters.dict()
     )
-
-    return fastapi.responses.StreamingResponse(audio, media_type="audio/mpeg3")
 
 
 @router.post(
     Routes.PIPELINE,
     description="Pipeline of TagThunder operations",
-    response_model=schemas.Segmentation
+    # response_class=typing.Union[
+    #     fastapi.responses.StreamingResponse,
+    #     fastapi.responses.JSONResponse
+    # ],
+    response_model=typing.Union[
+        schemas.HTMLP,
+        schemas.HTMLPP,
+        schemas.Segmentation
+    ]
 )
 def pipeline(
         query: queries.PipelineQuery
 ):
-    raise NotImplementedError()
+    res = None
+    if query.augmentation is not None:
+        res = services.AlgorithmServices.augmentation(
+            query.url,
+            query.augmentation.name,
+            query.augmentation.parameters.dict()
+        )
+    if query.cleaning is not None:
+        res = services.AlgorithmServices.cleaning(
+            htmlp=res,
+            algorithm_name=query.cleaning.name,
+            parameters=query.cleaning.parameters.dict()
+        )
+    if query.segmentation is not None:
+        res = services.AlgorithmServices.segmentation(
+            htmlpp=res,
+            algorithm_name=query.segmentation.name,
+            parameters=query.segmentation.parameters.dict()
+        )
+    if query.extraction is not None:
+        res = services.AlgorithmServices.extraction(
+            segmentation=res,
+            algorithm_name=query.extraction.name,
+            parameters=query.extraction.parameters.dict()
+        )
+
+    if query.vocalization is not None:
+        res = services.AlgorithmServices.vocalization(
+            segmentation=res,
+            algorithm_name=query.vocalization.name,
+            parameters=query.vocalization.parameters.dict()
+        )
+
+    return res
