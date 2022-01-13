@@ -3,7 +3,7 @@ import io
 from pydub import AudioSegment
 from pydub.playback import play
 
-from pipeline.blocks.vocalization.google_tts import GoogleTTS
+from pipeline.blocks.vocalization.utils.text_to_speech import GoogleTTS
 from pipeline.models.responses import Keyword, Keywords
 
 
