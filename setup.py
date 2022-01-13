@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from glob import glob
 from os.path import basename, join, dirname, splitext
 
@@ -32,8 +30,9 @@ setup(
         "requests", "urllib3",
         "beautifulsoup4", "lxml", "html5lib", 
         "numpy", "pandas", "sklearn", "pillow", "scipy", "matplotlib",
-        "gtts", "langdetect", "googletrans",        
-        "yake", 
+        "gtts", "langdetect", "googletrans==4.0.0-rc1", "pydub","librosa", "soundfile",
+        "PyOpenAL",
+        "yake", "inscriptis",
     ],
     entry_points={
         "console_scripts": [
