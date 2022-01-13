@@ -21,6 +21,13 @@ class HTMLP(HTML):
     def contains_comments(self, recursive=False):
         return bool(self.get_comments(recursive))
 
+    @property
+    def bbox(self):
+        return self.body.bbox
+
+    def get_leafs(self):
+        return [node for node in self.find_all() if node.find() is None]
+
 
 class HTMLPP(HTMLP):
     def __init__(self, markup="", **kwargs):
@@ -29,15 +36,18 @@ class HTMLPP(HTMLP):
     def find_all_usable(self, attrs=None, recursive=True, text=None, limit=None, **kwargs):
         if attrs is None:
             attrs = {}
-        return self.find_all(lambda tag: tag.is_usable, attrs=attrs, recursive=recursive, text=text, limit=limit,
-                             **kwargs)
+        return self.body.find_all(lambda tag: tag.is_usable, attrs=attrs, recursive=recursive, text=text, limit=limit,
+                                  **kwargs)
 
-    @property
-    def bbox(self):
-        return self.body.bbox
+    def remove_unusable_tags(self):
+        for t in self.body.find_all(lambda tag: not tag.is_usable, recursive=True):
+            t.extract()
 
     def __copy__(self):
         return type(self)(self.prettify())
+
+    def get_leafs(self, usable_tags: bool = True):
+        return [node for node in self.find_all() if node.find() is None and node.is_usable]
 
     @classmethod
     def from_tags(cls, tags: List[HTMLPPTag]):
@@ -59,7 +69,7 @@ Keywords = List[Keyword]
 class Zone(BaseModel):
     id: int
     htmlpp: Union[List[HTMLPP], HTMLPP]
-    keywords: Optional[Keywords] = None
+    keywords: Optional[Keywords] = []
 
     class Config:
         arbitrary_types_allowed = True
