@@ -1,1 +1,5 @@
-from pipeline.blocks.vocalization.google_tts import GoogleTTS
+from pipeline.blocks.vocalization.playback_speed_area_size import PlaybackSpeedAreaSize
+from pipeline.blocks.vocalization.manually_adjustable import ManuallyAdjustable
+
+from pipeline.blocks.vocalization.utils.lang_detectors import LanguageDetectors
+from pipeline.blocks.vocalization.utils.text_to_speech import TTSEngines
