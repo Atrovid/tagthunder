@@ -35,11 +35,11 @@ Skimming and scanning are two strategies for *speed reading*. Skimming allows a 
 **Requirements**
 
 + `python 3.9`
-+ `virtualenv`
++ `poetry`
++ `make`
++ `screen`
 
 #### Step 1 : clone this repository
-
-
 ```sh
 git clone https://git.unicaen.fr/francois.ledoyen/tagthunder.git
 ```
@@ -49,24 +49,30 @@ git clone https://git.unicaen.fr/francois.ledoyen/tagthunder.git
 cd tagthunder
 ```
 
-#### Step 3 : Create virtual environment
+#### Step 3 : Install app
 ```sh
-virtualenv -p python3.9 venv
+make install
 ```
 
-#### Step 4 : Activate venv
+### Run App
+Run API and crawler in two screen sessions
 ```sh
-source venv/bin/activate
+make run
+```
+to attach session :
+```sh
+screen -r tagthunder-<api | crawler>
 ```
 
-#### Step 5 : Install requirements with `setup.py`
+Run API or crawler separately
 ```sh
-python -m pip install -e .
+make run-api
+#or
+make run-crawler
 ```
 
-This allows to :
-  - install requirements ;
-  - create entry-point (*i.e* command line) `api-run` to run `API`.
+
+
 
 
 
