@@ -12,6 +12,9 @@ install:
 run-crawler:
 	$(MAKE) -C ${PPT_CRAWLER} run
 
+run-crawler-local:
+	$(MAKE) -C ${PPT_CRAWLER} run-local
+
 run-api:
 	poetry run tagthunder-api
 

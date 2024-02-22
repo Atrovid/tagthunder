@@ -4,6 +4,9 @@ IMAGE_NAME="tagthunder-crawler"
 run:
 	docker run -ti -p 8080:8080 tagthunder-crawler
 
+run-local:
+	node server.js
+
 build:
 	@npm install .
 	@npm pack $(HTML_AUG_DIR) --pack-destination ./node_modules
