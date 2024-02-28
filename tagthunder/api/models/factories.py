@@ -1,5 +1,6 @@
 import pipeline.models.responses as algos_responses
 import api.models.schemas as schemas
+import re
 
 
 class AlgorithmInput:
@@ -24,7 +25,8 @@ class AlgorithmInput:
         return algos_responses.Zone(
             id=zone.id,
             htmlpp=cls.HTMLPP(zone.htmlpp),
-            keywords=[cls.Keyword(kw) for kw in zone.keywords]
+            keywords=[cls.Keyword(kw) for kw in zone.keywords],
+            xpath = []
         )
 
     @classmethod
@@ -64,11 +66,18 @@ class Responses:
 
     @classmethod
     def Zone(cls, zone: algos_responses.Zone) -> schemas.Zone:
+        extracted_xpaths = cls.extract_xpath_from_htmlpp(str(cls.HTMLPP(zone.htmlpp)))
+
         return schemas.Zone(
             id=zone.id,
-            htmlpp=cls.HTMLPP(zone.htmlpp),
-            keywords=cls.Keywords(zone.keywords)
+            htmlpp= cls.HTMLPP(zone.htmlpp),
+            keywords=cls.Keywords(zone.keywords),
+            xpath = extracted_xpaths
         )
+
+    def extract_xpath_from_htmlpp(htmlpp :str) :
+        xpath_pattern = r'xpath="([^"]+)"'
+        return re.findall(xpath_pattern, htmlpp)
 
     @classmethod
     def Segmentation(cls, segmentation: algos_responses.Segmentation) -> schemas.Segmentation:

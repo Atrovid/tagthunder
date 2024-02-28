@@ -31,6 +31,7 @@ class Zone(BaseModel):
     id: int
     htmlpp: Union[List[HTMLPP], HTMLPP]
     keywords: Optional[Keywords] = []
+    xpath : List[str] = []
 
     class Config:
         arbitrary_types_allowed = True

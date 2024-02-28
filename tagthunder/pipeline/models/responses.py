@@ -25,6 +25,10 @@ class HTMLP(HTML):
     def bbox(self):
         return self.body.bbox
 
+    @property
+    def xpath(self):
+        return self.body.xpath
+
     def get_leafs(self):
         return [node for node in self.find_all() if node.find() is None]
 
@@ -70,6 +74,8 @@ class Zone(BaseModel):
     id: int
     htmlpp: Union[List[HTMLPP], HTMLPP]
     keywords: Optional[Keywords] = []
+    #xpath : str
+
 
     class Config:
         arbitrary_types_allowed = True
