@@ -6,8 +6,9 @@ from pipeline.models.web_elements import HTMLPTag
 
 
 class VisionBased(AbstractCleaningBlock):
-    USELESS_TAGS = ["title", "link", "script", "noscript", "style", "doctype", "head", "base", "command",
-                    "meta", "br"]
+    #USELESS_TAGS = ["title", "link", "script", "noscript", "style", "doctype", "head", "base", "command", "meta", "br"]
+
+    USELESS_TAGS = []
 
     def config(self, **kwargs):
         pass

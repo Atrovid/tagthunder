@@ -20,6 +20,7 @@ class AlgorithmServices:
     def augmentation(cls, url: [HttpUrl], algorithm_name: str, parameters) -> Optional[schemas.HTMLP]:
         algorithm = cls.get_algorithm("augmentation", algorithm_name, **parameters)
         htmlp = algorithm(url)
+        print(htmlp)
         return factories.Responses.HTMLP(htmlp)
 
     @classmethod
